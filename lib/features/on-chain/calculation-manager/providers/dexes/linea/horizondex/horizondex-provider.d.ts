@@ -5,6 +5,6 @@ export declare class HorizondexProvider extends UniswapV3AbstractProvider<Horizo
     readonly blockchain: "LINEA";
     readonly OnChainTradeClass: typeof HorizondexTrade;
     readonly providerConfiguration: import("../../common/uniswap-v3-algebra-abstract/models/uniswap-v3-algebra-provider-configuration").UniswapV3AlgebraProviderConfiguration;
-    readonly routerConfiguration: import("../../common/uniswap-v3-abstract/models/uniswap-v3-router-configuration").UniswapV3RouterConfiguration<"WETH" | "MATIC" | "BNB" | "BUSD" | "HZN" | "NFTE">;
+    readonly routerConfiguration: import("../../common/uniswap-v3-abstract/models/uniswap-v3-router-configuration").UniswapV3RouterConfiguration<"MATIC" | "BNB" | "WETH" | "BUSD" | "HZN" | "NFTE">;
     protected readonly quoterController: HorizondexUniswapV3QuoterController;
 }
