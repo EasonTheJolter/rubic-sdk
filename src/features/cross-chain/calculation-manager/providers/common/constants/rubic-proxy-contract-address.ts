@@ -14,8 +14,8 @@ export const rubicProxyContractAddress: Record<
         let router = '0x6AA981bFF95eDfea36Bdae98C26B274FfcafE8d3';
 
         if (blockchain === BLOCKCHAIN_NAME.POLYGON) {
-            router = '0x904373a8DA61EB511c8d4D11360Ff91D8a607CEb'; // RubicMultiProxy
-            gateway = '0x2E5cc1230fBb746D40FA52E6c0a8091666ac8869'; // ERC20Proxy
+            router = '0x8669dAc053b96008bca08Da593d434ed817481eA'; // RubicMultiProxy
+            gateway = '0x0248757451A929Fd62D6F4e88b1483379F226adC'; // ERC20Proxy
         }
 
         if (blockchain === BLOCKCHAIN_NAME.TELOS) {
