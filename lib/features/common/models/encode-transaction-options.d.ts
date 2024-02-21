@@ -1,4 +1,4 @@
-import { EIP1559Gas, SingleGasPrice } from "../../../core/blockchain/web3-public-service/web3-public/evm-web3-public/models/gas-price";
+import { EIP1559Gas, SingleGasPrice } from '../../../core/blockchain/web3-public-service/web3-public/evm-web3-public/models/gas-price';
 /**
  * Stores options for transaction in `encode` function.
  */

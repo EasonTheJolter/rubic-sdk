@@ -1,6 +1,6 @@
-import { RubicSdkError } from "../../../../common/errors";
-import { OnChainTradeType } from "../providers/common/models/on-chain-trade-type";
-import { OnChainTrade } from "../providers/common/on-chain-trade/on-chain-trade";
+import { RubicSdkError } from '../../../../common/errors';
+import { OnChainTradeType } from '../providers/common/models/on-chain-trade-type';
+import { OnChainTrade } from '../providers/common/on-chain-trade/on-chain-trade';
 export type WrappedOnChainTradeOrNull = {
     /**
      * Calculated cross-chain trade.

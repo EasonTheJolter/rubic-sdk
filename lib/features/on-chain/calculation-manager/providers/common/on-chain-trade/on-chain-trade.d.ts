@@ -1,15 +1,15 @@
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount, Token } from "../../../../../../common/tokens";
-import { BasicTransactionOptions } from "../../../../../../core/blockchain/web3-private-service/web3-private/models/basic-transaction-options";
-import { Web3Private } from "../../../../../../core/blockchain/web3-private-service/web3-private/web3-private";
-import { Web3Public } from "../../../../../../core/blockchain/web3-public-service/web3-public/web3-public";
-import { HttpClient } from "../../../../../../core/http-client/models/http-client";
-import { EncodeTransactionOptions } from "../../../../../common/models/encode-transaction-options";
-import { SwapTransactionOptions } from "../../../../../common/models/swap-transaction-options";
-import { FeeInfo } from "../../../../../cross-chain/calculation-manager/providers/common/models/fee-info";
-import { RubicStep } from "../../../../../cross-chain/calculation-manager/providers/common/models/rubicStep";
-import { TradeInfo } from "../../../../../cross-chain/calculation-manager/providers/common/models/trade-info";
-import { OnChainTradeType } from "../models/on-chain-trade-type";
+import { PriceTokenAmount, Token } from '../../../../../../common/tokens';
+import { BasicTransactionOptions } from '../../../../../../core/blockchain/web3-private-service/web3-private/models/basic-transaction-options';
+import { Web3Private } from '../../../../../../core/blockchain/web3-private-service/web3-private/web3-private';
+import { Web3Public } from '../../../../../../core/blockchain/web3-public-service/web3-public/web3-public';
+import { HttpClient } from '../../../../../../core/http-client/models/http-client';
+import { EncodeTransactionOptions } from '../../../../../common/models/encode-transaction-options';
+import { SwapTransactionOptions } from '../../../../../common/models/swap-transaction-options';
+import { FeeInfo } from '../../../../../cross-chain/calculation-manager/providers/common/models/fee-info';
+import { RubicStep } from '../../../../../cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { TradeInfo } from '../../../../../cross-chain/calculation-manager/providers/common/models/trade-info';
+import { OnChainTradeType } from '../models/on-chain-trade-type';
 /**
  * Abstract class for all instant trade providers' trades.
  */

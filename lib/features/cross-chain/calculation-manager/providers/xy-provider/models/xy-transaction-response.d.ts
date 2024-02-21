@@ -1,4 +1,4 @@
-import { XyEstimationResponse } from "./xy-estimation-response";
+import { XyEstimationResponse } from './xy-estimation-response';
 /**
  * Swap transaction response.
  */

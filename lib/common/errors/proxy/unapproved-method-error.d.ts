@@ -1,4 +1,4 @@
-import { RubicSdkError } from "..";
+import { RubicSdkError } from '..';
 /**
  * Thrown, when method is not whitelisted on proxy contract.
  */

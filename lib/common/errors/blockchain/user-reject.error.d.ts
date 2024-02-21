@@ -1,4 +1,4 @@
-import { RubicSdkError } from "../rubic-sdk.error";
+import { RubicSdkError } from '../rubic-sdk.error';
 /**
  * Thrown, when user cancels transaction.
  */

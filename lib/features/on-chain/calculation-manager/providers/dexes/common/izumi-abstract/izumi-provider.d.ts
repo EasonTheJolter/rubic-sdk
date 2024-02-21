@@ -1,10 +1,10 @@
-import { PriceToken, PriceTokenAmount } from "../../../../../../../common/tokens";
-import { EvmBlockchainName } from "../../../../../../../core/blockchain/models/blockchain-name";
-import { OnChainCalculationOptions } from "../../../common/models/on-chain-calculation-options";
-import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
-import { EvmOnChainTrade } from "../../../common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade";
-import { EvmOnChainProvider } from "../on-chain-provider/evm-on-chain-provider/evm-on-chain-provider";
-import { UniswapV2CalculationOptions } from "../uniswap-v2-abstract/models/uniswap-v2-calculation-options";
+import { PriceToken, PriceTokenAmount } from '../../../../../../../common/tokens';
+import { EvmBlockchainName } from '../../../../../../../core/blockchain/models/blockchain-name';
+import { OnChainCalculationOptions } from '../../../common/models/on-chain-calculation-options';
+import { OnChainTradeType } from '../../../common/models/on-chain-trade-type';
+import { EvmOnChainTrade } from '../../../common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
+import { EvmOnChainProvider } from '../on-chain-provider/evm-on-chain-provider/evm-on-chain-provider';
+import { UniswapV2CalculationOptions } from '../uniswap-v2-abstract/models/uniswap-v2-calculation-options';
 export declare abstract class IzumiProvider extends EvmOnChainProvider {
     abstract readonly blockchain: EvmBlockchainName;
     get type(): OnChainTradeType;

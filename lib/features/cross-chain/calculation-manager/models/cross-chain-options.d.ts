@@ -1,5 +1,5 @@
-import { CrossChainTradeType } from "./cross-chain-trade-type";
-import { LifiBridgeTypes } from "../providers/lifi-provider/models/lifi-bridge-types";
+import { CrossChainTradeType } from './cross-chain-trade-type';
+import { LifiBridgeTypes } from '../providers/lifi-provider/models/lifi-bridge-types';
 import { MarkRequired } from 'ts-essentials';
 export interface CrossChainOptions {
     /**

@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { EvmBasicTransactionOptions } from "./evm-basic-transaction-options";
+import { EvmBasicTransactionOptions } from './evm-basic-transaction-options';
 export interface EvmTransactionOptions extends EvmBasicTransactionOptions {
     /**
      * Encoded data, which will be executed in transaction.

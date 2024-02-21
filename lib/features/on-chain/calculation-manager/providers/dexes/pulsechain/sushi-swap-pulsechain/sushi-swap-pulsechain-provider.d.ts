@@ -1,5 +1,5 @@
-import { UniswapV2AbstractProvider } from "../../common/uniswap-v2-abstract/uniswap-v2-abstract-provider";
-import { SushiSwapPulsechainTrade } from "./sushi-swap-pulsechain-trade";
+import { UniswapV2AbstractProvider } from '../../common/uniswap-v2-abstract/uniswap-v2-abstract-provider';
+import { SushiSwapPulsechainTrade } from './sushi-swap-pulsechain-trade';
 export declare class SushiSwapPulsechainProvider extends UniswapV2AbstractProvider<SushiSwapPulsechainTrade> {
     readonly blockchain: "PULSECHAIN";
     readonly UniswapV2TradeClass: typeof SushiSwapPulsechainTrade;

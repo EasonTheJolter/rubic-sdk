@@ -1,14 +1,14 @@
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount } from "../../../../../../common/tokens";
-import { TronBlockchainName } from "../../../../../../core/blockchain/models/blockchain-name";
-import { SwapTransactionOptions } from "../../../../../common/models/swap-transaction-options";
-import { BridgersEvmCrossChainSupportedBlockchain } from "../constants/bridgers-cross-chain-supported-blockchain";
-import { FeeInfo } from "../../common/models/fee-info";
-import { RubicStep } from "../../common/models/rubicStep";
-import { TradeInfo } from "../../common/models/trade-info";
-import { TronContractParams } from "../../common/tron-cross-chain-trade/models/tron-contract-params";
-import { TronGetContractParamsOptions } from "../../common/tron-cross-chain-trade/models/tron-get-contract-params-options";
-import { TronCrossChainTrade } from "../../common/tron-cross-chain-trade/tron-cross-chain-trade";
+import { PriceTokenAmount } from '../../../../../../common/tokens';
+import { TronBlockchainName } from '../../../../../../core/blockchain/models/blockchain-name';
+import { SwapTransactionOptions } from '../../../../../common/models/swap-transaction-options';
+import { BridgersEvmCrossChainSupportedBlockchain } from '../constants/bridgers-cross-chain-supported-blockchain';
+import { FeeInfo } from '../../common/models/fee-info';
+import { RubicStep } from '../../common/models/rubicStep';
+import { TradeInfo } from '../../common/models/trade-info';
+import { TronContractParams } from '../../common/tron-cross-chain-trade/models/tron-contract-params';
+import { TronGetContractParamsOptions } from '../../common/tron-cross-chain-trade/models/tron-get-contract-params-options';
+import { TronCrossChainTrade } from '../../common/tron-cross-chain-trade/tron-cross-chain-trade';
 import { MarkRequired } from 'ts-essentials';
 export declare class TronBridgersCrossChainTrade extends TronCrossChainTrade {
     readonly type: "bridgers";

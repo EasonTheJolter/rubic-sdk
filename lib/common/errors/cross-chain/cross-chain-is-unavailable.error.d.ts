@@ -1,4 +1,4 @@
-import { RubicSdkError } from "../rubic-sdk.error";
+import { RubicSdkError } from '../rubic-sdk.error';
 /**
  * Thrown, when cross-chain contracts are on pause or there is not enough crypto balance.
  */

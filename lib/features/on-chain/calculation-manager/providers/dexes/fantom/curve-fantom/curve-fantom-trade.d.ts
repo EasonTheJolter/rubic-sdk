@@ -1,3 +1,3 @@
-import { CurveAbstractTrade } from "../../common/curve-provider/curve-abstract-trade";
+import { CurveAbstractTrade } from '../../common/curve-provider/curve-abstract-trade';
 export declare class CurveFantomTrade extends CurveAbstractTrade {
 }

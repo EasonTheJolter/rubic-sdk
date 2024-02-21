@@ -1,18 +1,18 @@
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount } from "../../../../../common/tokens";
-import { EvmBlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
-import { EvmWeb3Private } from "../../../../../core/blockchain/web3-private-service/web3-private/evm-web3-private/evm-web3-private";
-import { ContractParams } from "../../../../common/models/contract-params";
-import { SwapTransactionOptions } from "../../../../common/models/swap-transaction-options";
-import { EvmCrossChainTrade } from "../common/emv-cross-chain-trade/evm-cross-chain-trade";
-import { GasData } from "../common/emv-cross-chain-trade/models/gas-data";
-import { FeeInfo } from "../common/models/fee-info";
-import { GetContractParamsOptions } from "../common/models/get-contract-params-options";
-import { OnChainSubtype } from "../common/models/on-chain-subtype";
-import { RubicStep } from "../common/models/rubicStep";
-import { TradeInfo } from "../common/models/trade-info";
-import { SymbiosisSwappingParams } from "./models/symbiosis-swapping-params";
-import { SymbiosisTradeType } from "./models/symbiosis-trade-data";
+import { PriceTokenAmount } from '../../../../../common/tokens';
+import { EvmBlockchainName } from '../../../../../core/blockchain/models/blockchain-name';
+import { EvmWeb3Private } from '../../../../../core/blockchain/web3-private-service/web3-private/evm-web3-private/evm-web3-private';
+import { ContractParams } from '../../../../common/models/contract-params';
+import { SwapTransactionOptions } from '../../../../common/models/swap-transaction-options';
+import { EvmCrossChainTrade } from '../common/emv-cross-chain-trade/evm-cross-chain-trade';
+import { GasData } from '../common/emv-cross-chain-trade/models/gas-data';
+import { FeeInfo } from '../common/models/fee-info';
+import { GetContractParamsOptions } from '../common/models/get-contract-params-options';
+import { OnChainSubtype } from '../common/models/on-chain-subtype';
+import { RubicStep } from '../common/models/rubicStep';
+import { TradeInfo } from '../common/models/trade-info';
+import { SymbiosisSwappingParams } from './models/symbiosis-swapping-params';
+import { SymbiosisTradeType } from './models/symbiosis-trade-data';
 /**
  * Calculated Symbiosis cross-chain trade.
  */

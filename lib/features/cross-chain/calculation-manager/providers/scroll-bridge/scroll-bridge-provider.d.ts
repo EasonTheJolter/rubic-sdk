@@ -1,12 +1,12 @@
-import { PriceToken, PriceTokenAmount } from "../../../../../common/tokens";
-import { BlockchainName, EvmBlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
-import { RequiredCrossChainOptions } from "../../models/cross-chain-options";
-import { CbridgeCrossChainSupportedBlockchain } from "../cbridge/constants/cbridge-supported-blockchains";
-import { CrossChainProvider } from "../common/cross-chain-provider";
-import { CalculationResult } from "../common/models/calculation-result";
-import { FeeInfo } from "../common/models/fee-info";
-import { RubicStep } from "../common/models/rubicStep";
-import { ScrollBridgeSupportedBlockchain } from "./models/scroll-bridge-supported-blockchain";
+import { PriceToken, PriceTokenAmount } from '../../../../../common/tokens';
+import { BlockchainName, EvmBlockchainName } from '../../../../../core/blockchain/models/blockchain-name';
+import { RequiredCrossChainOptions } from '../../models/cross-chain-options';
+import { CbridgeCrossChainSupportedBlockchain } from '../cbridge/constants/cbridge-supported-blockchains';
+import { CrossChainProvider } from '../common/cross-chain-provider';
+import { CalculationResult } from '../common/models/calculation-result';
+import { FeeInfo } from '../common/models/fee-info';
+import { RubicStep } from '../common/models/rubicStep';
+import { ScrollBridgeSupportedBlockchain } from './models/scroll-bridge-supported-blockchain';
 export declare class ScrollBridgeProvider extends CrossChainProvider {
     readonly type: "scroll_bridge";
     isSupportedBlockchain(blockchain: BlockchainName): blockchain is ScrollBridgeSupportedBlockchain;

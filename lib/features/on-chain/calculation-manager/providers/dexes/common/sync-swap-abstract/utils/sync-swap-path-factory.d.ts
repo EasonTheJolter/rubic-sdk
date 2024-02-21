@@ -1,5 +1,5 @@
 import { BigNumber } from 'ethers';
-import { EvmBlockchainName } from "../../../../../../../../core/blockchain/models/blockchain-name";
+import { EvmBlockchainName } from '../../../../../../../../core/blockchain/models/blockchain-name';
 import { GetAmountParams, Path, RoutePoolData, RoutePools } from './typings';
 export declare class SyncSwapPathFactory {
     private static readonly liquidityMinReserve;

@@ -1,5 +1,5 @@
-import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
-import { UniswapV2AbstractTrade } from "../../common/uniswap-v2-abstract/uniswap-v2-abstract-trade";
+import { OnChainTradeType } from '../../../common/models/on-chain-trade-type';
+import { UniswapV2AbstractTrade } from '../../common/uniswap-v2-abstract/uniswap-v2-abstract-trade';
 export declare class AerodromeTrade extends UniswapV2AbstractTrade {
     static get type(): OnChainTradeType;
     static readonly contractAbi: import("web3-utils").AbiItem[];

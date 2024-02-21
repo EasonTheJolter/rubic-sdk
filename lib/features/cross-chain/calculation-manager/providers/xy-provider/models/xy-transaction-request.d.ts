@@ -1,4 +1,4 @@
-import { XyEstimationRequest } from "./xy-estimation-request";
+import { XyEstimationRequest } from './xy-estimation-request';
 /**
  * Transaction request params.
  */

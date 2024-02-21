@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
-import { BlockchainName } from "../../models/blockchain-name";
-import { TypedWeb3Pure } from "../../web3-pure/typed-web3-pure/typed-web3-pure";
+import { BlockchainName } from '../../models/blockchain-name';
+import { TypedWeb3Pure } from '../../web3-pure/typed-web3-pure/typed-web3-pure';
 /**
  * Class containing methods for executing the functions of contracts
  * and sending transactions in order to change the state of the blockchain.

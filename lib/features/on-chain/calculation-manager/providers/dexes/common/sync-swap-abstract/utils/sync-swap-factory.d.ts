@@ -1,5 +1,5 @@
-import { EvmBlockchainName } from "../../../../../../../../core/blockchain/models/blockchain-name";
-import { RoutePools } from "./typings";
+import { EvmBlockchainName } from '../../../../../../../../core/blockchain/models/blockchain-name';
+import { RoutePools } from './typings';
 export declare class SyncSwapFactory {
     private static normalizePool;
     private static normalizePools;

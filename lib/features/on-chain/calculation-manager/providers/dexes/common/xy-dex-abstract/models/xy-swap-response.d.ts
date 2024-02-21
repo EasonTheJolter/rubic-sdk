@@ -1,4 +1,4 @@
-import { XyQuoteResponse } from "./xy-quote-response";
+import { XyQuoteResponse } from './xy-quote-response';
 export interface XySwapResponse extends XyQuoteResponse {
     tx: {
         to: string;

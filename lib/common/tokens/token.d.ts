@@ -1,5 +1,5 @@
-import { TokenBaseStruct } from "./models/token-base-struct";
-import { BlockchainName } from "../../core/blockchain/models/blockchain-name";
+import { TokenBaseStruct } from './models/token-base-struct';
+import { BlockchainName } from '../../core/blockchain/models/blockchain-name';
 export type TokenStruct<T extends BlockchainName = BlockchainName> = {
     blockchain: T;
     address: string;

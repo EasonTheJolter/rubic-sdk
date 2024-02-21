@@ -1,13 +1,13 @@
 import BigNumber from 'bignumber.js';
-import { TronWeb } from "../../../constants/tron/tron-web";
-import { Web3PrimitiveType } from "../../../models/web3-primitive-type";
-import { ContractMulticallResponse } from "../models/contract-multicall-response";
-import { MethodData } from "../models/method-data";
-import { TxStatus } from "../models/tx-status";
-import { TronBlock } from "./models/tron-block";
-import { TronTransactionInfo } from "./models/tron-transaction-info";
-import { TronWebProvider } from "./models/tron-web-provider";
-import { Web3Public } from "../web3-public";
+import { TronWeb } from '../../../constants/tron/tron-web';
+import { Web3PrimitiveType } from '../../../models/web3-primitive-type';
+import { ContractMulticallResponse } from '../models/contract-multicall-response';
+import { MethodData } from '../models/method-data';
+import { TxStatus } from '../models/tx-status';
+import { TronBlock } from './models/tron-block';
+import { TronTransactionInfo } from './models/tron-transaction-info';
+import { TronWebProvider } from './models/tron-web-provider';
+import { Web3Public } from '../web3-public';
 import { AbiItem } from 'web3-utils';
 export declare class TronWeb3Public extends Web3Public {
     private readonly tronWeb;
