@@ -1,5 +1,5 @@
-import { UniswapV2AbstractProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/uniswap-v2-abstract-provider';
-import { TradeDFKSwapTrade } from 'src/features/on-chain/calculation-manager/providers/dexes/defi-kingdoms/trader-dfk/trader-dfk-trade';
+import { UniswapV2AbstractProvider } from "../../common/uniswap-v2-abstract/uniswap-v2-abstract-provider";
+import { TradeDFKSwapTrade } from "./trader-dfk-trade";
 export declare class TradeDFKSwapProvider extends UniswapV2AbstractProvider<TradeDFKSwapTrade> {
     readonly blockchain: "DEFIKINGDOMS";
     readonly UniswapV2TradeClass: typeof TradeDFKSwapTrade;

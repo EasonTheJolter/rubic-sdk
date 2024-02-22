@@ -1,4 +1,4 @@
-import { XyStatusCode } from 'src/features/cross-chain/calculation-manager/providers/xy-provider/constants/xy-status-code';
+import { XyStatusCode } from "../constants/xy-status-code";
 interface BaseToken {
     tokenAddress: string;
     chainId: string;

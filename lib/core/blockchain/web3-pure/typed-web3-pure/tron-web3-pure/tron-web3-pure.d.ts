@@ -1,6 +1,6 @@
-import { TronWeb3PrimitiveType, Web3PrimitiveType } from 'src/core/blockchain/models/web3-primitive-type';
-import { TronParameters } from 'src/core/blockchain/web3-pure/typed-web3-pure/tron-web3-pure/models/tron-parameters';
-import { TronTransactionConfig } from 'src/core/blockchain/web3-pure/typed-web3-pure/tron-web3-pure/models/tron-transaction-config';
+import { TronWeb3PrimitiveType, Web3PrimitiveType } from "../../../models/web3-primitive-type";
+import { TronParameters } from "./models/tron-parameters";
+import { TronTransactionConfig } from "./models/tron-transaction-config";
 import { AbiItem, AbiOutput } from 'web3-utils';
 export declare class TronWeb3Pure {
     static readonly EMPTY_ADDRESS = "0x0000000000000000000000000000000000000000";

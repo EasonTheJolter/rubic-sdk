@@ -1,14 +1,14 @@
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount } from 'src/common/tokens';
-import { TronBlockchainName } from 'src/core/blockchain/models/blockchain-name';
-import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
-import { BridgersEvmCrossChainSupportedBlockchain } from 'src/features/cross-chain/calculation-manager/providers/bridgers-provider/constants/bridgers-cross-chain-supported-blockchain';
-import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
-import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
-import { TronContractParams } from 'src/features/cross-chain/calculation-manager/providers/common/tron-cross-chain-trade/models/tron-contract-params';
-import { TronGetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/tron-cross-chain-trade/models/tron-get-contract-params-options';
-import { TronCrossChainTrade } from 'src/features/cross-chain/calculation-manager/providers/common/tron-cross-chain-trade/tron-cross-chain-trade';
+import { PriceTokenAmount } from "../../../../../../common/tokens";
+import { TronBlockchainName } from "../../../../../../core/blockchain/models/blockchain-name";
+import { SwapTransactionOptions } from "../../../../../common/models/swap-transaction-options";
+import { BridgersEvmCrossChainSupportedBlockchain } from "../constants/bridgers-cross-chain-supported-blockchain";
+import { FeeInfo } from "../../common/models/fee-info";
+import { PathrStep } from "../../common/models/pathrStep";
+import { TradeInfo } from "../../common/models/trade-info";
+import { TronContractParams } from "../../common/tron-cross-chain-trade/models/tron-contract-params";
+import { TronGetContractParamsOptions } from "../../common/tron-cross-chain-trade/models/tron-get-contract-params-options";
+import { TronCrossChainTrade } from "../../common/tron-cross-chain-trade/tron-cross-chain-trade";
 import { MarkRequired } from 'ts-essentials';
 export declare class TronBridgersCrossChainTrade extends TronCrossChainTrade {
     readonly type: "bridgers";

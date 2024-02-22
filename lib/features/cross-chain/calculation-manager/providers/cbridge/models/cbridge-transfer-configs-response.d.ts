@@ -1,6 +1,6 @@
-import { CbridgeChain } from 'src/features/cross-chain/calculation-manager/providers/cbridge/models/cbridge-chain';
-import { CbridgeChainTokenInfo } from 'src/features/cross-chain/calculation-manager/providers/cbridge/models/cbridge-chain-token-info';
-import { PeggedPairConfig } from 'src/features/cross-chain/calculation-manager/providers/cbridge/models/pegged-pair-config';
+import { CbridgeChain } from "./cbridge-chain";
+import { CbridgeChainTokenInfo } from "./cbridge-chain-token-info";
+import { PeggedPairConfig } from "./pegged-pair-config";
 export interface CbridgeTransferConfigsResponse {
     readonly chains: CbridgeChain[];
     readonly chain_token: {

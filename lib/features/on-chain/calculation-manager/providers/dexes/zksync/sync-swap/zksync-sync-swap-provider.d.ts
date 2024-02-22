@@ -1,4 +1,4 @@
-import { SyncSwapAbstractProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/common/sync-swap-abstract/sync-swap-abstract-provider';
+import { SyncSwapAbstractProvider } from "../../common/sync-swap-abstract/sync-swap-abstract-provider";
 export declare class ZkSyncSyncSwapProvider extends SyncSwapAbstractProvider {
     readonly blockchain: "ZK_SYNC";
     readonly dexContractAddress = "0x2da10A1e27bF85cEdD8FFb1AbBe97e53391C0295";

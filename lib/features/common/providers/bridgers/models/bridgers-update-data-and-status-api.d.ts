@@ -1,4 +1,4 @@
-import { BridgersSourceFlag } from 'src/features/common/providers/bridgers/models/bridgers-source-flag';
+import { BridgersSourceFlag } from "./bridgers-source-flag";
 export interface BridgersUpdateDataAndStatusRequest {
     hash: string;
     fromTokenChain: string;

@@ -1,12 +1,12 @@
-import { PriceTokenAmount } from 'src/common/tokens';
-import { TokenBaseStruct } from 'src/common/tokens/models/token-base-struct';
-import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
-import { Web3PublicSupportedBlockchain } from 'src/core/blockchain/web3-public-service/models/web3-public-storage';
-import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
-import { ProxyBridgeParams } from 'src/features/cross-chain/calculation-manager/providers/common/models/proxy-bridge-params';
-import { ProxySwapParams } from 'src/features/cross-chain/calculation-manager/providers/common/models/proxy-swap-params';
-import { EvmOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
+import { PriceTokenAmount } from "../../../../../../common/tokens";
+import { TokenBaseStruct } from "../../../../../../common/tokens/models/token-base-struct";
+import { EvmBlockchainName } from "../../../../../../core/blockchain/models/blockchain-name";
+import { Web3PublicSupportedBlockchain } from "../../../../../../core/blockchain/web3-public-service/models/web3-public-storage";
+import { FeeInfo } from "../models/fee-info";
+import { GetContractParamsOptions } from "../models/get-contract-params-options";
+import { ProxyBridgeParams } from "../models/proxy-bridge-params";
+import { ProxySwapParams } from "../models/proxy-swap-params";
+import { EvmOnChainTrade } from "../../../../../on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade";
 type BridgeParams = [
     string,
     string,

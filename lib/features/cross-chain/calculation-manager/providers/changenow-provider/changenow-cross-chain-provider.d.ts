@@ -1,13 +1,13 @@
-import { PriceToken, PriceTokenAmount } from 'src/common/tokens';
-import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
-import { Web3PublicSupportedBlockchain } from 'src/core/blockchain/web3-public-service/models/web3-public-storage';
-import { RequiredCrossChainOptions } from 'src/features/cross-chain/calculation-manager/models/cross-chain-options';
-import { ChangenowCrossChainSupportedBlockchain } from 'src/features/cross-chain/calculation-manager/providers/changenow-provider/constants/changenow-api-blockchain';
-import { ChangenowProxySupportedBlockchain } from 'src/features/cross-chain/calculation-manager/providers/changenow-provider/constants/changenow-proxy-supported-blockchains';
-import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-provider';
-import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
-import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
+import { PriceToken, PriceTokenAmount } from "../../../../../common/tokens";
+import { BlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
+import { Web3PublicSupportedBlockchain } from "../../../../../core/blockchain/web3-public-service/models/web3-public-storage";
+import { RequiredCrossChainOptions } from "../../models/cross-chain-options";
+import { ChangenowCrossChainSupportedBlockchain } from "./constants/changenow-api-blockchain";
+import { ChangenowProxySupportedBlockchain } from "./constants/changenow-proxy-supported-blockchains";
+import { CrossChainProvider } from "../common/cross-chain-provider";
+import { CalculationResult } from "../common/models/calculation-result";
+import { FeeInfo } from "../common/models/fee-info";
+import { PathrStep } from "../common/models/pathrStep";
 export declare class ChangenowCrossChainProvider extends CrossChainProvider {
     readonly type: "changenow";
     isSupportedBlockchain(blockchain: BlockchainName): blockchain is ChangenowCrossChainSupportedBlockchain;

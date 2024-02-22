@@ -1,5 +1,5 @@
-import { BitcoinBlockchainName, BlockchainName, EvmBlockchainName, TestnetEvmBlockchain, TronBlockchainName } from 'src/core/blockchain/models/blockchain-name';
-import { ChainType } from 'src/core/blockchain/models/chain-type';
+import { BitcoinBlockchainName, BlockchainName, EvmBlockchainName, TestnetEvmBlockchain, TronBlockchainName } from "../../models/blockchain-name";
+import { ChainType } from "../../models/chain-type";
 /**
  * Works with list of all used in project blockchains.
  * Contains method to find info about certain blockchain.

@@ -1,14 +1,14 @@
 import BigNumber from 'bignumber.js';
-import { PriceToken } from 'src/common/tokens';
-import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
-import { OnChainProxyFeeInfo } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-proxy-fee-info';
-import { Exact } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/models/exact';
-import { UniswapCalculatedInfo } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/models/uniswap-calculated-info';
-import { UniswapRoute } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/models/uniswap-route';
-import { UniswapV2CalculationOptions } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/models/uniswap-v2-calculation-options';
-import { UniswapV2ProviderConfiguration } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/models/uniswap-v2-provider-configuration';
-import { UniswapV2TradeClass } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/models/uniswap-v2-trade-class';
-import { UniswapV2AbstractTrade } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/uniswap-v2-abstract-trade';
+import { PriceToken } from "../../../../../../../common/tokens";
+import { EvmBlockchainName } from "../../../../../../../core/blockchain/models/blockchain-name";
+import { OnChainProxyFeeInfo } from "../../../common/models/on-chain-proxy-fee-info";
+import { Exact } from "../../../common/on-chain-trade/evm-on-chain-trade/models/exact";
+import { UniswapCalculatedInfo } from "./models/uniswap-calculated-info";
+import { UniswapRoute } from "./models/uniswap-route";
+import { UniswapV2CalculationOptions } from "./models/uniswap-v2-calculation-options";
+import { UniswapV2ProviderConfiguration } from "./models/uniswap-v2-provider-configuration";
+import { UniswapV2TradeClass } from "./models/uniswap-v2-trade-class";
+import { UniswapV2AbstractTrade } from "./uniswap-v2-abstract-trade";
 export interface PathFactoryStruct {
     readonly from: PriceToken<EvmBlockchainName>;
     readonly to: PriceToken<EvmBlockchainName>;

@@ -1,4 +1,4 @@
-import { ContractParams } from 'src/features/common/models/contract-params';
+import { ContractParams } from "../../../../../../common/models/contract-params";
 export interface TronContractParams extends ContractParams {
     feeLimit: number;
 }

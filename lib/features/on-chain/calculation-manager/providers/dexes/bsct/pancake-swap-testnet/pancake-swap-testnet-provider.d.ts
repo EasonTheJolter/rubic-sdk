@@ -1,5 +1,5 @@
-import { PancakeSwapTestnetTrade } from 'src/features/on-chain/calculation-manager/providers/dexes/bsct/pancake-swap-testnet/pancake-swap-testnet-trade';
-import { UniswapV2AbstractProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/uniswap-v2-abstract-provider';
+import { PancakeSwapTestnetTrade } from "./pancake-swap-testnet-trade";
+import { UniswapV2AbstractProvider } from "../../common/uniswap-v2-abstract/uniswap-v2-abstract-provider";
 export declare class PancakeSwapTestnetProvider extends UniswapV2AbstractProvider<PancakeSwapTestnetTrade> {
     readonly blockchain: "BSCT";
     readonly UniswapV2TradeClass: typeof PancakeSwapTestnetTrade;

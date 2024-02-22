@@ -1,17 +1,17 @@
 import BigNumber from 'bignumber.js';
 import { BytesLike } from 'ethers';
-import { PriceTokenAmount } from 'src/common/tokens';
-import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
-import { ContractParams } from 'src/features/common/models/contract-params';
-import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
-import { EvmCrossChainTrade } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/evm-cross-chain-trade';
-import { GasData } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/models/gas-data';
-import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
-import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
-import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
-import { XyTransactionRequest } from 'src/features/cross-chain/calculation-manager/providers/xy-provider/models/xy-transaction-request';
-import { EvmOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
+import { PriceTokenAmount } from "../../../../../common/tokens";
+import { EvmBlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
+import { ContractParams } from "../../../../common/models/contract-params";
+import { SwapTransactionOptions } from "../../../../common/models/swap-transaction-options";
+import { EvmCrossChainTrade } from "../common/emv-cross-chain-trade/evm-cross-chain-trade";
+import { GasData } from "../common/emv-cross-chain-trade/models/gas-data";
+import { FeeInfo } from "../common/models/fee-info";
+import { GetContractParamsOptions } from "../common/models/get-contract-params-options";
+import { PathrStep } from "../common/models/pathrStep";
+import { TradeInfo } from "../common/models/trade-info";
+import { XyTransactionRequest } from "./models/xy-transaction-request";
+import { EvmOnChainTrade } from "../../../../on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade";
 /**
  * Calculated XY cross-chain trade.
  */

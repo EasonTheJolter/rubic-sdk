@@ -1,10 +1,10 @@
-import { PriceToken, Token } from 'src/common/tokens';
-import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
-import { EvmWeb3Public } from 'src/core/blockchain/web3-public-service/web3-public/evm-web3-public/evm-web3-public';
-import { MethodData } from 'src/core/blockchain/web3-public-service/web3-public/models/method-data';
-import { Exact } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/models/exact';
-import { UniswapV3AlgebraQuoterController } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v3-algebra-abstract/models/uniswap-v3-algebra-quoter-controller';
-import { AlgebraRoute } from 'src/features/on-chain/calculation-manager/providers/dexes/polygon/algebra/models/algebra-route';
+import { PriceToken, Token } from "../../../../../../../common/tokens";
+import { EvmBlockchainName } from "../../../../../../../core/blockchain/models/blockchain-name";
+import { EvmWeb3Public } from "../../../../../../../core/blockchain/web3-public-service/web3-public/evm-web3-public/evm-web3-public";
+import { MethodData } from "../../../../../../../core/blockchain/web3-public-service/web3-public/models/method-data";
+import { Exact } from "../../../common/on-chain-trade/evm-on-chain-trade/models/exact";
+import { UniswapV3AlgebraQuoterController } from "../uniswap-v3-algebra-abstract/models/uniswap-v3-algebra-quoter-controller";
+import { AlgebraRoute } from "../../polygon/algebra/models/algebra-route";
 import { AbiItem } from 'web3-utils';
 interface GetQuoterMethodsDataOptions {
     routesTokens: Token[];

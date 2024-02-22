@@ -1,17 +1,17 @@
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount } from 'src/common/tokens';
-import { BasicTransactionOptions } from 'src/core/blockchain/web3-private-service/web3-private/models/basic-transaction-options';
-import { Web3Private } from 'src/core/blockchain/web3-private-service/web3-private/web3-private';
-import { Web3Public } from 'src/core/blockchain/web3-public-service/web3-public/web3-public';
-import { HttpClient } from 'src/core/http-client/models/http-client';
-import { EncodeTransactionOptions } from 'src/features/common/models/encode-transaction-options';
-import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
-import { CrossChainTradeType } from 'src/features/cross-chain/calculation-manager/models/cross-chain-trade-type';
-import { BridgeType } from 'src/features/cross-chain/calculation-manager/providers/common/models/bridge-type';
-import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { OnChainSubtype } from 'src/features/cross-chain/calculation-manager/providers/common/models/on-chain-subtype';
-import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
-import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
+import { PriceTokenAmount } from "../../../../../common/tokens";
+import { BasicTransactionOptions } from "../../../../../core/blockchain/web3-private-service/web3-private/models/basic-transaction-options";
+import { Web3Private } from "../../../../../core/blockchain/web3-private-service/web3-private/web3-private";
+import { Web3Public } from "../../../../../core/blockchain/web3-public-service/web3-public/web3-public";
+import { HttpClient } from "../../../../../core/http-client/models/http-client";
+import { EncodeTransactionOptions } from "../../../../common/models/encode-transaction-options";
+import { SwapTransactionOptions } from "../../../../common/models/swap-transaction-options";
+import { CrossChainTradeType } from "../../models/cross-chain-trade-type";
+import { BridgeType } from "./models/bridge-type";
+import { FeeInfo } from "./models/fee-info";
+import { OnChainSubtype } from "./models/on-chain-subtype";
+import { PathrStep } from "./models/pathrStep";
+import { TradeInfo } from "./models/trade-info";
 /**
  * Abstract class for all cross-chain providers' trades.
  */

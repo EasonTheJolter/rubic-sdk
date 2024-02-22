@@ -1,4 +1,4 @@
-import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
+import { PathrSdkError } from "../pathr-sdk.error";
 /**
  * Thrown, when approve method is called, but there is enough allowance.
  */

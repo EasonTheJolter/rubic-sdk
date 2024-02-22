@@ -1,12 +1,12 @@
-import { PriceToken, PriceTokenAmount } from 'src/common/tokens';
-import { BlockchainName, EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
-import { RequiredCrossChainOptions } from 'src/features/cross-chain/calculation-manager/models/cross-chain-options';
-import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-provider';
-import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
-import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
-import { DeBridgeCrossChainSupportedBlockchain } from 'src/features/cross-chain/calculation-manager/providers/debridge-provider/constants/debridge-cross-chain-supported-blockchain';
-import { Estimation } from 'src/features/cross-chain/calculation-manager/providers/debridge-provider/models/estimation-response';
+import { PriceToken, PriceTokenAmount } from "../../../../../common/tokens";
+import { BlockchainName, EvmBlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
+import { RequiredCrossChainOptions } from "../../models/cross-chain-options";
+import { CrossChainProvider } from "../common/cross-chain-provider";
+import { CalculationResult } from "../common/models/calculation-result";
+import { FeeInfo } from "../common/models/fee-info";
+import { PathrStep } from "../common/models/pathrStep";
+import { DeBridgeCrossChainSupportedBlockchain } from "./constants/debridge-cross-chain-supported-blockchain";
+import { Estimation } from "./models/estimation-response";
 export declare class DebridgeCrossChainProvider extends CrossChainProvider {
     static readonly apiEndpoint = "https://api.dln.trade/v1.0/dln";
     readonly type: "dln";

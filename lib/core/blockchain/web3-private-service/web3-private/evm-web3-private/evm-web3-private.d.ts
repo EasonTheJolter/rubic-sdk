@@ -1,11 +1,11 @@
 import BigNumber from 'bignumber.js';
-import { PathrSdkError } from 'src/common/errors';
-import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
-import { EvmTransactionOptions } from 'src/core/blockchain/web3-private-service/web3-private/evm-web3-private/models/evm-transaction-options';
-import { Web3Error } from 'src/core/blockchain/web3-private-service/web3-private/models/web3.error';
-import { Web3Private } from 'src/core/blockchain/web3-private-service/web3-private/web3-private';
-import { EvmWeb3Pure } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/evm-web3-pure';
-import { WalletProviderCore } from 'src/core/sdk/models/wallet-provider';
+import { PathrSdkError } from "../../../../../common/errors";
+import { BlockchainName } from "../../../models/blockchain-name";
+import { EvmTransactionOptions } from "./models/evm-transaction-options";
+import { Web3Error } from "../models/web3.error";
+import { Web3Private } from "../web3-private";
+import { EvmWeb3Pure } from "../../../web3-pure/typed-web3-pure/evm-web3-pure/evm-web3-pure";
+import { WalletProviderCore } from "../../../../sdk/models/wallet-provider";
 import Web3 from 'web3';
 import { TransactionConfig } from 'web3-core';
 import { TransactionReceipt } from 'web3-eth';

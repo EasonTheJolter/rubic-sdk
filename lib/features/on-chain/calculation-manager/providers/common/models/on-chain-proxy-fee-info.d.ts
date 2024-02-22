@@ -1,4 +1,4 @@
-import { PriceTokenAmount } from 'src/common/tokens';
+import { PriceTokenAmount } from "../../../../../../common/tokens";
 export interface OnChainPlatformFee {
     percent: number;
     token: PriceTokenAmount;

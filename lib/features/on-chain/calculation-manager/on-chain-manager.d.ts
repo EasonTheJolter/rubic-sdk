@@ -1,17 +1,17 @@
 import { Observable } from 'rxjs';
-import { PriceToken, PriceTokenAmount, Token } from 'src/common/tokens';
-import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
-import { ProviderAddress } from 'src/core/sdk/models/provider-address';
-import { DeflationTokenManager } from 'src/features/deflation-token-manager/deflation-token-manager';
-import { OnChainManagerCalculationOptions } from 'src/features/on-chain/calculation-manager/models/on-chain-manager-calculation-options';
-import { OnChainReactivelyCalculatedTradeData } from 'src/features/on-chain/calculation-manager/models/on-chain-reactively-calculated-trade-data';
-import { OnChainTradeError } from 'src/features/on-chain/calculation-manager/models/on-chain-trade-error';
-import { OnChainTypedTradeProviders } from 'src/features/on-chain/calculation-manager/models/on-chain-typed-trade-provider';
-import { OnChainCalculationOptions } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-calculation-options';
-import { EvmOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
-import { OnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/on-chain-trade';
-import { LifiProvider } from 'src/features/on-chain/calculation-manager/providers/lifi/lifi-provider';
-import { OpenOceanProvider } from 'src/features/on-chain/calculation-manager/providers/open-ocean/open-ocean-provider';
+import { PriceToken, PriceTokenAmount, Token } from "../../../common/tokens";
+import { BlockchainName } from "../../../core/blockchain/models/blockchain-name";
+import { ProviderAddress } from "../../../core/sdk/models/provider-address";
+import { DeflationTokenManager } from "../../deflation-token-manager/deflation-token-manager";
+import { OnChainManagerCalculationOptions } from "./models/on-chain-manager-calculation-options";
+import { OnChainReactivelyCalculatedTradeData } from "./models/on-chain-reactively-calculated-trade-data";
+import { OnChainTradeError } from "./models/on-chain-trade-error";
+import { OnChainTypedTradeProviders } from "./models/on-chain-typed-trade-provider";
+import { OnChainCalculationOptions } from "./providers/common/models/on-chain-calculation-options";
+import { EvmOnChainTrade } from "./providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade";
+import { OnChainTrade } from "./providers/common/on-chain-trade/on-chain-trade";
+import { LifiProvider } from "./providers/lifi/lifi-provider";
+import { OpenOceanProvider } from "./providers/open-ocean/open-ocean-provider";
 /**
  * Contains methods to calculate on-chain trades.
  */

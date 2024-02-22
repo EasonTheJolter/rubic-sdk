@@ -1,4 +1,4 @@
-import { XyDexAbstractProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/common/xy-dex-abstract/xy-dex-abstract-provider';
+import { XyDexAbstractProvider } from "../../common/xy-dex-abstract/xy-dex-abstract-provider";
 export declare class XyDexPolygonProvider extends XyDexAbstractProvider {
     readonly blockchain: "POLYGON";
 }

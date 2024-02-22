@@ -1,4 +1,4 @@
-import { PathrSdkError } from 'src/common/errors';
+import { PathrSdkError } from "..";
 /**
  * Thrown, when contract is not whitelisted on proxy contract.
  */

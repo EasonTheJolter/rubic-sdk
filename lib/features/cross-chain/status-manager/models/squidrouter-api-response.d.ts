@@ -1,4 +1,4 @@
-import { SquidrouterTransferStatus } from 'src/features/cross-chain/status-manager/models/squidrouter-transfer-status.enum';
+import { SquidrouterTransferStatus } from "./squidrouter-transfer-status.enum";
 export interface SquidrouterApiResponse {
     readonly id: string;
     readonly status: SquidrouterTransferStatus;

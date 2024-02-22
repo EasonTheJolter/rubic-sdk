@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
-import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
-import { Token } from 'src/common/tokens';
+import { PathrSdkError } from "../pathr-sdk.error";
+import { Token } from "../../tokens";
 /**
  * Thrown, if token has deflation.
  */

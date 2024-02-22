@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
+import { PathrSdkError } from "../pathr-sdk.error";
 export declare class MinAmountError extends PathrSdkError {
     readonly minAmount: BigNumber;
     readonly tokenSymbol: string;

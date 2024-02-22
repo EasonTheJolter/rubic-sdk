@@ -1,15 +1,15 @@
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount, Token } from 'src/common/tokens';
-import { BasicTransactionOptions } from 'src/core/blockchain/web3-private-service/web3-private/models/basic-transaction-options';
-import { Web3Private } from 'src/core/blockchain/web3-private-service/web3-private/web3-private';
-import { Web3Public } from 'src/core/blockchain/web3-public-service/web3-public/web3-public';
-import { HttpClient } from 'src/core/http-client/models/http-client';
-import { EncodeTransactionOptions } from 'src/features/common/models/encode-transaction-options';
-import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
-import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
-import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
-import { OnChainTradeType } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-trade-type';
+import { PriceTokenAmount, Token } from "../../../../../../common/tokens";
+import { BasicTransactionOptions } from "../../../../../../core/blockchain/web3-private-service/web3-private/models/basic-transaction-options";
+import { Web3Private } from "../../../../../../core/blockchain/web3-private-service/web3-private/web3-private";
+import { Web3Public } from "../../../../../../core/blockchain/web3-public-service/web3-public/web3-public";
+import { HttpClient } from "../../../../../../core/http-client/models/http-client";
+import { EncodeTransactionOptions } from "../../../../../common/models/encode-transaction-options";
+import { SwapTransactionOptions } from "../../../../../common/models/swap-transaction-options";
+import { FeeInfo } from "../../../../../cross-chain/calculation-manager/providers/common/models/fee-info";
+import { PathrStep } from "../../../../../cross-chain/calculation-manager/providers/common/models/pathrStep";
+import { TradeInfo } from "../../../../../cross-chain/calculation-manager/providers/common/models/trade-info";
+import { OnChainTradeType } from "../models/on-chain-trade-type";
 /**
  * Abstract class for all instant trade providers' trades.
  */

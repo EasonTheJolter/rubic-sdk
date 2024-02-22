@@ -1,4 +1,4 @@
-import { IzumiProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/common/izumi-abstract/izumi-provider';
+import { IzumiProvider } from "../../common/izumi-abstract/izumi-provider";
 export declare class IzumiBscProvider extends IzumiProvider {
     readonly blockchain: "BSC";
     protected readonly dexAddress = "0xedf2021f41AbCfE2dEA4427E1B61f4d0AA5aA4b8";

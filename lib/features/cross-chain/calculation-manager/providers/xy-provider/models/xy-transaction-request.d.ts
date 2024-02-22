@@ -1,4 +1,4 @@
-import { XyEstimationRequest } from 'src/features/cross-chain/calculation-manager/providers/xy-provider/models/xy-estimation-request';
+import { XyEstimationRequest } from "./xy-estimation-request";
 /**
  * Transaction request params.
  */

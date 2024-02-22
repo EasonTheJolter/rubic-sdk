@@ -1,4 +1,4 @@
-import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
+import { PathrSdkError } from "../pathr-sdk.error";
 /**
  * @internal
  * Thrown, if rpc provider has not passed healthcheck.

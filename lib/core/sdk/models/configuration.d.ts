@@ -1,7 +1,7 @@
-import { HttpClient } from 'src/core/http-client/models/http-client';
-import { ProviderAddress } from 'src/core/sdk/models/provider-address';
-import { RpcProviders } from 'src/core/sdk/models/rpc-provider';
-import { WalletProvider } from 'src/core/sdk/models/wallet-provider';
+import { HttpClient } from "../../http-client/models/http-client";
+import { ProviderAddress } from "./provider-address";
+import { RpcProviders } from "./rpc-provider";
+import { WalletProvider } from "./wallet-provider";
 /**
  * Main sdk configuration.
  */

@@ -1,4 +1,4 @@
-import { Estimation } from 'src/features/cross-chain/calculation-manager/providers/debridge-provider/models/estimation-response';
+import { Estimation } from "./estimation-response";
 export interface DlnTransaction {
     to: string;
     data: string;

@@ -1,5 +1,5 @@
-import { UniswapV2AbstractProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/uniswap-v2-abstract-provider';
-import { TradeHarmonySwapTrade } from 'src/features/on-chain/calculation-manager/providers/dexes/harmony/trader-harmony/trader-harmony-trade';
+import { UniswapV2AbstractProvider } from "../../common/uniswap-v2-abstract/uniswap-v2-abstract-provider";
+import { TradeHarmonySwapTrade } from "./trader-harmony-trade";
 export declare class TradeHarmonySwapProvider extends UniswapV2AbstractProvider<TradeHarmonySwapTrade> {
     readonly blockchain: "DEFIKINGDOMS";
     readonly UniswapV2TradeClass: typeof TradeHarmonySwapTrade;

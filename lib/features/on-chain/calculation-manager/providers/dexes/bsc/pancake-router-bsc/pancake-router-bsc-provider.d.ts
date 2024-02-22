@@ -1,4 +1,4 @@
-import { PancakeRouterProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/common/pancake-router/pancake-router-provider';
+import { PancakeRouterProvider } from "../../common/pancake-router/pancake-router-provider";
 export declare class PancakeRouterBscProvider extends PancakeRouterProvider {
     readonly blockchain: "BSC";
     protected readonly chain: {

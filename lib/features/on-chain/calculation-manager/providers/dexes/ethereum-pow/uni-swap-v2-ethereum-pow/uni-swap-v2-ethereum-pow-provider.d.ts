@@ -1,5 +1,5 @@
-import { UniswapV2AbstractProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/uniswap-v2-abstract-provider';
-import { UniSwapV2EthereumPowTrade } from 'src/features/on-chain/calculation-manager/providers/dexes/ethereum-pow/uni-swap-v2-ethereum-pow/uni-swap-v2-ethereum-pow-trade';
+import { UniswapV2AbstractProvider } from "../../common/uniswap-v2-abstract/uniswap-v2-abstract-provider";
+import { UniSwapV2EthereumPowTrade } from "./uni-swap-v2-ethereum-pow-trade";
 export declare class UniSwapV2EthereumPowProvider extends UniswapV2AbstractProvider<UniSwapV2EthereumPowTrade> {
     readonly blockchain: "ETHW";
     readonly UniswapV2TradeClass: typeof UniSwapV2EthereumPowTrade;
