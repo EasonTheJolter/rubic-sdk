@@ -1,4 +1,4 @@
-import { CbridgeCrossChainSupportedBlockchain } from '../calculation-manager/providers/cbridge/constants/cbridge-supported-blockchains';
+import { CbridgeCrossChainSupportedBlockchain } from "../calculation-manager/providers/cbridge/constants/cbridge-supported-blockchains";
 import { TransactionReceipt } from 'web3-eth';
 export declare class CrossChainCbridgeManager {
     static getTransferId(sourceTransaction: string, fromBlockchain: CbridgeCrossChainSupportedBlockchain): Promise<string>;

@@ -1,16 +1,16 @@
 import BigNumber from 'bignumber.js';
-import { PriceToken, PriceTokenAmount } from '../../../../../../../common/tokens';
-import { EvmBlockchainName } from '../../../../../../../core/blockchain/models/blockchain-name';
-import { OnChainCalculationOptions } from '../../../common/models/on-chain-calculation-options';
-import { OnChainProxyFeeInfo } from '../../../common/models/on-chain-proxy-fee-info';
-import { OnChainTradeType } from '../../../common/models/on-chain-trade-type';
-import { Exact } from '../../../common/on-chain-trade/evm-on-chain-trade/models/exact';
-import { EvmOnChainProvider } from '../on-chain-provider/evm-on-chain-provider/evm-on-chain-provider';
-import { UniswapCalculatedInfo } from './models/uniswap-calculated-info';
-import { UniswapV2CalculationOptions } from './models/uniswap-v2-calculation-options';
-import { UniswapV2ProviderConfiguration } from './models/uniswap-v2-provider-configuration';
-import { UniswapV2TradeClass } from './models/uniswap-v2-trade-class';
-import { UniswapV2AbstractTrade } from './uniswap-v2-abstract-trade';
+import { PriceToken, PriceTokenAmount } from "../../../../../../../common/tokens";
+import { EvmBlockchainName } from "../../../../../../../core/blockchain/models/blockchain-name";
+import { OnChainCalculationOptions } from "../../../common/models/on-chain-calculation-options";
+import { OnChainProxyFeeInfo } from "../../../common/models/on-chain-proxy-fee-info";
+import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
+import { Exact } from "../../../common/on-chain-trade/evm-on-chain-trade/models/exact";
+import { EvmOnChainProvider } from "../on-chain-provider/evm-on-chain-provider/evm-on-chain-provider";
+import { UniswapCalculatedInfo } from "./models/uniswap-calculated-info";
+import { UniswapV2CalculationOptions } from "./models/uniswap-v2-calculation-options";
+import { UniswapV2ProviderConfiguration } from "./models/uniswap-v2-provider-configuration";
+import { UniswapV2TradeClass } from "./models/uniswap-v2-trade-class";
+import { UniswapV2AbstractTrade } from "./uniswap-v2-abstract-trade";
 export declare abstract class UniswapV2AbstractProvider<T extends UniswapV2AbstractTrade = UniswapV2AbstractTrade> extends EvmOnChainProvider {
     /** @internal */
     abstract readonly UniswapV2TradeClass: UniswapV2TradeClass<T>;

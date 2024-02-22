@@ -1,4 +1,4 @@
-import { TronParameters } from '../../../../../../../core/blockchain/web3-pure/typed-web3-pure/tron-web3-pure/models/tron-parameters';
+import { TronParameters } from "../../../../../../../core/blockchain/web3-pure/typed-web3-pure/tron-web3-pure/models/tron-parameters";
 export interface TronBridgersTransactionData {
     functionName: string;
     options: {

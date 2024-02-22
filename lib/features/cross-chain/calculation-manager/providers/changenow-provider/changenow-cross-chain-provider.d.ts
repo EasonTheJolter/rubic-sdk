@@ -1,13 +1,13 @@
-import { PriceToken, PriceTokenAmount } from '../../../../../common/tokens';
-import { BlockchainName } from '../../../../../core/blockchain/models/blockchain-name';
-import { Web3PublicSupportedBlockchain } from '../../../../../core/blockchain/web3-public-service/models/web3-public-storage';
-import { RequiredCrossChainOptions } from '../../models/cross-chain-options';
-import { ChangenowCrossChainSupportedBlockchain } from './constants/changenow-api-blockchain';
-import { ChangenowProxySupportedBlockchain } from './constants/changenow-proxy-supported-blockchains';
-import { CrossChainProvider } from '../common/cross-chain-provider';
-import { CalculationResult } from '../common/models/calculation-result';
-import { FeeInfo } from '../common/models/fee-info';
-import { RubicStep } from '../common/models/rubicStep';
+import { PriceToken, PriceTokenAmount } from "../../../../../common/tokens";
+import { BlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
+import { Web3PublicSupportedBlockchain } from "../../../../../core/blockchain/web3-public-service/models/web3-public-storage";
+import { RequiredCrossChainOptions } from "../../models/cross-chain-options";
+import { ChangenowCrossChainSupportedBlockchain } from "./constants/changenow-api-blockchain";
+import { ChangenowProxySupportedBlockchain } from "./constants/changenow-proxy-supported-blockchains";
+import { CrossChainProvider } from "../common/cross-chain-provider";
+import { CalculationResult } from "../common/models/calculation-result";
+import { FeeInfo } from "../common/models/fee-info";
+import { RubicStep } from "../common/models/rubicStep";
 export declare class ChangenowCrossChainProvider extends CrossChainProvider {
     readonly type: "changenow";
     isSupportedBlockchain(blockchain: BlockchainName): blockchain is ChangenowCrossChainSupportedBlockchain;

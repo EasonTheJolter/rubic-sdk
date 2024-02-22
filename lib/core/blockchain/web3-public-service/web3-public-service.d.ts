@@ -1,9 +1,9 @@
-import { BlockchainName, EvmBlockchainName, TronBlockchainName } from '../models/blockchain-name';
-import { Web3PublicSupportedBlockchain } from './models/web3-public-storage';
-import { EvmWeb3Public } from './web3-public/evm-web3-public/evm-web3-public';
-import { TronWeb3Public } from './web3-public/tron-web3-public/tron-web3-public';
-import { Web3Public } from './web3-public/web3-public';
-import { RpcProviders } from '../../sdk/models/rpc-provider';
+import { BlockchainName, EvmBlockchainName, TronBlockchainName } from "../models/blockchain-name";
+import { Web3PublicSupportedBlockchain } from "./models/web3-public-storage";
+import { EvmWeb3Public } from "./web3-public/evm-web3-public/evm-web3-public";
+import { TronWeb3Public } from "./web3-public/tron-web3-public/tron-web3-public";
+import { Web3Public } from "./web3-public/web3-public";
+import { RpcProviders } from "../../sdk/models/rpc-provider";
 export declare class Web3PublicService {
     readonly rpcProvider: RpcProviders;
     static isSupportedBlockchain(blockchain: BlockchainName): blockchain is Web3PublicSupportedBlockchain;

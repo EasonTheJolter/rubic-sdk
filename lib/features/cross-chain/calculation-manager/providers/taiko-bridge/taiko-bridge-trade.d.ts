@@ -1,13 +1,13 @@
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount } from '../../../../../common/tokens';
-import { EvmBlockchainName } from '../../../../../core/blockchain/models/blockchain-name';
-import { ContractParams } from '../../../../common/models/contract-params';
-import { SwapTransactionOptions } from '../../../../common/models/swap-transaction-options';
-import { EvmCrossChainTrade } from '../common/emv-cross-chain-trade/evm-cross-chain-trade';
-import { GasData } from '../common/emv-cross-chain-trade/models/gas-data';
-import { FeeInfo } from '../common/models/fee-info';
-import { RubicStep } from '../common/models/rubicStep';
-import { TradeInfo } from '../common/models/trade-info';
+import { PriceTokenAmount } from "../../../../../common/tokens";
+import { EvmBlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
+import { ContractParams } from "../../../../common/models/contract-params";
+import { SwapTransactionOptions } from "../../../../common/models/swap-transaction-options";
+import { EvmCrossChainTrade } from "../common/emv-cross-chain-trade/evm-cross-chain-trade";
+import { GasData } from "../common/emv-cross-chain-trade/models/gas-data";
+import { FeeInfo } from "../common/models/fee-info";
+import { RubicStep } from "../common/models/rubicStep";
+import { TradeInfo } from "../common/models/trade-info";
 export declare class TaikoBridgeTrade extends EvmCrossChainTrade {
     /** @internal */
     static getGasData(from: PriceTokenAmount<EvmBlockchainName>, to: PriceTokenAmount<EvmBlockchainName>): Promise<GasData | null>;

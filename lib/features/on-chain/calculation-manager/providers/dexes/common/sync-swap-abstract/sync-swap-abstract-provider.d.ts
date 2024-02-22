@@ -1,9 +1,9 @@
-import { PriceToken, PriceTokenAmount } from '../../../../../../../common/tokens';
-import { EvmBlockchainName } from '../../../../../../../core/blockchain/models/blockchain-name';
-import { OnChainCalculationOptions } from '../../../common/models/on-chain-calculation-options';
-import { OnChainTradeType } from '../../../common/models/on-chain-trade-type';
-import { EvmOnChainProvider } from '../on-chain-provider/evm-on-chain-provider/evm-on-chain-provider';
-import { SyncSwapAbstractTrade } from './sync-swap-abstract-trade';
+import { PriceToken, PriceTokenAmount } from "../../../../../../../common/tokens";
+import { EvmBlockchainName } from "../../../../../../../core/blockchain/models/blockchain-name";
+import { OnChainCalculationOptions } from "../../../common/models/on-chain-calculation-options";
+import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
+import { EvmOnChainProvider } from "../on-chain-provider/evm-on-chain-provider/evm-on-chain-provider";
+import { SyncSwapAbstractTrade } from "./sync-swap-abstract-trade";
 export declare abstract class SyncSwapAbstractProvider extends EvmOnChainProvider {
     abstract blockchain: EvmBlockchainName;
     protected abstract dexContractAddress: string;

@@ -1,4 +1,4 @@
-import { RubicSdkError } from '../rubic-sdk.error';
+import { RubicSdkError } from "../rubic-sdk.error";
 /**
  * Thrown, if transaction was reverted because of insufficient native balance.
  */

@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from '../rubic-sdk.error';
-import { Token } from '../../tokens';
+import { RubicSdkError } from "../rubic-sdk.error";
+import { Token } from "../../tokens";
 /**
  * Thrown, if token has deflation.
  */

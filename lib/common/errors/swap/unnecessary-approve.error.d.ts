@@ -1,4 +1,4 @@
-import { RubicSdkError } from '../rubic-sdk.error';
+import { RubicSdkError } from "../rubic-sdk.error";
 /**
  * Thrown, when approve method is called, but there is enough allowance.
  */

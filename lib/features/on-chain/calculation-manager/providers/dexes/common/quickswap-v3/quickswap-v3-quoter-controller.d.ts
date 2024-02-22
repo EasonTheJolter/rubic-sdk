@@ -1,7 +1,7 @@
-import { PriceToken } from '../../../../../../../common/tokens';
-import { Exact } from '../../../common/on-chain-trade/evm-on-chain-trade/models/exact';
-import { AlgebraQuoterController } from '../algebra/algebra-quoter-controller';
-import { AlgebraRoute } from '../../polygon/algebra/models/algebra-route';
+import { PriceToken } from "../../../../../../../common/tokens";
+import { Exact } from "../../../common/on-chain-trade/evm-on-chain-trade/models/exact";
+import { AlgebraQuoterController } from "../algebra/algebra-quoter-controller";
+import { AlgebraRoute } from "../../polygon/algebra/models/algebra-route";
 /**
  * Works with requests, related to Uniswap v3 liquidity pools.
  */

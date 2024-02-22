@@ -1,12 +1,12 @@
 import BigNumber from 'bignumber.js';
-import { Token } from '../../../../common/tokens';
-import { Web3PrimitiveType } from '../../models/web3-primitive-type';
-import { Web3PublicSupportedBlockchain } from '../models/web3-public-storage';
-import { ContractMulticallResponse } from './models/contract-multicall-response';
-import { MethodData } from './models/method-data';
-import { SupportedTokenField } from './models/supported-token-field';
-import { TxStatus } from './models/tx-status';
-import { TronWeb3Pure } from '../../web3-pure/typed-web3-pure/tron-web3-pure/tron-web3-pure';
+import { Token } from "../../../../common/tokens";
+import { Web3PrimitiveType } from "../../models/web3-primitive-type";
+import { Web3PublicSupportedBlockchain } from "../models/web3-public-storage";
+import { ContractMulticallResponse } from "./models/contract-multicall-response";
+import { MethodData } from "./models/method-data";
+import { SupportedTokenField } from "./models/supported-token-field";
+import { TxStatus } from "./models/tx-status";
+import { TronWeb3Pure } from "../../web3-pure/typed-web3-pure/tron-web3-pure/tron-web3-pure";
 import { AbiItem } from 'web3-utils';
 /**
  * Class containing methods for calling contracts in order to obtain information from the blockchain.
@@ -15,7 +15,7 @@ import { AbiItem } from 'web3-utils';
 export declare abstract class Web3Public {
     protected readonly blockchainName: Web3PublicSupportedBlockchain;
     protected readonly multicallAddress: string;
-    protected readonly Web3Pure: typeof TronWeb3Pure | typeof import("../../../..").BitcoinWeb3Pure | typeof import("../../../..").EvmWeb3Pure | typeof import("../../../..").SolanaWeb3Pure | typeof import("../../../..").NearWeb3Pure | typeof import("../../../..").IcpWeb3Pure | typeof import("../../../..").CardanoWeb3Pure | typeof import("../../../..").AlgorandWeb3Pure | typeof import("../../../..").AptosWeb3Pure | typeof import("../../../..").AstarWeb3Pure | typeof import("../../../..").CosmosWeb3Pure | typeof import("../../../..").CasperWeb3Pure | typeof import("../../../..").DashWeb3Pure | typeof import("../../../..").DogecoinWeb3Pure | typeof import("../../../..").PolkadotWeb3Pure | typeof import("../../../..").FlowWeb3Pure | typeof import("../../../..").HederaWeb3Pure | typeof import("../../../..").IotaWeb3Pure | typeof import("../../../..").KadenaWeb3Pure | typeof import("../../../..").KusamaWeb3Pure | typeof import("../../../..").LitecoinWeb3Pure | typeof import("../../../..").MinaWeb3Pure | typeof import("../../../..").NeoWeb3Pure | typeof import("../../../..").OsmosisWeb3Pure | typeof import("../../../..").SiaWeb3Pure | typeof import("../../../..").SecretWeb3Pure | typeof import("../../../..").TonWeb3Pure | typeof import("../../../..").WavesWeb3Pure | typeof import("../../../..").WaxWeb3Pure | typeof import("../../../..").StellarWeb3Pure | typeof import("../../../..").MoneroWeb3Pure | typeof import("../../../..").RippleWeb3Pure | typeof import("../../../..").TezosWeb3Pure | typeof import("../../../..").ZilliqaWeb3Pure | typeof import("../../../..").KavaCosmosWeb3Pure | typeof import("../../../..").FilecoinWeb3Pure | typeof import("../../../..").EosWeb3Pure | typeof import("../../../..").OntologyWeb3Pure | typeof import("../../../..").XdcWeb3Pure;
+    protected readonly Web3Pure: typeof import("../../../..").SolanaWeb3Pure | typeof import("../../../..").NearWeb3Pure | typeof import("../../../..").BitcoinWeb3Pure | typeof TronWeb3Pure | typeof import("../../../..").IcpWeb3Pure | typeof import("../../../..").CardanoWeb3Pure | typeof import("../../../..").AlgorandWeb3Pure | typeof import("../../../..").AptosWeb3Pure | typeof import("../../../..").AstarWeb3Pure | typeof import("../../../..").CosmosWeb3Pure | typeof import("../../../..").CasperWeb3Pure | typeof import("../../../..").DashWeb3Pure | typeof import("../../../..").DogecoinWeb3Pure | typeof import("../../../..").PolkadotWeb3Pure | typeof import("../../../..").FlowWeb3Pure | typeof import("../../../..").HederaWeb3Pure | typeof import("../../../..").IotaWeb3Pure | typeof import("../../../..").KadenaWeb3Pure | typeof import("../../../..").KusamaWeb3Pure | typeof import("../../../..").LitecoinWeb3Pure | typeof import("../../../..").MinaWeb3Pure | typeof import("../../../..").NeoWeb3Pure | typeof import("../../../..").OsmosisWeb3Pure | typeof import("../../../..").SiaWeb3Pure | typeof import("../../../..").SecretWeb3Pure | typeof import("../../../..").TonWeb3Pure | typeof import("../../../..").WavesWeb3Pure | typeof import("../../../..").WaxWeb3Pure | typeof import("../../../..").StellarWeb3Pure | typeof import("../../../..").MoneroWeb3Pure | typeof import("../../../..").RippleWeb3Pure | typeof import("../../../..").TezosWeb3Pure | typeof import("../../../..").ZilliqaWeb3Pure | typeof import("../../../..").KavaCosmosWeb3Pure | typeof import("../../../..").FilecoinWeb3Pure | typeof import("../../../..").EosWeb3Pure | typeof import("../../../..").OntologyWeb3Pure | typeof import("../../../..").XdcWeb3Pure | typeof import("../../../..").EvmWeb3Pure;
     protected abstract readonly tokenContractAbi: AbiItem[];
     protected constructor(blockchainName: Web3PublicSupportedBlockchain);
     /**

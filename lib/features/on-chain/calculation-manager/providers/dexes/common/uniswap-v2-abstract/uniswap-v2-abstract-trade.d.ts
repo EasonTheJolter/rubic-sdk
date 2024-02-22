@@ -1,19 +1,19 @@
 import BigNumber from 'bignumber.js';
-import { Token } from '../../../../../../../common/tokens';
-import { BlockchainName, EvmBlockchainName } from '../../../../../../../core/blockchain/models/blockchain-name';
-import { BatchCall } from '../../../../../../../core/blockchain/web3-public-service/web3-public/evm-web3-public/models/batch-call';
-import { ContractMulticallResponse } from '../../../../../../../core/blockchain/web3-public-service/web3-public/models/contract-multicall-response';
-import { EvmEncodeConfig } from '../../../../../../../core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config';
-import { EncodeTransactionOptions } from '../../../../../../common/models/encode-transaction-options';
-import { SwapTransactionOptions } from '../../../../../../common/models/swap-transaction-options';
-import { OnChainTradeType } from '../../../common/models/on-chain-trade-type';
-import { EvmOnChainTrade } from '../../../common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
-import { Exact } from '../../../common/on-chain-trade/evm-on-chain-trade/models/exact';
-import { ExactInputOutputSwapMethodsList } from './constants/SWAP_METHOD';
-import { AerodromeRoutePoolArgument } from './models/aerodrome-route-method-arguments';
-import { DefaultEstimatedGas } from './models/default-estimated-gas';
-import { ExtendedRoutesMethodArguments } from './models/route-method-arguments';
-import { UniswapV2TradeStruct } from './models/uniswap-v2-trade-struct';
+import { Token } from "../../../../../../../common/tokens";
+import { BlockchainName, EvmBlockchainName } from "../../../../../../../core/blockchain/models/blockchain-name";
+import { BatchCall } from "../../../../../../../core/blockchain/web3-public-service/web3-public/evm-web3-public/models/batch-call";
+import { ContractMulticallResponse } from "../../../../../../../core/blockchain/web3-public-service/web3-public/models/contract-multicall-response";
+import { EvmEncodeConfig } from "../../../../../../../core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config";
+import { EncodeTransactionOptions } from "../../../../../../common/models/encode-transaction-options";
+import { SwapTransactionOptions } from "../../../../../../common/models/swap-transaction-options";
+import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
+import { EvmOnChainTrade } from "../../../common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade";
+import { Exact } from "../../../common/on-chain-trade/evm-on-chain-trade/models/exact";
+import { ExactInputOutputSwapMethodsList } from "./constants/SWAP_METHOD";
+import { AerodromeRoutePoolArgument } from "./models/aerodrome-route-method-arguments";
+import { DefaultEstimatedGas } from "./models/default-estimated-gas";
+import { ExtendedRoutesMethodArguments } from "./models/route-method-arguments";
+import { UniswapV2TradeStruct } from "./models/uniswap-v2-trade-struct";
 import { AbiItem } from 'web3-utils';
 export declare abstract class UniswapV2AbstractTrade extends EvmOnChainTrade {
     /** @internal */

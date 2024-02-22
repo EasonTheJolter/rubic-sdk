@@ -1,4 +1,4 @@
-import { Estimation } from './estimation-response';
+import { Estimation } from "./estimation-response";
 export interface DlnTransaction {
     to: string;
     data: string;

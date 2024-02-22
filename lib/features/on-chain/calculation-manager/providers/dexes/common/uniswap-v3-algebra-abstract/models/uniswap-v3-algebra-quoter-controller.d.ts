@@ -1,7 +1,7 @@
-import { PriceToken } from '../../../../../../../../common/tokens';
-import { EvmBlockchainName } from '../../../../../../../../core/blockchain/models/blockchain-name';
-import { Exact } from '../../../../common/on-chain-trade/evm-on-chain-trade/models/exact';
-import { UniswapV3AlgebraRoute } from './uniswap-v3-algebra-route';
+import { PriceToken } from "../../../../../../../../common/tokens";
+import { EvmBlockchainName } from "../../../../../../../../core/blockchain/models/blockchain-name";
+import { Exact } from "../../../../common/on-chain-trade/evm-on-chain-trade/models/exact";
+import { UniswapV3AlgebraRoute } from "./uniswap-v3-algebra-route";
 import { AbiItem } from 'web3-utils';
 export declare abstract class UniswapV3AlgebraQuoterController {
     protected abstract readonly quoterContractAddress: string;

@@ -1,16 +1,16 @@
 import BigNumber from 'bignumber.js';
-import { PriceToken } from '../../../../../../../common/tokens';
-import { EvmBlockchainName } from '../../../../../../../core/blockchain/models/blockchain-name';
-import { MethodData } from '../../../../../../../core/blockchain/web3-public-service/web3-public/models/method-data';
-import { EvmEncodeConfig } from '../../../../../../../core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config';
-import { EncodeTransactionOptions } from '../../../../../../common/models/encode-transaction-options';
-import { OnChainTradeType } from '../../../common/models/on-chain-trade-type';
-import { EvmOnChainTrade } from '../../../common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
-import { Exact } from '../../../common/on-chain-trade/evm-on-chain-trade/models/exact';
-import { CreateTradeInstance } from './models/create-trade-instance';
-import { UniswapV3AlgebraRoute } from './models/uniswap-v3-algebra-route';
-import { UniswapV3AlgebraTradeStruct } from './models/uniswap-v3-algebra-trade-struct';
-import { UnwrapWethMethodName } from './models/unwrapWethMethodName';
+import { PriceToken } from "../../../../../../../common/tokens";
+import { EvmBlockchainName } from "../../../../../../../core/blockchain/models/blockchain-name";
+import { MethodData } from "../../../../../../../core/blockchain/web3-public-service/web3-public/models/method-data";
+import { EvmEncodeConfig } from "../../../../../../../core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config";
+import { EncodeTransactionOptions } from "../../../../../../common/models/encode-transaction-options";
+import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
+import { EvmOnChainTrade } from "../../../common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade";
+import { Exact } from "../../../common/on-chain-trade/evm-on-chain-trade/models/exact";
+import { CreateTradeInstance } from "./models/create-trade-instance";
+import { UniswapV3AlgebraRoute } from "./models/uniswap-v3-algebra-route";
+import { UniswapV3AlgebraTradeStruct } from "./models/uniswap-v3-algebra-trade-struct";
+import { UnwrapWethMethodName } from "./models/unwrapWethMethodName";
 import { AbiItem } from 'web3-utils';
 interface EstimateGasOptions {
     slippageTolerance: number;

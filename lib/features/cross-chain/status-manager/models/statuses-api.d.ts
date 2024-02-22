@@ -1,7 +1,7 @@
-import { TxStatusData } from '../../../common/status-manager/models/tx-status-data';
-import { SymbiosisToken } from '../../calculation-manager/providers/symbiosis-provider/models/symbiosis-trade-data';
-import { CelerTransferStatus } from './celer-transfer-status.enum';
-import { CrossChainTradeData } from './cross-chain-trade-data';
+import { TxStatusData } from "../../../common/status-manager/models/tx-status-data";
+import { SymbiosisToken } from "../../calculation-manager/providers/symbiosis-provider/models/symbiosis-trade-data";
+import { CelerTransferStatus } from "./celer-transfer-status.enum";
+import { CrossChainTradeData } from "./cross-chain-trade-data";
 export interface DeBridgeFilteredListApiResponse {
     orderIds: [string];
 }

@@ -1,4 +1,4 @@
-import { XyStatusCode } from '../constants/xy-status-code';
+import { XyStatusCode } from "../constants/xy-status-code";
 interface BaseToken {
     tokenAddress: string;
     chainId: string;

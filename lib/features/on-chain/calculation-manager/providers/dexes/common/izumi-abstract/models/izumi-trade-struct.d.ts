@@ -1,4 +1,4 @@
-import { EvmOnChainTradeStruct } from '../../../../common/on-chain-trade/evm-on-chain-trade/models/evm-on-chain-trade-struct';
+import { EvmOnChainTradeStruct } from "../../../../common/on-chain-trade/evm-on-chain-trade/models/evm-on-chain-trade-struct";
 export interface IzumiTradeStruct extends EvmOnChainTradeStruct {
     readonly dexContractAddress: string;
     readonly swapConfig: {

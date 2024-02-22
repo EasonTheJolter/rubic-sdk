@@ -1,4 +1,4 @@
-import { EstimationRequest } from './estimation-request';
+import { EstimationRequest } from "./estimation-request";
 /**
  * Transaction request params.
  */

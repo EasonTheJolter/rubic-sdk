@@ -1,4 +1,4 @@
-import { SyncSwapAbstractProvider } from '../../common/sync-swap-abstract/sync-swap-abstract-provider';
+import { SyncSwapAbstractProvider } from "../../common/sync-swap-abstract/sync-swap-abstract-provider";
 export declare class LineaSyncSwapProvider extends SyncSwapAbstractProvider {
     readonly blockchain: "LINEA";
     readonly dexContractAddress = "0x80e38291e06339d10AAB483C65695D004dBD5C69";

@@ -1,9 +1,9 @@
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount } from '../../../../../../../common/tokens';
-import { EvmEncodeConfig } from '../../../../../../../core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config';
-import { EncodeTransactionOptions } from '../../../../../../common/models/encode-transaction-options';
-import { EvmOnChainTrade } from '../../../common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
-import { XyDexTradeStruct } from './models/xy-dex-trade-struct';
+import { PriceTokenAmount } from "../../../../../../../common/tokens";
+import { EvmEncodeConfig } from "../../../../../../../core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config";
+import { EncodeTransactionOptions } from "../../../../../../common/models/encode-transaction-options";
+import { EvmOnChainTrade } from "../../../common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade";
+import { XyDexTradeStruct } from "./models/xy-dex-trade-struct";
 export declare class XyDexTrade extends EvmOnChainTrade {
     /** @internal */
     static getGasLimit(tradeStruct: XyDexTradeStruct): Promise<BigNumber | null>;

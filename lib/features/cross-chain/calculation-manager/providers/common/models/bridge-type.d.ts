@@ -43,4 +43,4 @@ export declare const BRIDGE_TYPE: {
     readonly TAIKO_BRIDGE: "taiko_bridge";
 };
 export type BridgeType = (typeof BRIDGE_TYPE)[keyof typeof BRIDGE_TYPE];
-export declare const bridges: ("avalanche" | "optimism" | "arbitrum" | "symbiosis" | "lifi" | "dln" | "bridgers" | "multichain" | "xy" | "celer_bridge" | "changenow" | "stargate" | "squidrouter" | "scroll_bridge" | "taiko_bridge" | "across" | "connext" | "cbridge" | "hop" | "hyphen" | "allbridge" | "polygon" | "omni" | "gnosis" | "amarok" | "celercircle" | "lifuel" | "celerim" | "anyswap" | "openocean" | "maker" | "osmosis" | "refuel" | "satellite" | "synapse" | "thorchain" | "wormhole" | "ypool")[];
+export declare const bridges: ("arbitrum" | "avalanche" | "optimism" | "symbiosis" | "lifi" | "dln" | "bridgers" | "multichain" | "xy" | "celer_bridge" | "changenow" | "stargate" | "squidrouter" | "scroll_bridge" | "taiko_bridge" | "across" | "connext" | "cbridge" | "hop" | "hyphen" | "allbridge" | "polygon" | "omni" | "gnosis" | "amarok" | "celercircle" | "lifuel" | "celerim" | "anyswap" | "openocean" | "maker" | "osmosis" | "refuel" | "satellite" | "synapse" | "thorchain" | "wormhole" | "ypool")[];

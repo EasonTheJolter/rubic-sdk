@@ -1,4 +1,4 @@
-import { WrappedOnChainTradeOrNull } from './wrapped-on-chain-trade-or-null';
+import { WrappedOnChainTradeOrNull } from "./wrapped-on-chain-trade-or-null";
 /**
  * On-chain providers data.
  */

@@ -1,11 +1,11 @@
-import { PriceToken, PriceTokenAmount } from '../../../../../common/tokens';
-import { BlockchainName } from '../../../../../core/blockchain/models/blockchain-name';
-import { RequiredCrossChainOptions } from '../../models/cross-chain-options';
-import { BridgersCrossChainSupportedBlockchain } from './constants/bridgers-cross-chain-supported-blockchain';
-import { CrossChainProvider } from '../common/cross-chain-provider';
-import { CalculationResult } from '../common/models/calculation-result';
-import { FeeInfo } from '../common/models/fee-info';
-import { RubicStep } from '../common/models/rubicStep';
+import { PriceToken, PriceTokenAmount } from "../../../../../common/tokens";
+import { BlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
+import { RequiredCrossChainOptions } from "../../models/cross-chain-options";
+import { BridgersCrossChainSupportedBlockchain } from "./constants/bridgers-cross-chain-supported-blockchain";
+import { CrossChainProvider } from "../common/cross-chain-provider";
+import { CalculationResult } from "../common/models/calculation-result";
+import { FeeInfo } from "../common/models/fee-info";
+import { RubicStep } from "../common/models/rubicStep";
 import { AbiItem } from 'web3-utils';
 export declare class BridgersCrossChainProvider extends CrossChainProvider {
     readonly type: "bridgers";

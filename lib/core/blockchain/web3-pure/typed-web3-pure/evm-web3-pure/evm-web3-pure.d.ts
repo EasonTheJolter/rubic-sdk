@@ -1,6 +1,6 @@
 import { Result } from 'ethers/lib/utils';
-import { EvmEncodeConfig } from './models/evm-encode-config';
-import { TransactionGasParams } from '../../../../../features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/models/gas-params';
+import { EvmEncodeConfig } from "./models/evm-encode-config";
+import { TransactionGasParams } from "../../../../../features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/models/gas-params";
 import { AbiItem } from 'web3-utils';
 export type DecodeResult<T> = Result & T;
 export declare class EvmWeb3Pure {

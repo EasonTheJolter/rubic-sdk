@@ -1,4 +1,4 @@
-import { UniswapV3RouterConfiguration } from '../../../common/uniswap-v3-abstract/models/uniswap-v3-router-configuration';
+import { UniswapV3RouterConfiguration } from "../../../common/uniswap-v3-abstract/models/uniswap-v3-router-configuration";
 /**
  * Most popular tokens in uni v3 to use in a route.
  */

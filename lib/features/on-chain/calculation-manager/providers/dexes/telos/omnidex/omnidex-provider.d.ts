@@ -1,5 +1,5 @@
-import { UniswapV2AbstractProvider } from '../../common/uniswap-v2-abstract/uniswap-v2-abstract-provider';
-import { OmnidexTrade } from './omnidex-trade';
+import { UniswapV2AbstractProvider } from "../../common/uniswap-v2-abstract/uniswap-v2-abstract-provider";
+import { OmnidexTrade } from "./omnidex-trade";
 export declare class OmnidexProvider extends UniswapV2AbstractProvider<OmnidexTrade> {
     readonly blockchain: "TELOS";
     readonly UniswapV2TradeClass: typeof OmnidexTrade;

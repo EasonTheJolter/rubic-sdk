@@ -1,4 +1,4 @@
-import { SquidrouterEstimation } from './estimation-response';
+import { SquidrouterEstimation } from "./estimation-response";
 export interface SquirouterTransaction {
     readonly routeType: string;
     readonly targetAddress: string;

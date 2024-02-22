@@ -1,11 +1,11 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from '../../../../../common/errors';
-import { BlockchainName } from '../../../models/blockchain-name';
-import { EvmTransactionOptions } from './models/evm-transaction-options';
-import { Web3Error } from '../models/web3.error';
-import { Web3Private } from '../web3-private';
-import { EvmWeb3Pure } from '../../../web3-pure/typed-web3-pure/evm-web3-pure/evm-web3-pure';
-import { WalletProviderCore } from '../../../../sdk/models/wallet-provider';
+import { RubicSdkError } from "../../../../../common/errors";
+import { BlockchainName } from "../../../models/blockchain-name";
+import { EvmTransactionOptions } from "./models/evm-transaction-options";
+import { Web3Error } from "../models/web3.error";
+import { Web3Private } from "../web3-private";
+import { EvmWeb3Pure } from "../../../web3-pure/typed-web3-pure/evm-web3-pure/evm-web3-pure";
+import { WalletProviderCore } from "../../../../sdk/models/wallet-provider";
 import Web3 from 'web3';
 import { TransactionConfig } from 'web3-core';
 import { TransactionReceipt } from 'web3-eth';

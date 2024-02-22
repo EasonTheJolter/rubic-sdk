@@ -1,4 +1,4 @@
-import { XyQuoteRequest } from './xy-quote-request';
+import { XyQuoteRequest } from "./xy-quote-request";
 interface XyRoute extends XyQuoteRequest {
     srcSwapDescription: {
         provider: string;

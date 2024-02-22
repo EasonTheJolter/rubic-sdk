@@ -1,8 +1,8 @@
 import BigNumber from 'bignumber.js';
-import { TokenBaseStruct } from './models/token-base-struct';
-import { PriceToken, PriceTokenStruct } from './price-token';
-import { TokenStruct } from './token';
-import { BlockchainName } from '../../core/blockchain/models/blockchain-name';
+import { TokenBaseStruct } from "./models/token-base-struct";
+import { PriceToken, PriceTokenStruct } from "./price-token";
+import { TokenStruct } from "./token";
+import { BlockchainName } from "../../core/blockchain/models/blockchain-name";
 export type PriceTokenAmountStruct<T extends BlockchainName = BlockchainName> = PriceTokenStruct<T> & ({
     weiAmount: BigNumber;
 } | {

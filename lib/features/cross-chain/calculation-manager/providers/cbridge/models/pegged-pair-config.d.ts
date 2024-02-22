@@ -1,4 +1,4 @@
-import { CbridgeChainTokenInfo } from './cbridge-chain-token-info';
+import { CbridgeChainTokenInfo } from "./cbridge-chain-token-info";
 export interface PeggedPairConfig {
     readonly org_chain_id: string;
     readonly org_token: CbridgeChainTokenInfo;

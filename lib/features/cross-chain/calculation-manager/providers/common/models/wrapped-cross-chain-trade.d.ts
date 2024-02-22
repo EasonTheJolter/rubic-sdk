@@ -1,6 +1,6 @@
-import { RubicSdkError } from '../../../../../../common/errors';
-import { CrossChainTradeType } from '../../../models/cross-chain-trade-type';
-import { CrossChainTrade } from '../cross-chain-trade';
+import { RubicSdkError } from "../../../../../../common/errors";
+import { CrossChainTradeType } from "../../../models/cross-chain-trade-type";
+import { CrossChainTrade } from "../cross-chain-trade";
 export interface WrappedCrossChainTrade {
     /**
      * Calculated cross-chain trade.

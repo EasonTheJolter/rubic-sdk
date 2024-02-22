@@ -1,10 +1,10 @@
 import BigNumber from 'bignumber.js';
-import { PriceToken, PriceTokenAmount } from '../../../../../../../common/tokens';
-import { EvmBlockchainName } from '../../../../../../../core/blockchain/models/blockchain-name';
-import { OnChainCalculationOptions } from '../../../common/models/on-chain-calculation-options';
-import { OnChainTradeType } from '../../../common/models/on-chain-trade-type';
-import { EvmOnChainProvider } from '../on-chain-provider/evm-on-chain-provider/evm-on-chain-provider';
-import { OneinchTrade } from './oneinch-trade';
+import { PriceToken, PriceTokenAmount } from "../../../../../../../common/tokens";
+import { EvmBlockchainName } from "../../../../../../../core/blockchain/models/blockchain-name";
+import { OnChainCalculationOptions } from "../../../common/models/on-chain-calculation-options";
+import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
+import { EvmOnChainProvider } from "../on-chain-provider/evm-on-chain-provider/evm-on-chain-provider";
+import { OneinchTrade } from "./oneinch-trade";
 export declare abstract class OneinchAbstractProvider extends EvmOnChainProvider {
     private readonly defaultOptions;
     get type(): OnChainTradeType;

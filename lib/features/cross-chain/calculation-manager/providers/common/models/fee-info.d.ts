@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { PriceToken } from '../../../../../../common/tokens';
+import { PriceToken } from "../../../../../../common/tokens";
 /**
  * Transaction fee information.
  */

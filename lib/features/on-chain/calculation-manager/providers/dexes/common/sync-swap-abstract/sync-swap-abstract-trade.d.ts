@@ -1,10 +1,10 @@
 import BigNumber from 'bignumber.js';
-import { EvmEncodeConfig } from '../../../../../../../core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config';
-import { EncodeTransactionOptions } from '../../../../../../common/models/encode-transaction-options';
-import { OnChainTradeType } from '../../../common/models/on-chain-trade-type';
-import { EvmOnChainTrade } from '../../../common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
-import { EvmOnChainTradeStruct } from '../../../common/on-chain-trade/evm-on-chain-trade/models/evm-on-chain-trade-struct';
-import { BestPathsWithAmounts } from './utils/typings';
+import { EvmEncodeConfig } from "../../../../../../../core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config";
+import { EncodeTransactionOptions } from "../../../../../../common/models/encode-transaction-options";
+import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
+import { EvmOnChainTrade } from "../../../common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade";
+import { EvmOnChainTradeStruct } from "../../../common/on-chain-trade/evm-on-chain-trade/models/evm-on-chain-trade-struct";
+import { BestPathsWithAmounts } from "./utils/typings";
 export declare class SyncSwapAbstractTrade extends EvmOnChainTrade {
     readonly dexContractAddress: string;
     private readonly bestPathWithAmounts;

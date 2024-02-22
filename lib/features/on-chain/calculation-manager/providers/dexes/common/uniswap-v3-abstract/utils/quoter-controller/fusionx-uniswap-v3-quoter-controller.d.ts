@@ -1,11 +1,11 @@
-import { Token } from '../../../../../../../../../common/tokens';
-import { EvmBlockchainName } from '../../../../../../../../../core/blockchain/models/blockchain-name';
-import { MethodData } from '../../../../../../../../../core/blockchain/web3-public-service/web3-public/models/method-data';
-import { Exact } from '../../../../../common/on-chain-trade/evm-on-chain-trade/models/exact';
-import { UniswapV3Route } from '../../models/uniswap-v3-route';
-import { UniswapV3RouterConfiguration } from '../../models/uniswap-v3-router-configuration';
-import { FeeAmount, LiquidityPool } from './models/liquidity-pool';
-import { UniswapV3QuoterController } from './uniswap-v3-quoter-controller';
+import { Token } from "../../../../../../../../../common/tokens";
+import { EvmBlockchainName } from "../../../../../../../../../core/blockchain/models/blockchain-name";
+import { MethodData } from "../../../../../../../../../core/blockchain/web3-public-service/web3-public/models/method-data";
+import { Exact } from "../../../../../common/on-chain-trade/evm-on-chain-trade/models/exact";
+import { UniswapV3Route } from "../../models/uniswap-v3-route";
+import { UniswapV3RouterConfiguration } from "../../models/uniswap-v3-router-configuration";
+import { FeeAmount, LiquidityPool } from "./models/liquidity-pool";
+import { UniswapV3QuoterController } from "./uniswap-v3-quoter-controller";
 interface GetQuoterMethodsDataOptions {
     routesLiquidityPools: LiquidityPool[];
     from: Token;
