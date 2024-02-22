@@ -1,16 +1,16 @@
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount } from "../../../../../common/tokens";
-import { EvmBlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
-import { ContractParams } from "../../../../common/models/contract-params";
-import { SwapTransactionOptions } from "../../../../common/models/swap-transaction-options";
-import { EvmCrossChainTrade } from "../common/emv-cross-chain-trade/evm-cross-chain-trade";
-import { GasData } from "../common/emv-cross-chain-trade/models/gas-data";
-import { FeeInfo } from "../common/models/fee-info";
-import { GetContractParamsOptions } from "../common/models/get-contract-params-options";
-import { RubicStep } from "../common/models/rubicStep";
-import { TradeInfo } from "../common/models/trade-info";
-import { TransactionRequest } from "./models/transaction-request";
-import { EvmOnChainTrade } from "../../../../on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade";
+import { PriceTokenAmount } from 'src/common/tokens';
+import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { ContractParams } from 'src/features/common/models/contract-params';
+import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
+import { EvmCrossChainTrade } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/evm-cross-chain-trade';
+import { GasData } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/models/gas-data';
+import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
+import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
+import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
+import { TransactionRequest } from 'src/features/cross-chain/calculation-manager/providers/debridge-provider/models/transaction-request';
+import { EvmOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
 /**
  * Calculated DeBridge cross-chain trade.
  */
@@ -56,7 +56,7 @@ export declare class DebridgeCrossChainTrade extends EvmCrossChainTrade {
         maxTheoreticalAmount: BigNumber;
         cryptoFeeToken: PriceTokenAmount;
         onChainTrade: EvmOnChainTrade | null;
-    }, providerAddress: string, routePath: RubicStep[]);
+    }, providerAddress: string, routePath: PathrStep[]);
     protected swapDirect(options?: SwapTransactionOptions): Promise<string | never>;
     getContractParams(options: GetContractParamsOptions, skipAmountChangeCheck?: boolean): Promise<ContractParams>;
     private getTransactionRequest;

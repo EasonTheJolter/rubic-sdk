@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { InvalidAddressError, RubicSdkError, WrongNetworkError } from 'src/common/errors';
+import { InvalidAddressError, PathrSdkError, WrongNetworkError } from 'src/common/errors';
 import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
 import { TypedWeb3Pure } from 'src/core/blockchain/web3-pure/typed-web3-pure/typed-web3-pure';
 
@@ -17,7 +17,7 @@ export abstract class Web3Private {
     public static stringifyAmount(amount: number | string | BigNumber, multiplier = 1): string {
         const bnAmount = new BigNumber(amount);
         if (!bnAmount.isInteger()) {
-            throw new RubicSdkError(`Value ${amount} is not integer`);
+            throw new PathrSdkError(`Value ${amount} is not integer`);
         }
 
         return bnAmount.multipliedBy(multiplier).toFixed(0);

@@ -17,6 +17,6 @@ export class OnChainStatusManager {
             };
         }
 
-        return getBridgersTradeStatus(srcTxHash, BLOCKCHAIN_NAME.TRON, 'rubic_widget');
+        return getBridgersTradeStatus(srcTxHash, BLOCKCHAIN_NAME.TRON, 'pathr_widget');
     }
 }

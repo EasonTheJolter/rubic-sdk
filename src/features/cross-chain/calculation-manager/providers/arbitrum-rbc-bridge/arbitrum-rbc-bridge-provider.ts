@@ -14,7 +14,7 @@ import { CbridgeCrossChainSupportedBlockchain } from 'src/features/cross-chain/c
 import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-provider';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 
 export class ArbitrumRbcBridgeProvider extends CrossChainProvider {
     public readonly type = CROSS_CHAIN_TRADE_TYPE.ARBITRUM;
@@ -88,11 +88,11 @@ export class ArbitrumRbcBridgeProvider extends CrossChainProvider {
                 tradeType: this.type
             };
         } catch (err) {
-            const rubicSdkError = CrossChainProvider.parseError(err);
+            const pathrSdkError = CrossChainProvider.parseError(err);
 
             return {
                 trade: null,
-                error: rubicSdkError,
+                error: pathrSdkError,
                 tradeType: this.type
             };
         }
@@ -110,7 +110,7 @@ export class ArbitrumRbcBridgeProvider extends CrossChainProvider {
     protected async getRoutePath(
         fromToken: PriceTokenAmount,
         toToken: PriceTokenAmount
-    ): Promise<RubicStep[]> {
+    ): Promise<PathrStep[]> {
         return [{ type: 'cross-chain', provider: this.type, path: [fromToken, toToken] }];
     }
 }

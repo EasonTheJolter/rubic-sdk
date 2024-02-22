@@ -1,6 +1,6 @@
-import { RubicSdkError } from 'src/common/errors/rubic-sdk.error';
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 
 /**
  * Thrown, when toSlippage tolerance is too low to calculate Celer trade.
  */
-export class LowToSlippageError extends RubicSdkError {}
+export class LowToSlippageError extends PathrSdkError {}

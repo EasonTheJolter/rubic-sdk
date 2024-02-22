@@ -10,7 +10,7 @@ import { TronBridgersTransactionData } from 'src/features/cross-chain/calculatio
 import { getMethodArgumentsAndTransactionData } from 'src/features/cross-chain/calculation-manager/providers/bridgers-provider/utils/get-method-arguments-and-transaction-data';
 import { BRIDGE_TYPE } from 'src/features/cross-chain/calculation-manager/providers/common/models/bridge-type';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
 import { tronCommonCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/tron-cross-chain-trade/constants/tron-common-cross-chain-abi';
 import { tronNativeSwapAbi } from 'src/features/cross-chain/calculation-manager/providers/common/tron-cross-chain-trade/constants/tron-native-swap-abi';
@@ -43,7 +43,7 @@ export class TronBridgersCrossChainTrade extends TronCrossChainTrade {
     private readonly contractAddress: string;
 
     protected get fromContractAddress(): string {
-        // return rubicProxyContractAddress[this.from.blockchain];
+        // return pathrProxyContractAddress[this.from.blockchain];
         return this.contractAddress;
     }
 
@@ -61,7 +61,7 @@ export class TronBridgersCrossChainTrade extends TronCrossChainTrade {
             contractAddress: string;
         },
         providerAddress: string,
-        routePath: RubicStep[]
+        routePath: PathrStep[]
     ) {
         super(providerAddress, routePath);
 
@@ -100,7 +100,7 @@ export class TronBridgersCrossChainTrade extends TronCrossChainTrade {
         try {
             const fromWithoutFee = getFromWithoutFee(
                 this.from,
-                this.feeInfo.rubicProxy?.platformFee?.percent
+                this.feeInfo.pathrProxy?.platformFee?.percent
             );
 
             const { transactionData } =
@@ -137,7 +137,7 @@ export class TronBridgersCrossChainTrade extends TronCrossChainTrade {
     ): Promise<TronContractParams> {
         const fromWithoutFee = getFromWithoutFee(
             this.from,
-            this.feeInfo.rubicProxy?.platformFee?.percent
+            this.feeInfo.pathrProxy?.platformFee?.percent
         );
         const { methodArguments, transactionData } =
             await getMethodArgumentsAndTransactionData<TronBridgersTransactionData>(

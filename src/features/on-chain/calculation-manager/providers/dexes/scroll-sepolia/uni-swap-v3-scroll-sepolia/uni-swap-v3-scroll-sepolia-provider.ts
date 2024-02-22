@@ -1,4 +1,4 @@
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { Token } from 'src/common/tokens';
 import { compareAddresses } from 'src/common/utils/blockchain';
 import { BLOCKCHAIN_NAME } from 'src/core/blockchain/models/blockchain-name';
@@ -63,7 +63,7 @@ export class UniSwapV3ScrollSepoliaProvider extends UniswapV3AlgebraAbstractProv
     private extractPath(route: UniswapV3Route): ReadonlyArray<Token> {
         const initialPool = route.poolsPath[0];
         if (!initialPool) {
-            throw new RubicSdkError('Initial pool has to be defined');
+            throw new PathrSdkError('Initial pool has to be defined');
         }
         const path: Token[] = [
             compareAddresses(initialPool.token0.address, route.initialTokenAddress)
@@ -73,7 +73,7 @@ export class UniSwapV3ScrollSepoliaProvider extends UniswapV3AlgebraAbstractProv
 
         const lastToken = path[path.length - 1];
         if (!lastToken) {
-            throw new RubicSdkError('Last token has to be defined');
+            throw new PathrSdkError('Last token has to be defined');
         }
 
         route.poolsPath.forEach(pool => {

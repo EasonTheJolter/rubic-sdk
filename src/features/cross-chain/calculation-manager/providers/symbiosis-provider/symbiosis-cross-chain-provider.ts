@@ -3,10 +3,10 @@ import {
     MaxAmountError,
     MinAmountError,
     NotSupportedTokensError,
-    RubicSdkError,
+    PathrSdkError,
     TooLowAmountError
 } from 'src/common/errors';
-import { PriceToken, PriceTokenAmount, TokenAmount as RubicTokenAmount } from 'src/common/tokens';
+import { PriceToken, PriceTokenAmount, TokenAmount as PathrTokenAmount } from 'src/common/tokens';
 import { TokenStruct } from 'src/common/tokens/token';
 import {
     BLOCKCHAIN_NAME,
@@ -23,7 +23,7 @@ import { CROSS_CHAIN_TRADE_TYPE } from 'src/features/cross-chain/calculation-man
 import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-provider';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
 import {
     SymbiosisCrossChainSupportedBlockchain,
@@ -99,7 +99,7 @@ export class SymbiosisCrossChainProvider extends CrossChainProvider {
             );
             const fromWithoutFee = getFromWithoutFee(
                 from,
-                feeInfo.rubicProxy?.platformFee?.percent
+                feeInfo.pathrProxy?.platformFee?.percent
             );
 
             const tokenIn: SymbiosisToken = {
@@ -141,7 +141,7 @@ export class SymbiosisCrossChainProvider extends CrossChainProvider {
 
             const { tokenAmountOut, inTradeType, outTradeType, tx, approveTo, route } =
                 await Injector.httpClient.post<SymbiosisTradeData>(
-                    `${SymbiosisCrossChainTrade.symbiosisApi}/swapping/exact_in?partnerId=rubic`,
+                    `${SymbiosisCrossChainTrade.symbiosisApi}/swapping/exact_in?partnerId=pathr`,
                     swapParams
                 );
 
@@ -188,29 +188,29 @@ export class SymbiosisCrossChainProvider extends CrossChainProvider {
                 tradeType: this.type
             };
         } catch (err: unknown) {
-            let rubicSdkError = CrossChainProvider.parseError(err);
+            let pathrSdkError = CrossChainProvider.parseError(err);
             const symbiosisMessage = (err as { error: SymbiosisError })?.error?.message;
 
             if (symbiosisMessage?.includes('$') || symbiosisMessage?.includes('Min amount')) {
                 const symbiosisError = (err as { error: SymbiosisError }).error;
-                rubicSdkError =
+                pathrSdkError =
                     symbiosisError.code === errorCode.AMOUNT_LESS_THAN_FEE ||
                     symbiosisError.code === 400
                         ? new TooLowAmountError()
                         : await this.checkMinMaxErrors(symbiosisError);
             } else if (symbiosisMessage) {
-                rubicSdkError = new RubicSdkError(symbiosisMessage);
+                pathrSdkError = new PathrSdkError(symbiosisMessage);
             }
 
             return {
                 trade: null,
-                error: rubicSdkError,
+                error: pathrSdkError,
                 tradeType: this.type
             };
         }
     }
 
-    private async checkMinMaxErrors(err: SymbiosisError): Promise<RubicSdkError> {
+    private async checkMinMaxErrors(err: SymbiosisError): Promise<PathrSdkError> {
         if (err.code === errorCode.AMOUNT_TOO_LOW) {
             const index = err.message!.lastIndexOf('$');
             const transitTokenAmount = new BigNumber(err.message!.substring(index + 1));
@@ -223,7 +223,7 @@ export class SymbiosisCrossChainProvider extends CrossChainProvider {
             return new MaxAmountError(transitTokenAmount, 'USDC');
         }
 
-        return new RubicSdkError(err.message);
+        return new PathrSdkError(err.message);
     }
 
     protected async getFeeInfo(
@@ -263,7 +263,7 @@ export class SymbiosisCrossChainProvider extends CrossChainProvider {
         fromToken: PriceTokenAmount,
         toToken: PriceTokenAmount,
         route: SymbiosisToken[]
-    ): Promise<RubicStep[]> {
+    ): Promise<PathrStep[]> {
         const fromChainId = blockchainId[fromToken.blockchain];
         const toChainId = blockchainId[toToken.blockchain];
 
@@ -271,7 +271,7 @@ export class SymbiosisCrossChainProvider extends CrossChainProvider {
         const transitTo = route.find(el => el.chainId === toChainId);
 
         const fromTokenAmount = transitFrom
-            ? await RubicTokenAmount.createToken({
+            ? await PathrTokenAmount.createToken({
                   blockchain: fromToken.blockchain,
                   address: transitFrom.address,
                   weiAmount: new BigNumber(0)
@@ -279,14 +279,14 @@ export class SymbiosisCrossChainProvider extends CrossChainProvider {
             : fromToken;
 
         const toTokenAmount = transitTo
-            ? await RubicTokenAmount.createToken({
+            ? await PathrTokenAmount.createToken({
                   blockchain: toToken.blockchain,
                   address: transitTo.address,
                   weiAmount: new BigNumber(0)
               })
             : toToken;
 
-        const routePath: RubicStep[] = [];
+        const routePath: PathrStep[] = [];
 
         if (transitFrom) {
             routePath.push({

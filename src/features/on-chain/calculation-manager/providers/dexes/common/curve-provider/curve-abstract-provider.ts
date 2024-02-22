@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount } from 'src/common/tokens';
 import { compareAddresses } from 'src/common/utils/blockchain';
 import { combineOptions } from 'src/common/utils/options';
@@ -77,7 +77,7 @@ export abstract class CurveAbstractProvider<
         }
 
         if (compareAddresses(poolAddress, EvmWeb3Pure.EMPTY_ADDRESS)) {
-            throw new RubicSdkError('Token is not supported.');
+            throw new PathrSdkError('Token is not supported.');
         }
 
         const amountOut = await this.fetchExchangeAmount(

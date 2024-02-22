@@ -14,4 +14,4 @@ interface OnChainStep {
     type: 'on-chain';
 }
 
-export type RubicStep = CrossChainStep | OnChainStep;
+export type PathrStep = CrossChainStep | OnChainStep;

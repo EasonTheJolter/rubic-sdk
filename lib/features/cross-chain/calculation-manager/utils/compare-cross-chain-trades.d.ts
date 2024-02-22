@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { WrappedCrossChainTradeOrNull } from "../models/wrapped-cross-chain-trade-or-null";
+import { WrappedCrossChainTradeOrNull } from 'src/features/cross-chain/calculation-manager/models/wrapped-cross-chain-trade-or-null';
 /**
  * Compares two cross chain trades for sorting algorithm.
  */

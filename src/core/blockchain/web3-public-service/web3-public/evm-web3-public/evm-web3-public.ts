@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError, TimeoutError } from 'src/common/errors';
+import { PathrSdkError, TimeoutError } from 'src/common/errors';
 import pTimeout from 'src/common/utils/p-timeout';
 import {
     HEALTHCHECK,
@@ -142,7 +142,7 @@ export class EvmWeb3Public extends Web3Public {
                         )!.outputs!;
                         const output = outputs[outputIndex];
                         if (!output) {
-                            throw new RubicSdkError('Output has to be defined');
+                            throw new PathrSdkError('Output has to be defined');
                         }
 
                         outputIndex++;

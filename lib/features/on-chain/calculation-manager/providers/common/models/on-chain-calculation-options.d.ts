@@ -1,4 +1,4 @@
-import { IsDeflationToken } from "../../../../../deflation-token-manager/models/is-deflation-token";
+import { IsDeflationToken } from 'src/features/deflation-token-manager/models/is-deflation-token';
 import { MarkRequired } from 'ts-essentials';
 /**
  * Stores options for calculating trade.
@@ -14,10 +14,10 @@ export interface OnChainCalculationOptions {
     readonly deadlineMinutes?: number;
     /**
      * Disabled or enables gas fee calculation.
-     * `rubicOptimisation` options means, that gas fee is converted into usd
+     * `pathrOptimisation` options means, that gas fee is converted into usd
      * and subtracted from output token amount, also converted in usd.
      */
-    readonly gasCalculation?: 'disabled' | 'calculate' | 'rubicOptimisation';
+    readonly gasCalculation?: 'disabled' | 'calculate' | 'pathrOptimisation';
     /**
      * If true, then only direct token pairs can be used in calculation.
      */
@@ -45,7 +45,7 @@ export interface OnChainCalculationOptions {
     readonly useProxy?: boolean;
     /**
      * @internal
-     * True, if trade must be swapped through rubic proxy contract.
+     * True, if trade must be swapped through pathr proxy contract.
      * False, if trade must be swapped through dex directly.
      * Default is false.
      */

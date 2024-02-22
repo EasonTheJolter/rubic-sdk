@@ -1,10 +1,10 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from "../rubic-sdk.error";
-import { Token } from "../../tokens";
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
+import { Token } from 'src/common/tokens';
 /**
  * Thrown, when user doesn't have enough balance.
  */
-export declare class InsufficientFundsError extends RubicSdkError {
+export declare class InsufficientFundsError extends PathrSdkError {
     readonly token: Token;
     readonly balance: BigNumber;
     readonly requiredBalance: BigNumber;

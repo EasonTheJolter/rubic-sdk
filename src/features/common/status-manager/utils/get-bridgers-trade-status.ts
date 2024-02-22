@@ -15,7 +15,7 @@ import { BridgersCrossChainSupportedBlockchain } from 'src/features/cross-chain/
 export async function getBridgersTradeStatus(
     srcTxHash: string,
     fromBlockchain: BridgersCrossChainSupportedBlockchain,
-    sourceFlag: 'rubic' | 'rubic_widget',
+    sourceFlag: 'pathr' | 'pathr_widget',
     amountOutMin?: string
 ): Promise<TxStatusData> {
     try {

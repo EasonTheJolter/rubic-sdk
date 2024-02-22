@@ -1,11 +1,11 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, Token } from 'src/common/tokens';
 import { nativeTokensList } from 'src/common/tokens/constants/native-tokens';
 import { combineOptions } from 'src/common/utils/options';
 import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
 import { createTokenNativeAddressProxy } from 'src/features/common/utils/token-native-address-proxy';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { OnChainCalculationOptions } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-calculation-options';
 import {
     ON_CHAIN_TRADE_TYPE,
@@ -66,7 +66,7 @@ export abstract class OneinchAbstractProvider extends EvmOnChainProvider {
     ): Promise<OneinchTrade> {
         const fromAddress =
             options?.useProxy || this.defaultOptions.useProxy
-                ? rubicProxyContractAddress[from.blockchain].gateway
+                ? pathrProxyContractAddress[from.blockchain].gateway
                 : this.walletAddress;
         const fullOptions = combineOptions(options, {
             ...this.defaultOptions,
@@ -202,7 +202,7 @@ export abstract class OneinchAbstractProvider extends EvmOnChainProvider {
                 quoteTradeParams
             );
             if (oneInchTrade.hasOwnProperty('errors') || !oneInchTrade.toAmount) {
-                throw new RubicSdkError('1inch quote error');
+                throw new PathrSdkError('1inch quote error');
             }
 
             estimatedGas = new BigNumber(oneInchTrade.gas);
@@ -227,7 +227,7 @@ export abstract class OneinchAbstractProvider extends EvmOnChainProvider {
     ): Promise<Token[]> {
         const addressesPath = oneInchTrade.protocols[0].map(protocol => {
             if (!protocol?.[0]) {
-                throw new RubicSdkError('Protocol array must not be empty');
+                throw new PathrSdkError('Protocol array must not be empty');
             }
             return protocol[0].toTokenAddress;
         });
@@ -245,7 +245,7 @@ export abstract class OneinchAbstractProvider extends EvmOnChainProvider {
 
             const token = tokensPathWithoutNative[tokensPathWithoutNativeIndex];
             if (!token) {
-                throw new RubicSdkError('Token has to be defined');
+                throw new PathrSdkError('Token has to be defined');
             }
 
             tokensPathWithoutNativeIndex++;

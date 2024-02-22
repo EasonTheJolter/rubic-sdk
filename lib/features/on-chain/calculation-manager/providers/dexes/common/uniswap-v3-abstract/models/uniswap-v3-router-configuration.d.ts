@@ -1,4 +1,4 @@
-import { FeeAmount } from "../utils/quoter-controller/models/liquidity-pool";
+import { FeeAmount } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v3-abstract/utils/quoter-controller/models/liquidity-pool';
 export interface UniswapV3RouterLiquidityPool<TokenSymbol extends string> {
     poolAddress: string;
     tokenSymbolA: TokenSymbol;

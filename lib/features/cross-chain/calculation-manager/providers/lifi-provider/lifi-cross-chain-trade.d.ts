@@ -1,17 +1,17 @@
 import { Route } from '@lifi/sdk';
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount } from "../../../../../common/tokens";
-import { EvmBlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
-import { ContractParams } from "../../../../common/models/contract-params";
-import { SwapTransactionOptions } from "../../../../common/models/swap-transaction-options";
-import { EvmCrossChainTrade } from "../common/emv-cross-chain-trade/evm-cross-chain-trade";
-import { GasData } from "../common/emv-cross-chain-trade/models/gas-data";
-import { BridgeType } from "../common/models/bridge-type";
-import { FeeInfo } from "../common/models/fee-info";
-import { GetContractParamsOptions } from "../common/models/get-contract-params-options";
-import { OnChainSubtype } from "../common/models/on-chain-subtype";
-import { RubicStep } from "../common/models/rubicStep";
-import { TradeInfo } from "../common/models/trade-info";
+import { PriceTokenAmount } from 'src/common/tokens';
+import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { ContractParams } from 'src/features/common/models/contract-params';
+import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
+import { EvmCrossChainTrade } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/evm-cross-chain-trade';
+import { GasData } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/models/gas-data';
+import { BridgeType } from 'src/features/cross-chain/calculation-manager/providers/common/models/bridge-type';
+import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
+import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
+import { OnChainSubtype } from 'src/features/cross-chain/calculation-manager/providers/common/models/on-chain-subtype';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
+import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
 /**
  * Calculated Celer cross-chain trade.
  */
@@ -45,7 +45,7 @@ export declare class LifiCrossChainTrade extends EvmCrossChainTrade {
         onChainSubtype: OnChainSubtype;
         bridgeType: BridgeType;
         slippage: number;
-    }, providerAddress: string, routePath: RubicStep[]);
+    }, providerAddress: string, routePath: PathrStep[]);
     protected swapDirect(options?: SwapTransactionOptions): Promise<string | never>;
     getContractParams(options: GetContractParamsOptions, skipAmountChangeCheck?: boolean): Promise<ContractParams>;
     private fetchSwapData;

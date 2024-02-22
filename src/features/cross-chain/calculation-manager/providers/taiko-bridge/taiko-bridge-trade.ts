@@ -12,7 +12,7 @@ import { EvmCrossChainTrade } from 'src/features/cross-chain/calculation-manager
 import { GasData } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/models/gas-data';
 import { BRIDGE_TYPE } from 'src/features/cross-chain/calculation-manager/providers/common/models/bridge-type';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
 
 import { convertGasDataToBN } from '../../utils/convert-gas-price';
@@ -120,7 +120,7 @@ export class TaikoBridgeTrade extends EvmCrossChainTrade {
             gasData: GasData | null;
         },
         providerAddress: string,
-        routePath: RubicStep[]
+        routePath: PathrStep[]
     ) {
         super(providerAddress, routePath);
 

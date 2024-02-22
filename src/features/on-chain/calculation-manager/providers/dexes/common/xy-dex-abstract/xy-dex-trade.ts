@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceTokenAmount } from 'src/common/tokens';
 import { parseError } from 'src/common/utils/errors';
 import { blockchainId } from 'src/core/blockchain/utils/blockchains-info/constants/blockchain-id';
@@ -59,7 +59,7 @@ export class XyDexTrade extends EvmOnChainTrade {
             EvmWeb3Pure.EMPTY_ADDRESS
         ).needApprove(fromAddress);
         if (needApprove) {
-            throw new RubicSdkError('Approve is needed');
+            throw new PathrSdkError('Approve is needed');
         }
     }
 

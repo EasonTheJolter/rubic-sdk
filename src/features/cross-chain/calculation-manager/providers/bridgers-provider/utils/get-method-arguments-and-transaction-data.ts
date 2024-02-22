@@ -49,7 +49,7 @@ export async function getMethodArgumentsAndTransactionData<
         fromTokenAmount: fromWithoutFee.stringWeiAmount,
         amountOutMin,
         equipmentNo: fromAddress.slice(0, 32),
-        sourceFlag: 'rubic'
+        sourceFlag: 'pathr'
     };
 
     const swapData = await Injector.httpClient.post<BridgersSwapResponse<T>>(

@@ -71,7 +71,7 @@ export class BridgersTrade extends TronOnChainTrade {
         this.cryptoFeeToken = tradeStruct.cryptoFeeToken;
         this.platformFee = tradeStruct.platformFee;
         this.feeInfo = {
-            rubicProxy: {
+            pathrProxy: {
                 platformFee: {
                     percent: tradeStruct.platformFee.percent,
                     token: tradeStruct.platformFee.token
@@ -151,7 +151,7 @@ export class BridgersTrade extends TronOnChainTrade {
             fromTokenAmount: this.from.stringWeiAmount,
             amountOutMin,
             equipmentNo: fromAddress.slice(0, 32),
-            sourceFlag: 'rubic_widget'
+            sourceFlag: 'pathr_widget'
         };
 
         const swapData = await Injector.httpClient.post<

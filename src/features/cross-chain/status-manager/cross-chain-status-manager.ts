@@ -6,7 +6,7 @@ import {
     L2TransactionReceipt
 } from '@arbitrum/sdk';
 import { JsonRpcProvider } from '@ethersproject/providers';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import {
     BLOCKCHAIN_NAME,
     TEST_EVM_BLOCKCHAIN_NAME
@@ -153,7 +153,7 @@ export class CrossChainStatusManager {
 
         const getDstTxStatusFn = this.getDstTxStatusFnMap[tradeType];
         if (!getDstTxStatusFn) {
-            throw new RubicSdkError('Unsupported cross chain provider');
+            throw new PathrSdkError('Unsupported cross chain provider');
         }
 
         return getDstTxStatusFn.call(this, tradeData);
@@ -386,12 +386,12 @@ export class CrossChainStatusManager {
      */
     private getBridgersDstSwapStatus(data: CrossChainTradeData): Promise<TxStatusData> {
         if (!data.amountOutMin) {
-            throw new RubicSdkError('field amountOutMin is not set.');
+            throw new PathrSdkError('field amountOutMin is not set.');
         }
         return getBridgersTradeStatus(
             data.srcTxHash,
             data.fromBlockchain as BridgersCrossChainSupportedBlockchain,
-            'rubic',
+            'pathr',
             data.amountOutMin
         );
     }
@@ -520,7 +520,7 @@ export class CrossChainStatusManager {
 
     private async getChangenowDstSwapStatus(data: CrossChainTradeData): Promise<TxStatusData> {
         if (!data.changenowId) {
-            throw new RubicSdkError('Must provide changenow trade id');
+            throw new PathrSdkError('Must provide changenow trade id');
         }
         try {
             const { status, payoutHash } = await this.httpClient.get<ChangenowApiResponse>(
@@ -614,7 +614,7 @@ export class CrossChainStatusManager {
         try {
             const { status, toChain } = await this.httpClient.get<SquidrouterApiResponse>(
                 `${SquidrouterCrossChainProvider.apiEndpoint}status?transactionId=${data.srcTxHash}`,
-                { headers: { 'x-integrator-id': 'rubic-api' } }
+                { headers: { 'x-integrator-id': 'pathr-api' } }
             );
 
             if (
@@ -652,17 +652,17 @@ export class CrossChainStatusManager {
 
     public async getTaikoBridgeDstSwapStatus(data: CrossChainTradeData): Promise<TxStatusData> {
         if (!data.taikoTransactionId) {
-            throw new RubicSdkError('Must provide Taiko transaction ID');
+            throw new PathrSdkError('Must provide Taiko transaction ID');
         }
         if (!data.sender) {
-            throw new RubicSdkError('Must specify sender account');
+            throw new PathrSdkError('Must specify sender account');
         }
         const { items } = await Injector.httpClient.get<TaikoApiResponse>(
             `https://relayer.jolnir.taiko.xyz/events?address=${data.sender}&msgHash=${data.taikoTransactionId}&event=MessageSent`
         );
 
         if (!items[0]) {
-            throw new RubicSdkError('Taiko Relayer did not find transaction with such ID');
+            throw new PathrSdkError('Taiko Relayer did not find transaction with such ID');
         }
 
         const { status, data: taikoData } = items[0];

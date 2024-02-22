@@ -38,7 +38,7 @@ import { ChangenowTrade } from 'src/features/cross-chain/calculation-manager/pro
 import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-provider';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
 import { typedTradeProviders } from 'src/features/on-chain/calculation-manager/constants/trade-providers/typed-trade-providers';
 import { EvmOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
@@ -103,7 +103,7 @@ export class ChangenowCrossChainProvider extends CrossChainProvider {
             from,
             useProxy
         );
-        const fromWithoutFee = getFromWithoutFee(from, feeInfo.rubicProxy?.platformFee?.percent);
+        const fromWithoutFee = getFromWithoutFee(from, feeInfo.pathrProxy?.platformFee?.percent);
 
         let onChainTrade: EvmOnChainTrade | null = null;
         let transitMinAmount = fromWithoutFee.tokenAmount;
@@ -391,7 +391,7 @@ export class ChangenowCrossChainProvider extends CrossChainProvider {
     protected async getRoutePath(
         from: PriceTokenAmount,
         to: PriceTokenAmount
-    ): Promise<RubicStep[]> {
+    ): Promise<PathrStep[]> {
         return [
             {
                 type: 'cross-chain',

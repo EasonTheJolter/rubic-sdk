@@ -1,8 +1,8 @@
-import { RubicSdkError } from "../rubic-sdk.error";
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 /**
  * Thrown, via provider is not whitelisted in .
  */
-export declare class NotWhitelistedProviderError extends RubicSdkError {
+export declare class NotWhitelistedProviderError extends PathrSdkError {
     readonly providerRouter: string;
     readonly providerGateway?: string | undefined;
     readonly cause?: string | undefined;

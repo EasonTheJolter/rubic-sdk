@@ -1,2 +1,2 @@
-import { RequiredCrossChainManagerCalculationOptions } from "../models/cross-chain-manager-options";
+import { RequiredCrossChainManagerCalculationOptions } from 'src/features/cross-chain/calculation-manager/models/cross-chain-manager-options';
 export declare const defaultCrossChainCalculationOptions: Omit<RequiredCrossChainManagerCalculationOptions, 'providerAddress'>;

@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { InsufficientFundsError, RubicSdkError } from 'src/common/errors';
+import { InsufficientFundsError, PathrSdkError } from 'src/common/errors';
 import { Token } from 'src/common/tokens';
 import { nativeTokensList } from 'src/common/tokens/constants/native-tokens';
 import { Cache } from 'src/common/utils/decorators';
@@ -162,7 +162,7 @@ export abstract class Web3Public {
             const tokenAddress = tokenAddresses[tokenIndex]!;
             return tokenFieldsResults.reduce((acc, field, fieldIndex) => {
                 if (!field.success) {
-                    throw new RubicSdkError(`Cannot retrieve information about ${tokenAddress}`);
+                    throw new PathrSdkError(`Cannot retrieve information about ${tokenAddress}`);
                 }
                 return {
                     ...acc,
@@ -238,7 +238,7 @@ export abstract class Web3Public {
             }
         ]);
         if (!results?.[0]) {
-            throw new RubicSdkError('Cant perform multicall or request data is empty');
+            throw new PathrSdkError('Cant perform multicall or request data is empty');
         }
         return results[0];
     }

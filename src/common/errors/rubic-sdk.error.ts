@@ -1,9 +1,9 @@
 /**
  * Base class for all errors that can be thrown in sdk.
  */
-export class RubicSdkError extends Error {
+export class PathrSdkError extends Error {
     constructor(message?: string, errorPotions?: ErrorOptions) {
         super(message, errorPotions);
-        Object.setPrototypeOf(this, RubicSdkError.prototype);
+        Object.setPrototypeOf(this, PathrSdkError.prototype);
     }
 }

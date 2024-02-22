@@ -1,8 +1,8 @@
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 
-export function parseError(err: unknown, defaultMessage?: string): RubicSdkError {
-    if (err instanceof RubicSdkError) {
+export function parseError(err: unknown, defaultMessage?: string): PathrSdkError {
+    if (err instanceof PathrSdkError) {
         return err;
     }
-    return new RubicSdkError((err as Error)?.message || defaultMessage || 'Unknown error');
+    return new PathrSdkError((err as Error)?.message || defaultMessage || 'Unknown error');
 }

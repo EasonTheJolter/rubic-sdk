@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { Token } from 'src/common/tokens';
 import { compareAddresses } from 'src/common/utils/blockchain';
 import { Cache } from 'src/common/utils/decorators/cache-decorator/cache.decorator';
@@ -234,7 +234,7 @@ export class UniswapV3QuoterController extends UniswapV3AlgebraQuoterController 
             .map((poolAddress, index) => {
                 const poolMethodArguments = getPoolsMethodArguments?.[index];
                 if (!poolMethodArguments) {
-                    throw new RubicSdkError('Method arguments array for pool has to be defined');
+                    throw new PathrSdkError('Method arguments array for pool has to be defined');
                 }
                 if (!EvmWeb3Pure.isEmptyAddress(poolAddress)) {
                     return new LiquidityPool(
@@ -289,7 +289,7 @@ export class UniswapV3QuoterController extends UniswapV3AlgebraQuoterController 
                     .map((result, index) => {
                         const pool = quoterMethodsData?.[index];
                         if (!pool) {
-                            throw new RubicSdkError('Pool has to be defined');
+                            throw new PathrSdkError('Pool has to be defined');
                         }
                         if (result.success) {
                             return {

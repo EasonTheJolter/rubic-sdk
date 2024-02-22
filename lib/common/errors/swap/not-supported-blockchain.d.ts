@@ -1,8 +1,8 @@
-import { RubicSdkError } from "../rubic-sdk.error";
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 /**
  * @internal
  * Thrown, when provider does not support provided blockchain.
  */
-export declare class NotSupportedBlockchain extends RubicSdkError {
+export declare class NotSupportedBlockchain extends PathrSdkError {
     constructor();
 }

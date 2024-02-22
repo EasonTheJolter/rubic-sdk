@@ -38,12 +38,12 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                     },
                     {
                         internalType: 'uint32',
-                        name: 'RubicTokenShare',
+                        name: 'PathrTokenShare',
                         type: 'uint32'
                     },
                     {
                         internalType: 'uint32',
-                        name: 'RubicFixedCryptoShare',
+                        name: 'PathrFixedCryptoShare',
                         type: 'uint32'
                     },
                     {
@@ -62,11 +62,11 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
     },
     {
         inputs: [],
-        name: 'RubicPlatformFee',
+        name: 'PathrPlatformFee',
         outputs: [
             {
                 internalType: 'uint256',
-                name: '_RubicPlatformFee',
+                name: '_PathrPlatformFee',
                 type: 'uint256'
             }
         ],
@@ -138,7 +138,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                         type: 'bool'
                     }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -212,7 +212,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                     { internalType: 'bool', name: 'hasSourceSwaps', type: 'bool' },
                     { internalType: 'bool', name: 'hasDestinationCall', type: 'bool' }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -268,7 +268,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                     { internalType: 'bool', name: 'hasSourceSwaps', type: 'bool' },
                     { internalType: 'bool', name: 'hasDestinationCall', type: 'bool' }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -335,7 +335,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                     { internalType: 'bool', name: 'hasSourceSwaps', type: 'bool' },
                     { internalType: 'bool', name: 'hasDestinationCall', type: 'bool' }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -443,7 +443,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                         type: 'bool'
                     }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -602,7 +602,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                         type: 'bool'
                     }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -671,7 +671,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                     { internalType: 'bool', name: 'hasSourceSwaps', type: 'bool' },
                     { internalType: 'bool', name: 'hasDestinationCall', type: 'bool' }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -712,7 +712,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                     { internalType: 'bool', name: 'hasSourceSwaps', type: 'bool' },
                     { internalType: 'bool', name: 'hasDestinationCall', type: 'bool' }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -822,7 +822,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                         type: 'bool'
                     }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -924,7 +924,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                         type: 'bool'
                     }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -1054,7 +1054,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                     { internalType: 'bool', name: 'hasSourceSwaps', type: 'bool' },
                     { internalType: 'bool', name: 'hasDestinationCall', type: 'bool' }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },
@@ -1089,7 +1089,7 @@ export const evmCommonCrossChainAbi: AbiItem[] = [
                     { internalType: 'bool', name: 'hasSourceSwaps', type: 'bool' },
                     { internalType: 'bool', name: 'hasDestinationCall', type: 'bool' }
                 ],
-                internalType: 'struct IRubic.BridgeData',
+                internalType: 'struct IPathr.BridgeData',
                 name: '_bridgeData',
                 type: 'tuple'
             },

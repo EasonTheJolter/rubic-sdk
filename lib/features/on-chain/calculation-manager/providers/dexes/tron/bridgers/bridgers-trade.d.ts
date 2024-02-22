@@ -1,12 +1,12 @@
-import { PriceTokenAmount, Token, TokenAmount } from "../../../../../../../common/tokens";
-import { TronBlockchainName } from "../../../../../../../core/blockchain/models/blockchain-name";
-import { TronTransactionConfig } from "../../../../../../../core/blockchain/web3-pure/typed-web3-pure/tron-web3-pure/models/tron-transaction-config";
-import { EncodeTransactionOptions } from "../../../../../../common/models/encode-transaction-options";
-import { SwapTransactionOptions } from "../../../../../../common/models/swap-transaction-options";
-import { FeeInfo } from "../../../../../../cross-chain/calculation-manager/providers/common/models/fee-info";
-import { OnChainPlatformFee } from "../../../common/models/on-chain-proxy-fee-info";
-import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
-import { TronOnChainTrade } from "../../../common/on-chain-trade/tron-on-chain-trade/tron-on-chain-trade";
+import { PriceTokenAmount, Token, TokenAmount } from 'src/common/tokens';
+import { TronBlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { TronTransactionConfig } from 'src/core/blockchain/web3-pure/typed-web3-pure/tron-web3-pure/models/tron-transaction-config';
+import { EncodeTransactionOptions } from 'src/features/common/models/encode-transaction-options';
+import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
+import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
+import { OnChainPlatformFee } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-proxy-fee-info';
+import { OnChainTradeType } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-trade-type';
+import { TronOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/tron-on-chain-trade/tron-on-chain-trade';
 export declare class BridgersTrade extends TronOnChainTrade {
     readonly from: PriceTokenAmount<TronBlockchainName>;
     readonly to: PriceTokenAmount<TronBlockchainName>;

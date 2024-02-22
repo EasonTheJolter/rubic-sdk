@@ -1,10 +1,10 @@
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 
 /**
  * Thrown, when current gas price is higher, than max gas price on cross-chain contract
  * in target network.
  */
-export class UpdatedRatesError extends RubicSdkError {
+export class UpdatedRatesError extends PathrSdkError {
     constructor(
         public readonly transaction: {
             data: string;

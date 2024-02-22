@@ -1,6 +1,6 @@
-import { Token, TokenAmount } from "../../../../../../common/tokens";
-import { CrossChainTradeType } from "../../../models/cross-chain-trade-type";
-import { OnChainTradeType } from "../../../../../on-chain/calculation-manager/providers/common/models/on-chain-trade-type";
+import { Token, TokenAmount } from 'src/common/tokens';
+import { CrossChainTradeType } from 'src/features/cross-chain/calculation-manager/models/cross-chain-trade-type';
+import { OnChainTradeType } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-trade-type';
 interface CrossChainStep {
     provider: CrossChainTradeType;
     type: 'cross-chain';
@@ -11,5 +11,5 @@ interface OnChainStep {
     provider: OnChainTradeType;
     type: 'on-chain';
 }
-export type RubicStep = CrossChainStep | OnChainStep;
+export type PathrStep = CrossChainStep | OnChainStep;
 export {};

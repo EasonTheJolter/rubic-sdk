@@ -1,7 +1,7 @@
-import { Token } from "../../common/tokens";
-import { BlockchainName } from "../../core/blockchain/models/blockchain-name";
-import { DeflationManagerSupportedBlockchain } from "./models/deflation-manager-supported-blockchain";
-import { IsDeflationToken } from "./models/is-deflation-token";
+import { Token } from 'src/common/tokens';
+import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { DeflationManagerSupportedBlockchain } from 'src/features/deflation-token-manager/models/deflation-manager-supported-blockchain';
+import { IsDeflationToken } from 'src/features/deflation-token-manager/models/is-deflation-token';
 /**
  * Contains method to check token for deflation.
  */

@@ -1,9 +1,9 @@
-import { RubicSdkError } from 'src/common/errors/rubic-sdk.error';
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 
 /**
  * Thrown, when passed wrong from address in `encode` function.
  */
-export class WrongFromAddressError extends RubicSdkError {
+export class WrongFromAddressError extends PathrSdkError {
     constructor() {
         super();
         Object.setPrototypeOf(this, WrongFromAddressError.prototype);

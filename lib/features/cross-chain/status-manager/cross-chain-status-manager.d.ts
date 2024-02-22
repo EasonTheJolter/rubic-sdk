@@ -1,7 +1,7 @@
-import { TxStatusData } from "../../common/status-manager/models/tx-status-data";
-import { CrossChainTradeType } from "../calculation-manager/models/cross-chain-trade-type";
-import { CrossChainStatus } from "./models/cross-chain-status";
-import { CrossChainTradeData } from "./models/cross-chain-trade-data";
+import { TxStatusData } from 'src/features/common/status-manager/models/tx-status-data';
+import { CrossChainTradeType } from 'src/features/cross-chain/calculation-manager/models/cross-chain-trade-type';
+import { CrossChainStatus } from 'src/features/cross-chain/status-manager/models/cross-chain-status';
+import { CrossChainTradeData } from 'src/features/cross-chain/status-manager/models/cross-chain-trade-data';
 /**
  * Contains methods for getting cross-chain trade statuses.
  */

@@ -13,14 +13,14 @@ import { CROSS_CHAIN_TRADE_TYPE } from 'src/features/cross-chain/calculation-man
 import { BridgersEvmCrossChainSupportedBlockchain } from 'src/features/cross-chain/calculation-manager/providers/bridgers-provider/constants/bridgers-cross-chain-supported-blockchain';
 import { EvmBridgersTransactionData } from 'src/features/cross-chain/calculation-manager/providers/bridgers-provider/evm-bridgers-trade/models/evm-bridgers-transaction-data';
 import { getMethodArgumentsAndTransactionData } from 'src/features/cross-chain/calculation-manager/providers/bridgers-provider/utils/get-method-arguments-and-transaction-data';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { evmCommonCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/evm-common-cross-chain-abi';
 import { EvmCrossChainTrade } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/evm-cross-chain-trade';
 import { GasData } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/models/gas-data';
 import { BRIDGE_TYPE } from 'src/features/cross-chain/calculation-manager/providers/common/models/bridge-type';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
 import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
 import { MarkRequired } from 'ts-essentials';
 import { TransactionConfig } from 'web3-core';
@@ -49,7 +49,7 @@ export class EvmBridgersCrossChainTrade extends EvmCrossChainTrade {
             let gasDetails: GasPriceBN | BigNumber | null;
             const web3Public = Injector.web3PublicService.getWeb3Public(fromBlockchain);
 
-            if (feeInfo.rubicProxy?.fixedFee?.amount.gt(0)) {
+            if (feeInfo.pathrProxy?.fixedFee?.amount.gt(0)) {
                 const { contractAddress, contractAbi, methodName, methodArguments, value } =
                     await new EvmBridgersCrossChainTrade(
                         {
@@ -82,7 +82,7 @@ export class EvmBridgersCrossChainTrade extends EvmCrossChainTrade {
             } else {
                 const fromWithoutFee = getFromWithoutFee(
                     from,
-                    feeInfo.rubicProxy?.platformFee?.percent
+                    feeInfo.pathrProxy?.platformFee?.percent
                 );
 
                 const { transactionData } =
@@ -152,7 +152,7 @@ export class EvmBridgersCrossChainTrade extends EvmCrossChainTrade {
 
     protected get fromContractAddress(): string {
         return this.isProxyTrade
-            ? rubicProxyContractAddress[this.from.blockchain].gateway
+            ? pathrProxyContractAddress[this.from.blockchain].gateway
             : this.contractAddress;
     }
 
@@ -171,7 +171,7 @@ export class EvmBridgersCrossChainTrade extends EvmCrossChainTrade {
             contractAddress: string;
         },
         providerAddress: string,
-        routePath: RubicStep[]
+        routePath: PathrStep[]
     ) {
         super(providerAddress, routePath);
 
@@ -206,7 +206,7 @@ export class EvmBridgersCrossChainTrade extends EvmCrossChainTrade {
         try {
             const fromWithoutFee = getFromWithoutFee(
                 this.from,
-                this.feeInfo.rubicProxy?.platformFee?.percent
+                this.feeInfo.pathrProxy?.platformFee?.percent
             );
 
             const { transactionData } =
@@ -246,7 +246,7 @@ export class EvmBridgersCrossChainTrade extends EvmCrossChainTrade {
     ): Promise<ContractParams> {
         const fromWithoutFee = getFromWithoutFee(
             this.from,
-            this.feeInfo.rubicProxy?.platformFee?.percent
+            this.feeInfo.pathrProxy?.platformFee?.percent
         );
         const { methodArguments, transactionData } =
             await getMethodArgumentsAndTransactionData<EvmBridgersTransactionData>(

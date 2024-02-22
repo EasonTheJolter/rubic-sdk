@@ -1,4 +1,4 @@
-import { XyEstimationResponse } from "./xy-estimation-response";
+import { XyEstimationResponse } from 'src/features/cross-chain/calculation-manager/providers/xy-provider/models/xy-estimation-response';
 /**
  * Swap transaction response.
  */

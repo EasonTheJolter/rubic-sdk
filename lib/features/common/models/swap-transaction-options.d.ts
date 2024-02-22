@@ -1,5 +1,5 @@
-import { EIP1559Gas, SingleGasPrice } from "../../../core/blockchain/web3-public-service/web3-public/evm-web3-public/models/gas-price";
-import { EvmEncodeConfig } from "../../../core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config";
+import { EIP1559Gas, SingleGasPrice } from 'src/core/blockchain/web3-public-service/web3-public/evm-web3-public/models/gas-price';
+import { EvmEncodeConfig } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config';
 export interface SwapTransactionOptions {
     /**
      * Callback to be called, when user confirm swap transaction.

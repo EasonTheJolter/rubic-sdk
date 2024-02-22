@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { NotSupportedTokensError, RubicSdkError } from 'src/common/errors';
+import { NotSupportedTokensError, PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, Token, TokenAmount } from 'src/common/tokens';
 import { nativeTokensList } from 'src/common/tokens/constants/native-tokens';
 import { compareAddresses } from 'src/common/utils/blockchain';
@@ -14,7 +14,7 @@ import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager
 import { GasData } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/models/gas-data';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
 import {
     SquidrouterCrossChainSupportedBlockchain,
@@ -67,7 +67,7 @@ export class SquidrouterCrossChainProvider extends CrossChainProvider {
             );
             const fromWithoutFee = getFromWithoutFee(
                 from,
-                feeInfo.rubicProxy?.platformFee?.percent
+                feeInfo.pathrProxy?.platformFee?.percent
             );
 
             const fakeAddress = '0xe388Ed184958062a2ea29B7fD049ca21244AE02e';
@@ -89,7 +89,7 @@ export class SquidrouterCrossChainProvider extends CrossChainProvider {
                 {
                     params: requestParams as unknown as {},
                     headers: {
-                        'x-integrator-id': 'rubic-api'
+                        'x-integrator-id': 'pathr-api'
                     }
                 }
             );
@@ -164,15 +164,15 @@ export class SquidrouterCrossChainProvider extends CrossChainProvider {
                 tradeType: this.type
             };
         } catch (err) {
-            let rubicSdkError = CrossChainProvider.parseError(err);
+            let pathrSdkError = CrossChainProvider.parseError(err);
             const httpError = err?.error?.errors?.[0];
             if (httpError?.message) {
-                rubicSdkError = new RubicSdkError(httpError.message);
+                pathrSdkError = new PathrSdkError(httpError.message);
             }
 
             return {
                 trade: null,
-                error: rubicSdkError,
+                error: pathrSdkError,
                 tradeType: this.type
             };
         }
@@ -196,7 +196,7 @@ export class SquidrouterCrossChainProvider extends CrossChainProvider {
         estimation: SquidrouterEstimation,
         from: PriceTokenAmount,
         to: PriceTokenAmount
-    ): Promise<RubicStep[]> {
+    ): Promise<PathrStep[]> {
         const transitFrom = estimation.route.fromChain.map(el => ({
             address: el.toToken.address,
             amount: new BigNumber(el.toAmount)
@@ -229,7 +229,7 @@ export class SquidrouterCrossChainProvider extends CrossChainProvider {
             (token, index) => new TokenAmount({ ...token, weiAmount: transitTo[index]!.amount })
         );
 
-        const routePath: RubicStep[] = [];
+        const routePath: PathrStep[] = [];
         if (fromTokenAmount.length) {
             routePath.push({
                 type: 'on-chain',

@@ -10,15 +10,15 @@ import { Injector } from 'src/core/injector/injector';
 import { ContractParams } from 'src/features/common/models/contract-params';
 import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
 import { CROSS_CHAIN_TRADE_TYPE } from 'src/features/cross-chain/calculation-manager/models/cross-chain-trade-type';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { evmCommonCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/evm-common-cross-chain-abi';
-import { gatewayRubicCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/gateway-rubic-cross-chain-abi';
+import { gatewayPathrCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/gateway-pathr-cross-chain-abi';
 import { EvmCrossChainTrade } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/evm-cross-chain-trade';
 import { GasData } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/models/gas-data';
 import { BRIDGE_TYPE } from 'src/features/cross-chain/calculation-manager/providers/common/models/bridge-type';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
 import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
 import { xyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/xy-provider/constants/xy-contract-address';
@@ -55,7 +55,7 @@ export class XyCrossChainTrade extends EvmCrossChainTrade {
             let gasDetails: GasPriceBN | BigNumber | null;
             const web3Public = Injector.web3PublicService.getWeb3Public(fromBlockchain);
 
-            if (feeInfo.rubicProxy?.fixedFee?.amount.gt(0)) {
+            if (feeInfo.pathrProxy?.fixedFee?.amount.gt(0)) {
                 const { contractAddress, contractAbi, methodName, methodArguments, value } =
                     await new XyCrossChainTrade(
                         {
@@ -159,7 +159,7 @@ export class XyCrossChainTrade extends EvmCrossChainTrade {
 
     protected get fromContractAddress(): string {
         return this.isProxyTrade
-            ? rubicProxyContractAddress[this.fromBlockchain].gateway
+            ? pathrProxyContractAddress[this.fromBlockchain].gateway
             : xyContractAddress[this.fromBlockchain].providerGateway;
     }
 
@@ -185,7 +185,7 @@ export class XyCrossChainTrade extends EvmCrossChainTrade {
             onChainTrade: EvmOnChainTrade | null;
         },
         providerAddress: string,
-        routePath: RubicStep[]
+        routePath: PathrStep[]
     ) {
         super(providerAddress, routePath);
 
@@ -273,7 +273,7 @@ export class XyCrossChainTrade extends EvmCrossChainTrade {
         const value = this.getSwapValue(providerValue);
 
         const transactionConfiguration = EvmWeb3Pure.encodeMethodCall(
-            rubicProxyContractAddress[this.from.blockchain].router,
+            pathrProxyContractAddress[this.from.blockchain].router,
             evmCommonCrossChainAbi,
             this.methodName,
             methodArguments,
@@ -283,9 +283,9 @@ export class XyCrossChainTrade extends EvmCrossChainTrade {
         const sendingAmount = this.from.isNative ? [] : [this.from.stringWeiAmount];
 
         return {
-            contractAddress: rubicProxyContractAddress[this.from.blockchain].gateway,
-            contractAbi: gatewayRubicCrossChainAbi,
-            methodName: 'startViaRubic',
+            contractAddress: pathrProxyContractAddress[this.from.blockchain].gateway,
+            contractAbi: gatewayPathrCrossChainAbi,
+            methodName: 'startViaPathr',
             methodArguments: [sendingToken, sendingAmount, transactionConfiguration.data],
             value
         };

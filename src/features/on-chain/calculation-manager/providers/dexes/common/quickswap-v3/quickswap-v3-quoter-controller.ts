@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, Token } from 'src/common/tokens';
 import { notNull } from 'src/common/utils/object';
 import { Exact } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/models/exact';
@@ -64,7 +64,7 @@ export class QuickswapV3QuoterController extends AlgebraQuoterController {
                     if (promiseResponce.status === 'fulfilled') {
                         const quoter = quoterMethodsData?.[index];
                         if (!quoter) {
-                            throw new RubicSdkError('Quoter has to be defined');
+                            throw new PathrSdkError('Quoter has to be defined');
                         }
                         return {
                             outputAbsoluteAmount: new BigNumber(promiseResponce.value.amountOut!),

@@ -1,4 +1,4 @@
-import { LineaSyncSwapProvider } from "../../providers/dexes/linea/sync-swap/linea-sync-swap-provider";
-import { ScrollSyncSwapProvider } from "../../providers/dexes/scroll/sync-swap/scroll-sync-swap-provider";
-import { ZkSyncSyncSwapProvider } from "../../providers/dexes/zksync/sync-swap/zksync-sync-swap-provider";
-export declare const syncSwapTradeProviders: (typeof ZkSyncSyncSwapProvider | typeof LineaSyncSwapProvider | typeof ScrollSyncSwapProvider)[];
+import { LineaSyncSwapProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/linea/sync-swap/linea-sync-swap-provider';
+import { ScrollSyncSwapProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/scroll/sync-swap/scroll-sync-swap-provider';
+import { ZkSyncSyncSwapProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/zksync/sync-swap/zksync-sync-swap-provider';
+export declare const syncSwapTradeProviders: (typeof LineaSyncSwapProvider | typeof ScrollSyncSwapProvider | typeof ZkSyncSyncSwapProvider)[];

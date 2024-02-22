@@ -18,9 +18,9 @@ import { Injector } from 'src/core/injector/injector';
 import { ContractParams } from 'src/features/common/models/contract-params';
 import { EncodeTransactionOptions } from 'src/features/common/models/encode-transaction-options';
 import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { evmCommonCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/evm-common-cross-chain-abi';
-import { gatewayRubicCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/gateway-rubic-cross-chain-abi';
+import { gatewayPathrCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/gateway-pathr-cross-chain-abi';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
 import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
@@ -73,7 +73,7 @@ export abstract class EvmOnChainTrade extends OnChainTrade {
 
     protected get spenderAddress(): string {
         return this.useProxy || this.usedForCrossChain
-            ? rubicProxyContractAddress[this.from.blockchain].gateway
+            ? pathrProxyContractAddress[this.from.blockchain].gateway
             : this.dexContractAddress;
     }
 
@@ -101,7 +101,7 @@ export abstract class EvmOnChainTrade extends OnChainTrade {
         this.usedForCrossChain = evmOnChainTradeStruct.usedForCrossChain || false;
 
         this.feeInfo = {
-            rubicProxy: {
+            pathrProxy: {
                 ...(evmOnChainTradeStruct.proxyFeeInfo?.fixedFeeToken && {
                     fixedFee: {
                         amount:
@@ -267,14 +267,14 @@ export abstract class EvmOnChainTrade extends OnChainTrade {
         ];
 
         const nativeToken = nativeTokensList[this.from.blockchain];
-        const proxyFee = new BigNumber(this.feeInfo.rubicProxy?.fixedFee?.amount || '0');
+        const proxyFee = new BigNumber(this.feeInfo.pathrProxy?.fixedFee?.amount || '0');
         const value = Web3Pure.toWei(
             proxyFee.plus(this.from.isNative ? this.from.tokenAmount : '0'),
             nativeToken.decimals
         );
 
         const txConfig = EvmWeb3Pure.encodeMethodCall(
-            rubicProxyContractAddress[this.from.blockchain].router,
+            pathrProxyContractAddress[this.from.blockchain].router,
             evmCommonCrossChainAbi,
             'swapTokensGeneric',
             methodArguments,
@@ -285,9 +285,9 @@ export abstract class EvmOnChainTrade extends OnChainTrade {
         const sendingAmount = this.from.isNative ? [] : [this.from.stringWeiAmount];
 
         return {
-            contractAddress: rubicProxyContractAddress[this.from.blockchain].gateway,
-            contractAbi: gatewayRubicCrossChainAbi,
-            methodName: 'startViaRubic',
+            contractAddress: pathrProxyContractAddress[this.from.blockchain].gateway,
+            contractAbi: gatewayPathrCrossChainAbi,
+            methodName: 'startViaPathr',
             methodArguments: [sendingToken, sendingAmount, txConfig.data],
             value
         };
@@ -324,9 +324,9 @@ export abstract class EvmOnChainTrade extends OnChainTrade {
     protected async getSwapData(options: GetContractParamsOptions): Promise<unknown[]> {
         const directTransactionConfig = await this.encodeDirect({
             ...options,
-            fromAddress: rubicProxyContractAddress[this.from.blockchain].router,
+            fromAddress: pathrProxyContractAddress[this.from.blockchain].router,
             supportFee: false,
-            receiverAddress: rubicProxyContractAddress[this.from.blockchain].router
+            receiverAddress: pathrProxyContractAddress[this.from.blockchain].router
         });
         const availableDexs = (
             await ProxyCrossChainEvmTrade.getWhitelistedDexes(this.from.blockchain)

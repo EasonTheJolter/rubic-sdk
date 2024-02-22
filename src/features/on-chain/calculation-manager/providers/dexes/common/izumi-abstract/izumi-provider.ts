@@ -1,7 +1,7 @@
 import { getMulticallContracts } from 'iziswap-sdk/lib/base';
 import { searchPathQuery } from 'iziswap-sdk/lib/search/func';
 import { SearchPathQueryParams, SwapDirection } from 'iziswap-sdk/lib/search/types';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, Token, wrappedNativeTokensList } from 'src/common/tokens';
 import { wrappedAddress } from 'src/common/tokens/constants/wrapped-addresses';
 import { compareAddresses } from 'src/common/utils/blockchain';
@@ -122,7 +122,7 @@ export abstract class IzumiProvider extends EvmOnChainProvider {
             const result = await searchPathQuery(searchParams);
             pathQueryResult = result.pathQueryResult;
             if (!pathQueryResult) {
-                throw new RubicSdkError('No result');
+                throw new PathrSdkError('No result');
             }
         } catch (err) {
             console.debug(err);

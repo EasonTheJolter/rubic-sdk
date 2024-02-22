@@ -1,4 +1,4 @@
-import { Token } from "../../../../../../../../../../common/tokens";
+import { Token } from 'src/common/tokens';
 export type FeeAmount = 8 | 40 | 100 | 300 | 500 | 1000 | 3000 | 10000;
 /**
  * Represents liquidity pool in uni v3.

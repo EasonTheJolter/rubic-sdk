@@ -1,14 +1,14 @@
-import { CrossChainTradeType } from "./cross-chain-trade-type";
-import { LifiBridgeTypes } from "../providers/lifi-provider/models/lifi-bridge-types";
+import { CrossChainTradeType } from 'src/features/cross-chain/calculation-manager/models/cross-chain-trade-type';
+import { LifiBridgeTypes } from 'src/features/cross-chain/calculation-manager/providers/lifi-provider/models/lifi-bridge-types';
 import { MarkRequired } from 'ts-essentials';
 export interface CrossChainOptions {
     /**
-     * Slippage in source network (for Celer and Rubic).
+     * Slippage in source network (for Celer and Pathr).
      * Takes value from 0 to 1.
      */
     fromSlippageTolerance?: number;
     /**
-     * Slippage in target network (for Celer and Rubic).
+     * Slippage in target network (for Celer and Pathr).
      * Takes value from 0 to 1.
      */
     toSlippageTolerance?: number;

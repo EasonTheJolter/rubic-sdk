@@ -1,4 +1,4 @@
-import { StargateBridgeToken } from "./stargate-bridge-token";
+import { StargateBridgeToken } from 'src/features/cross-chain/calculation-manager/providers/stargate-provider/constants/stargate-bridge-token';
 declare const pools: {
     readonly USDC: 1;
     readonly USDT: 2;

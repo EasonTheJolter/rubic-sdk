@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
-import { BlockchainName } from "../blockchain/models/blockchain-name";
-import { HttpClient } from "../http-client/models/http-client";
+import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { HttpClient } from 'src/core/http-client/models/http-client';
 /**
  * Works with coingecko api to get tokens prices in usd.
  */

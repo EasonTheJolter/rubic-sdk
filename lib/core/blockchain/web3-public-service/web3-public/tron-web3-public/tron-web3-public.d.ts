@@ -1,13 +1,13 @@
 import BigNumber from 'bignumber.js';
-import { TronWeb } from "../../../constants/tron/tron-web";
-import { Web3PrimitiveType } from "../../../models/web3-primitive-type";
-import { ContractMulticallResponse } from "../models/contract-multicall-response";
-import { MethodData } from "../models/method-data";
-import { TxStatus } from "../models/tx-status";
-import { TronBlock } from "./models/tron-block";
-import { TronTransactionInfo } from "./models/tron-transaction-info";
-import { TronWebProvider } from "./models/tron-web-provider";
-import { Web3Public } from "../web3-public";
+import { TronWeb } from 'src/core/blockchain/constants/tron/tron-web';
+import { Web3PrimitiveType } from 'src/core/blockchain/models/web3-primitive-type';
+import { ContractMulticallResponse } from 'src/core/blockchain/web3-public-service/web3-public/models/contract-multicall-response';
+import { MethodData } from 'src/core/blockchain/web3-public-service/web3-public/models/method-data';
+import { TxStatus } from 'src/core/blockchain/web3-public-service/web3-public/models/tx-status';
+import { TronBlock } from 'src/core/blockchain/web3-public-service/web3-public/tron-web3-public/models/tron-block';
+import { TronTransactionInfo } from 'src/core/blockchain/web3-public-service/web3-public/tron-web3-public/models/tron-transaction-info';
+import { TronWebProvider } from 'src/core/blockchain/web3-public-service/web3-public/tron-web3-public/models/tron-web-provider';
+import { Web3Public } from 'src/core/blockchain/web3-public-service/web3-public/web3-public';
 import { AbiItem } from 'web3-utils';
 export declare class TronWeb3Public extends Web3Public {
     private readonly tronWeb;

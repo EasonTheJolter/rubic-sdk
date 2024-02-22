@@ -1,7 +1,7 @@
 import { LimitOrder as OneinchLimitOrder } from '@1inch/limit-order-protocol-utils';
-import { BlockchainName } from "../../core/blockchain/models/blockchain-name";
-import { LimitOrder } from "./models/limit-order";
-import { LimitOrderApi } from "./models/limit-order-api";
+import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { LimitOrder } from 'src/features/limit-order/models/limit-order';
+import { LimitOrderApi } from 'src/features/limit-order/models/limit-order-api';
 export declare class LimitOrderApiService {
     private getApiOrders;
     getUserOrders(userAddress: string): Promise<LimitOrder[]>;

@@ -1,5 +1,5 @@
-import { TraderJoeBsctTrade } from "./trader-joe-bsct-trade";
-import { UniswapV2AbstractProvider } from "../../common/uniswap-v2-abstract/uniswap-v2-abstract-provider";
+import { TraderJoeBsctTrade } from 'src/features/on-chain/calculation-manager/providers/dexes/bsct/trader-joe-bsct/trader-joe-bsct-trade';
+import { UniswapV2AbstractProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/uniswap-v2-abstract-provider';
 export declare class TraderJoeBsctProvider extends UniswapV2AbstractProvider<TraderJoeBsctTrade> {
     readonly blockchain: "BSCT";
     readonly UniswapV2TradeClass: typeof TraderJoeBsctTrade;

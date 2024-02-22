@@ -3,7 +3,7 @@ import { Pool, SmartRouter } from '@pancakeswap/smart-router/evm';
 import { Currency, CurrencyAmount } from '@pancakeswap/swap-sdk-core';
 import BigNumber from 'bignumber.js';
 import { GraphQLClient } from 'graphql-request';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, Token } from 'src/common/tokens';
 import { combineOptions } from 'src/common/utils/options';
 import { BLOCKCHAIN_NAME, EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -102,7 +102,7 @@ export abstract class PancakeRouterProvider extends EvmOnChainProvider {
             }
         );
         if (!trade) {
-            throw new RubicSdkError('');
+            throw new PathrSdkError('');
         }
 
         const toAmount = trade.outputAmount.toFixed();

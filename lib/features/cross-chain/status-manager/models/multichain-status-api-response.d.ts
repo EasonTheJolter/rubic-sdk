@@ -1,4 +1,4 @@
-import { MULTICHAIN_STATUS_MAPPING } from "../constants/multichain-status-mapping";
+import { MULTICHAIN_STATUS_MAPPING } from 'src/features/cross-chain/status-manager/constants/multichain-status-mapping';
 interface Info {
     bind: string;
     confirmations: string;

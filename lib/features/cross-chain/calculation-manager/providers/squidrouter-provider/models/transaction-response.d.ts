@@ -1,4 +1,4 @@
-import { SquidrouterEstimation } from "./estimation-response";
+import { SquidrouterEstimation } from 'src/features/cross-chain/calculation-manager/providers/squidrouter-provider/models/estimation-response';
 export interface SquirouterTransaction {
     readonly routeType: string;
     readonly targetAddress: string;

@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import {
     LowSlippageDeflationaryTokenError,
-    RubicSdkError,
+    PathrSdkError,
     SwapRequestError
 } from 'src/common/errors';
 import { nativeTokensList } from 'src/common/tokens';
@@ -16,7 +16,7 @@ import { Web3Pure } from 'src/core/blockchain/web3-pure/web3-pure';
 import { Injector } from 'src/core/injector/injector';
 import { EncodeTransactionOptions } from 'src/features/common/models/encode-transaction-options';
 import { checkUnsupportedReceiverAddress } from 'src/features/common/utils/check-unsupported-receiver-address';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { ON_CHAIN_TRADE_TYPE } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-trade-type';
 import { EvmOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
 import { openOceanApiUrl } from 'src/features/on-chain/calculation-manager/providers/open-ocean/constants/get-open-ocean-api-url';
@@ -82,12 +82,12 @@ export class OpenOceanTrade extends EvmOnChainTrade {
                 : '0x6352a56caadC4F1E25CD6c75970Fa768A3304e64';
 
         return this.useProxy
-            ? rubicProxyContractAddress[this.from.blockchain].gateway
+            ? pathrProxyContractAddress[this.from.blockchain].gateway
             : openOceanContractAddress;
     }
 
     public get dexContractAddress(): string {
-        throw new RubicSdkError('Dex address is unknown before swap is started');
+        throw new PathrSdkError('Dex address is unknown before swap is started');
     }
 
     public get toTokenAmountMin(): PriceTokenAmount {

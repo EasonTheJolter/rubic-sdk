@@ -13,7 +13,7 @@ export interface UniversalContract {
     readonly providerGateway: string;
 
     /**
-     * Rubic router contract address.
+     * Pathr router contract address.
      */
-    readonly rubicRouter: string;
+    readonly pathrRouter: string;
 }

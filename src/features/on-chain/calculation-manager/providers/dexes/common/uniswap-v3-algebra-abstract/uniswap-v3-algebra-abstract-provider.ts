@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { InsufficientLiquidityError, RubicSdkError } from 'src/common/errors';
+import { InsufficientLiquidityError, PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount } from 'src/common/tokens';
 import { combineOptions } from 'src/common/utils/options';
 import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -51,7 +51,7 @@ export abstract class UniswapV3AlgebraAbstractProvider<
 
     protected abstract readonly providerConfiguration: UniswapV3AlgebraProviderConfiguration;
 
-    protected readonly isRubicOptimisationEnabled: boolean = false;
+    protected readonly isPathrOptimisationEnabled: boolean = false;
 
     protected readonly defaultOptions: UniswapV3AlgebraCalculationOptions = {
         ...evmProviderDefaultOptions,
@@ -219,8 +219,8 @@ export abstract class UniswapV3AlgebraAbstractProvider<
         }
 
         if (
-            this.isRubicOptimisationEnabled &&
-            options.gasCalculation === 'rubicOptimisation' &&
+            this.isPathrOptimisationEnabled &&
+            options.gasCalculation === 'pathrOptimisation' &&
             to.price?.isFinite() &&
             gasPriceInUsd
         ) {
@@ -238,7 +238,7 @@ export abstract class UniswapV3AlgebraAbstractProvider<
                 (route, index) => {
                     const estimatedGas = estimatedGasLimits[index];
                     if (!estimatedGas) {
-                        throw new RubicSdkError('Estimated gas has have to be defined');
+                        throw new PathrSdkError('Estimated gas has have to be defined');
                     }
                     const gasFeeInUsd = gasPriceInUsd!.multipliedBy(estimatedGas);
                     const profit = Web3Pure.fromWei(route.outputAbsoluteAmount, to.decimals)
@@ -255,7 +255,7 @@ export abstract class UniswapV3AlgebraAbstractProvider<
 
             const sortedRoutes = calculatedProfits.sort((a, b) => b.profit.comparedTo(a.profit))[0];
             if (!sortedRoutes) {
-                throw new RubicSdkError('Sorted routes have to be defined');
+                throw new PathrSdkError('Sorted routes have to be defined');
             }
 
             return sortedRoutes;
@@ -263,7 +263,7 @@ export abstract class UniswapV3AlgebraAbstractProvider<
 
         const route = routes[0];
         if (!route) {
-            throw new RubicSdkError('Route has to be defined');
+            throw new PathrSdkError('Route has to be defined');
         }
         const estimatedGas = await this.OnChainTradeClass.estimateGasLimitForRoute(
             from,

@@ -1,4 +1,4 @@
-import { WrappedCrossChainTradeOrNull } from "./wrapped-cross-chain-trade-or-null";
+import { WrappedCrossChainTradeOrNull } from 'src/features/cross-chain/calculation-manager/models/wrapped-cross-chain-trade-or-null';
 /**
  * Cross-chain providers data.
  */

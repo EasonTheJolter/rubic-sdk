@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 import {
-    RubicSdkError,
+    PathrSdkError,
     WalletNotConnectedError,
     WrongFromAddressError,
     WrongReceiverAddressError
@@ -16,7 +16,7 @@ import { EncodeTransactionOptions } from 'src/features/common/models/encode-tran
 import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
 import { isAddressCorrect } from 'src/features/common/utils/check-address';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
 import { OnChainTradeType } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-trade-type';
 
@@ -175,7 +175,7 @@ export abstract class OnChainTrade {
     ): Promise<void | never> {
         if (!fromAddress) {
             if (isRequired) {
-                throw new RubicSdkError(`'fromAddress' is required option`);
+                throw new PathrSdkError(`'fromAddress' is required option`);
             }
             return;
         }
@@ -198,7 +198,7 @@ export abstract class OnChainTrade {
     ): Promise<void | never> {
         if (!receiverAddress) {
             if (isRequired) {
-                throw new RubicSdkError(`'receiverAddress' is required option`);
+                throw new PathrSdkError(`'receiverAddress' is required option`);
             }
             return;
         }
@@ -214,7 +214,7 @@ export abstract class OnChainTrade {
         }
     }
 
-    protected getRoutePath(): RubicStep[] {
+    protected getRoutePath(): PathrStep[] {
         return [
             {
                 type: 'on-chain',

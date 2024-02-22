@@ -1,5 +1,5 @@
 import { TransactionRequest } from '@ethersproject/providers';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
 import { CHAIN_TYPE } from 'src/core/blockchain/models/chain-type';
 import { blockchainId } from 'src/core/blockchain/utils/blockchains-info/constants/blockchain-id';
@@ -22,7 +22,7 @@ export class CrossChainSymbiosisManager {
     public async getUserTrades(fromAddress?: string): Promise<SymbiosisStuckedResponse[]> {
         fromAddress ||= this.walletAddress;
         if (!fromAddress) {
-            throw new RubicSdkError('`fromAddress` parameter or wallet address must not be empty');
+            throw new PathrSdkError('`fromAddress` parameter or wallet address must not be empty');
         }
 
         return this.getSymbiosisStuckedTrades(fromAddress);
@@ -46,7 +46,7 @@ export class CrossChainSymbiosisManager {
             trade => trade.hash.toLowerCase() === revertTransactionHash.toLowerCase()
         );
         if (!stuckedTrade) {
-            throw new RubicSdkError('No request with provided transaction hash');
+            throw new PathrSdkError('No request with provided transaction hash');
         }
 
         const transactionRequest = await this.getRevertTransactionRequest(stuckedTrade);

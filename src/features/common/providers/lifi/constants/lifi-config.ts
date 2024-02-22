@@ -20,6 +20,6 @@ export function getLifiConfig(): ConfigUpdate {
 
     return {
         rpcs,
-        integrator: 'rubic'
+        integrator: 'pathr'
     };
 }

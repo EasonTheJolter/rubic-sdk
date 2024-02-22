@@ -1,12 +1,12 @@
 import BigNumber from 'bignumber.js';
 import { Observable } from 'rxjs';
-import { PriceToken, Token } from "../../../common/tokens";
-import { BlockchainName } from "../../../core/blockchain/models/blockchain-name";
-import { ProviderAddress } from "../../../core/sdk/models/provider-address";
-import { CrossChainManagerCalculationOptions } from "./models/cross-chain-manager-options";
-import { CrossChainReactivelyCalculatedTradeData } from "./models/cross-chain-reactively-calculated-trade-data";
-import { CrossChainTypedTradeProviders } from "./models/cross-chain-typed-trade-provider";
-import { WrappedCrossChainTrade } from "./providers/common/models/wrapped-cross-chain-trade";
+import { PriceToken, Token } from 'src/common/tokens';
+import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { ProviderAddress } from 'src/core/sdk/models/provider-address';
+import { CrossChainManagerCalculationOptions } from 'src/features/cross-chain/calculation-manager/models/cross-chain-manager-options';
+import { CrossChainReactivelyCalculatedTradeData } from 'src/features/cross-chain/calculation-manager/models/cross-chain-reactively-calculated-trade-data';
+import { CrossChainTypedTradeProviders } from 'src/features/cross-chain/calculation-manager/models/cross-chain-typed-trade-provider';
+import { WrappedCrossChainTrade } from 'src/features/cross-chain/calculation-manager/providers/common/models/wrapped-cross-chain-trade';
 /**
  * Contains method to calculate best cross-chain trade.
  */

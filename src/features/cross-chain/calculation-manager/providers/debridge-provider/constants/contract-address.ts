@@ -17,7 +17,7 @@ export const DE_BRIDGE_CONTRACT_ADDRESS: Record<
         ...acc,
         [blockchain]: {
             ...defaultContracts
-            // rubicRouter: rubicProxyContractAddress[blockchain].gateway
+            // pathrRouter: pathrProxyContractAddress[blockchain].gateway
         }
     };
 }, {} as Record<DeBridgeCrossChainSupportedBlockchain, UniversalContract>);

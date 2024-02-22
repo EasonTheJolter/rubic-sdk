@@ -1,6 +1,6 @@
 import { LiFi, LifiStep, RouteOptions, RoutesRequest } from '@lifi/sdk';
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, Token } from 'src/common/tokens';
 import { notNull } from 'src/common/utils/object';
 import { combineOptions } from 'src/common/utils/options';
@@ -58,7 +58,7 @@ export class LifiProvider {
         options: LifiCalculationOptions
     ): Promise<OnChainTrade> {
         if (this.isForbiddenBlockchain(from.blockchain)) {
-            throw new RubicSdkError('Blockchain is not supported');
+            throw new PathrSdkError('Blockchain is not supported');
         }
 
         const fullOptions = combineOptions(options, {

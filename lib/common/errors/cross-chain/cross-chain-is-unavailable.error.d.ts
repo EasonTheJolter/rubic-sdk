@@ -1,7 +1,7 @@
-import { RubicSdkError } from "../rubic-sdk.error";
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 /**
  * Thrown, when cross-chain contracts are on pause or there is not enough crypto balance.
  */
-export declare class CrossChainIsUnavailableError extends RubicSdkError {
+export declare class CrossChainIsUnavailableError extends PathrSdkError {
     constructor();
 }

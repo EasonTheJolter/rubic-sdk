@@ -1,2 +1,2 @@
-import { RubicSdkError } from "../errors";
-export declare function parseError(err: unknown, defaultMessage?: string): RubicSdkError;
+import { PathrSdkError } from 'src/common/errors';
+export declare function parseError(err: unknown, defaultMessage?: string): PathrSdkError;

@@ -1,4 +1,4 @@
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { wrappedAddress } from 'src/common/tokens/constants/wrapped-addresses';
 import { compareAddresses } from 'src/common/utils/blockchain';
 import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -47,7 +47,7 @@ export class EvmWrapTrade extends EvmOnChainTrade {
         toAddress: string
     ): boolean {
         if (!EvmWrapTrade.isSupportedBlockchain) {
-            throw new RubicSdkError('Trade is not supported');
+            throw new PathrSdkError('Trade is not supported');
         }
         const wethAddress = wrappedAddress[blockchain]!;
 

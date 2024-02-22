@@ -1,12 +1,12 @@
-import { PriceToken, PriceTokenAmount } from "../../../../../common/tokens";
-import { BlockchainName, EvmBlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
-import { RequiredCrossChainOptions } from "../../models/cross-chain-options";
-import { CrossChainProvider } from "../common/cross-chain-provider";
-import { CalculationResult } from "../common/models/calculation-result";
-import { FeeInfo } from "../common/models/fee-info";
-import { RubicStep } from "../common/models/rubicStep";
-import { SymbiosisCrossChainSupportedBlockchain } from "./constants/symbiosis-cross-chain-supported-blockchain";
-import { SymbiosisToken } from "./models/symbiosis-trade-data";
+import { PriceToken, PriceTokenAmount } from 'src/common/tokens';
+import { BlockchainName, EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { RequiredCrossChainOptions } from 'src/features/cross-chain/calculation-manager/models/cross-chain-options';
+import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-provider';
+import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
+import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
+import { SymbiosisCrossChainSupportedBlockchain } from 'src/features/cross-chain/calculation-manager/providers/symbiosis-provider/constants/symbiosis-cross-chain-supported-blockchain';
+import { SymbiosisToken } from 'src/features/cross-chain/calculation-manager/providers/symbiosis-provider/models/symbiosis-trade-data';
 export declare class SymbiosisCrossChainProvider extends CrossChainProvider {
     readonly type: "symbiosis";
     isSupportedBlockchain(blockchain: BlockchainName): blockchain is SymbiosisCrossChainSupportedBlockchain;
@@ -15,5 +15,5 @@ export declare class SymbiosisCrossChainProvider extends CrossChainProvider {
     private checkMinMaxErrors;
     protected getFeeInfo(fromBlockchain: SymbiosisCrossChainSupportedBlockchain, providerAddress: string, percentFeeToken: PriceTokenAmount, useProxy: boolean): Promise<FeeInfo>;
     private getTransferToken;
-    protected getRoutePath(fromToken: PriceTokenAmount, toToken: PriceTokenAmount, route: SymbiosisToken[]): Promise<RubicStep[]>;
+    protected getRoutePath(fromToken: PriceTokenAmount, toToken: PriceTokenAmount, route: SymbiosisToken[]): Promise<PathrStep[]>;
 }

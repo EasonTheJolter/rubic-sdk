@@ -1,4 +1,4 @@
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { CrossChainTradeType } from 'src/features/cross-chain/calculation-manager/models/cross-chain-trade-type';
 import { CrossChainTrade } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-trade';
 
@@ -18,5 +18,5 @@ export interface WrappedCrossChainTrade {
     /**
      * Error, thrown during calculation.
      */
-    error?: RubicSdkError;
+    error?: PathrSdkError;
 }

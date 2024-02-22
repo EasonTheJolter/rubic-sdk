@@ -14,7 +14,7 @@ import {
 import BigNumber from 'bignumber.js';
 import {
     FailedToCheckForTransactionReceiptError,
-    RubicSdkError,
+    PathrSdkError,
     UnnecessaryApproveError,
     WalletNotConnectedError
 } from 'src/common/errors';
@@ -162,7 +162,7 @@ export class LimitOrderManager {
             toAmount
         );
         if (fromTokenAmount.blockchain !== toTokenAmount.blockchain) {
-            throw new RubicSdkError('Blockchains must be equal');
+            throw new PathrSdkError('Blockchains must be equal');
         }
         this.checkWalletConnected();
         const { blockchain } = fromToken;
@@ -300,7 +300,7 @@ export class LimitOrderManager {
             orderHash
         );
         if (!order) {
-            throw new RubicSdkError(`No order with hash ${orderHash}`);
+            throw new PathrSdkError(`No order with hash ${orderHash}`);
         }
 
         const chainId = blockchainId[blockchain] as ChainId;
@@ -365,7 +365,7 @@ export class LimitOrderManager {
             orderHash
         );
         if (!order) {
-            throw new RubicSdkError(`No order with hash ${orderHash}`);
+            throw new PathrSdkError(`No order with hash ${orderHash}`);
         }
 
         const chainId = blockchainId[blockchain] as ChainId;

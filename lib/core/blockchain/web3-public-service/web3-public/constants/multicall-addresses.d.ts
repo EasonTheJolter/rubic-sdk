@@ -1,2 +1,2 @@
-import { Web3PublicSupportedBlockchain } from "../../models/web3-public-storage";
+import { Web3PublicSupportedBlockchain } from 'src/core/blockchain/web3-public-service/models/web3-public-storage';
 export declare const MULTICALL_ADDRESSES: Record<Web3PublicSupportedBlockchain, string>;

@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { Token } from 'src/common/tokens';
 import { notNull } from 'src/common/utils/object';
 import { AerodromeTrade } from 'src/features/on-chain/calculation-manager/providers/dexes/base/aerodrome/aerodrome-trade';
@@ -62,7 +62,7 @@ export class AerodromePathFactory extends PathFactory<AerodromeTrade> {
         };
 
         if (tokens.length > 3) {
-            throw new RubicSdkError('Maximum number of transit tokens: 1');
+            throw new PathrSdkError('Maximum number of transit tokens: 1');
         }
 
         if (tokens.length === 2) {
@@ -153,7 +153,7 @@ export class AerodromePathFactory extends PathFactory<AerodromeTrade> {
 
             const numberAmount = this.exact === 'input' ? amounts[amounts.length - 1] : amounts[0];
             if (!numberAmount) {
-                throw new RubicSdkError('Amount has to be defined');
+                throw new PathrSdkError('Amount has to be defined');
             }
             const outputAbsoluteAmount = new BigNumber(numberAmount);
 
@@ -161,7 +161,7 @@ export class AerodromePathFactory extends PathFactory<AerodromeTrade> {
             const routPoolInfo = this.routes?.[index]?.methodArguments[1];
 
             if (!path || !routPoolInfo) {
-                throw new RubicSdkError('Path has to be defined');
+                throw new PathrSdkError('Path has to be defined');
             }
 
             return { outputAbsoluteAmount, path, routPoolInfo };

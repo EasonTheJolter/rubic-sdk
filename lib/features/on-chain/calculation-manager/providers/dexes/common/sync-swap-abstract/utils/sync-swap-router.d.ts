@@ -1,6 +1,6 @@
 import { BigNumber } from 'ethers';
-import { EvmBlockchainName } from "../../../../../../../../core/blockchain/models/blockchain-name";
-import { BestPathsWithAmounts, Path, PathWithAmounts } from "./typings";
+import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { BestPathsWithAmounts, Path, PathWithAmounts } from 'src/features/on-chain/calculation-manager/providers/dexes/common/sync-swap-abstract/utils/typings';
 export declare class SyncSwapRouter {
     static findBestAmountsForPathsExactIn(paths: Path[], amountInString: string, blockchainName: EvmBlockchainName, _ts?: number): Promise<BestPathsWithAmounts>;
     private static copyStep;

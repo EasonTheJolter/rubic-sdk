@@ -1,5 +1,5 @@
-import { EvmBlockchainName } from "../blockchain/models/blockchain-name";
-import { HttpClient } from "../http-client/models/http-client";
+import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { HttpClient } from 'src/core/http-client/models/http-client';
 import { GasPrice } from '../blockchain/web3-public-service/web3-public/evm-web3-public/models/gas-price';
 /**
  * Uses different api or web3 to retrieve current gas price.

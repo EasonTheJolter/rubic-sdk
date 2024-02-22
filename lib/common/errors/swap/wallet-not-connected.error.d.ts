@@ -1,8 +1,8 @@
-import { RubicSdkError } from "../rubic-sdk.error";
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 /**
  * Thrown, when method, which requires connected wallet, is called without
  * wallet being connected.
  */
-export declare class WalletNotConnectedError extends RubicSdkError {
+export declare class WalletNotConnectedError extends PathrSdkError {
     constructor();
 }

@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { NotSupportedTokensError, RubicSdkError, TooLowAmountError } from 'src/common/errors';
+import { NotSupportedTokensError, PathrSdkError, TooLowAmountError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, TokenAmount } from 'src/common/tokens';
 import { nativeTokensList } from 'src/common/tokens/constants/native-tokens';
 import { BlockchainName, EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -13,7 +13,7 @@ import { CROSS_CHAIN_TRADE_TYPE } from 'src/features/cross-chain/calculation-man
 import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-provider';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
 import { DE_BRIDGE_CONTRACT_ABI } from 'src/features/cross-chain/calculation-manager/providers/debridge-provider/constants/contract-abi';
 import { DE_BRIDGE_CONTRACT_ADDRESS } from 'src/features/cross-chain/calculation-manager/providers/debridge-provider/constants/contract-address';
@@ -99,7 +99,7 @@ export class DebridgeCrossChainProvider extends CrossChainProvider {
             );
             const fromWithoutFee = getFromWithoutFee(
                 from,
-                feeInfo.rubicProxy?.platformFee?.percent
+                feeInfo.pathrProxy?.platformFee?.percent
             );
 
             const requestParams: TransactionRequest = {
@@ -192,12 +192,12 @@ export class DebridgeCrossChainProvider extends CrossChainProvider {
                 tradeType: this.type
             };
         } catch (err) {
-            const rubicSdkError = CrossChainProvider.parseError(err);
+            const pathrSdkError = CrossChainProvider.parseError(err);
             const debridgeApiError = this.parseDebridgeApiError(err);
 
             return {
                 trade: null,
-                error: debridgeApiError || rubicSdkError,
+                error: debridgeApiError || pathrSdkError,
                 tradeType: this.type
             };
         }
@@ -219,7 +219,7 @@ export class DebridgeCrossChainProvider extends CrossChainProvider {
 
     private parseDebridgeApiError(httpErrorResponse: {
         error: TransactionErrorResponse;
-    }): RubicSdkError | null {
+    }): PathrSdkError | null {
         if (
             httpErrorResponse?.error?.errorId === 'INCLUDED_GAS_FEE_NOT_COVERED_BY_INPUT_AMOUNT' ||
             httpErrorResponse?.error?.errorId === 'ERROR_LOW_GIVE_AMOUNT'
@@ -238,7 +238,7 @@ export class DebridgeCrossChainProvider extends CrossChainProvider {
         estimation: Estimation,
         from: PriceTokenAmount,
         to: PriceTokenAmount
-    ): Promise<RubicStep[]> {
+    ): Promise<PathrStep[]> {
         const fromChainId = String(blockchainId[from.blockchain]);
         const toChainId = String(blockchainId[to.blockchain]);
 

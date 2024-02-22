@@ -1,4 +1,4 @@
-import { EstimationRequest } from "./estimation-request";
+import { EstimationRequest } from 'src/features/cross-chain/calculation-manager/providers/debridge-provider/models/estimation-request';
 /**
  * Transaction request params.
  */

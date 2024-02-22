@@ -1,2 +1,2 @@
 import { AbiItem } from 'web3-utils';
-export declare const gatewayRubicCrossChainAbi: AbiItem[];
+export declare const gatewayPathrCrossChainAbi: AbiItem[];

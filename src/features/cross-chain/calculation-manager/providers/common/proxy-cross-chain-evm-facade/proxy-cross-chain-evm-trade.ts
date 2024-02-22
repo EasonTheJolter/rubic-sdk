@@ -16,7 +16,7 @@ import { Web3PublicSupportedBlockchain } from 'src/core/blockchain/web3-public-s
 import { EvmWeb3Pure } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/evm-web3-pure';
 import { Web3Pure } from 'src/core/blockchain/web3-pure/web3-pure';
 import { Injector } from 'src/core/injector/injector';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { evmCommonCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/evm-common-cross-chain-abi';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
 import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
@@ -54,7 +54,7 @@ export class ProxyCrossChainEvmTrade {
             ? await ProxyCrossChainEvmTrade.getFixedFee(
                   fromBlockchain,
                   providerAddress,
-                  rubicProxyContractAddress[fromBlockchain].router,
+                  pathrProxyContractAddress[fromBlockchain].router,
                   evmCommonCrossChainAbi
               )
             : new BigNumber(0);
@@ -63,14 +63,14 @@ export class ProxyCrossChainEvmTrade {
             ? await ProxyCrossChainEvmTrade.getFeePercent(
                   fromBlockchain,
                   providerAddress,
-                  rubicProxyContractAddress[fromBlockchain].router,
+                  pathrProxyContractAddress[fromBlockchain].router,
                   evmCommonCrossChainAbi
               )
             : 0;
         const nativeToken = await PriceToken.createFromToken(nativeTokensList[fromBlockchain]);
 
         return {
-            rubicProxy: {
+            pathrProxy: {
                 fixedFee: {
                     amount: fixedFeeAmount,
                     token: nativeToken
@@ -155,7 +155,7 @@ export class ProxyCrossChainEvmTrade {
                 await web3Public.callContractMethod<string>(
                     contractAddress,
                     contractAbi,
-                    'RubicPlatformFee'
+                    'PathrPlatformFee'
                 )
             ).toNumber() / 10_000
         );
@@ -229,7 +229,7 @@ export class ProxyCrossChainEvmTrade {
     public static async getWhitelistedDexes(fromBlockchain: EvmBlockchainName): Promise<string[]> {
         const web3Public = Injector.web3PublicService.getWeb3Public(fromBlockchain);
         return web3Public.callContractMethod<string[]>(
-            rubicProxyContractAddress[fromBlockchain].router,
+            pathrProxyContractAddress[fromBlockchain].router,
             evmCommonCrossChainAbi,
             'approvedDexs'
         );
@@ -321,7 +321,7 @@ export class ProxyCrossChainEvmTrade {
     ): Promise<void | never> {
         const web3Public = Injector.web3PublicService.getWeb3Public(fromBlockchain);
         const result = await web3Public.callContractMethod<{ isAvailable: boolean }>(
-            rubicProxyContractAddress[fromBlockchain].router,
+            pathrProxyContractAddress[fromBlockchain].router,
             evmCommonCrossChainAbi,
             'getSelectorInfo',
             [routerAddress, offset]
@@ -341,7 +341,7 @@ export class ProxyCrossChainEvmTrade {
         let isRouterApproved = false;
         try {
             isRouterApproved = await web3Public.callContractMethod<boolean>(
-                rubicProxyContractAddress[fromBlockchain].router,
+                pathrProxyContractAddress[fromBlockchain].router,
                 evmCommonCrossChainAbi,
                 'isContractApproved',
                 [routerAddress]
@@ -354,7 +354,7 @@ export class ProxyCrossChainEvmTrade {
         let isMethodApproved = false;
         try {
             isMethodApproved = await web3Public.callContractMethod<boolean>(
-                rubicProxyContractAddress[fromBlockchain].router,
+                pathrProxyContractAddress[fromBlockchain].router,
                 evmCommonCrossChainAbi,
                 'isFunctionApproved',
                 [method]

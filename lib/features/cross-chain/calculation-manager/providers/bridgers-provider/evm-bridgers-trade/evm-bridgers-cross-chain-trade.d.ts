@@ -1,16 +1,16 @@
 import BigNumber from 'bignumber.js';
-import { PriceTokenAmount } from "../../../../../../common/tokens";
-import { TronBlockchainName } from "../../../../../../core/blockchain/models/blockchain-name";
-import { ContractParams } from "../../../../../common/models/contract-params";
-import { EncodeTransactionOptions } from "../../../../../common/models/encode-transaction-options";
-import { SwapTransactionOptions } from "../../../../../common/models/swap-transaction-options";
-import { BridgersEvmCrossChainSupportedBlockchain } from "../constants/bridgers-cross-chain-supported-blockchain";
-import { EvmCrossChainTrade } from "../../common/emv-cross-chain-trade/evm-cross-chain-trade";
-import { GasData } from "../../common/emv-cross-chain-trade/models/gas-data";
-import { FeeInfo } from "../../common/models/fee-info";
-import { GetContractParamsOptions } from "../../common/models/get-contract-params-options";
-import { RubicStep } from "../../common/models/rubicStep";
-import { TradeInfo } from "../../common/models/trade-info";
+import { PriceTokenAmount } from 'src/common/tokens';
+import { TronBlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { ContractParams } from 'src/features/common/models/contract-params';
+import { EncodeTransactionOptions } from 'src/features/common/models/encode-transaction-options';
+import { SwapTransactionOptions } from 'src/features/common/models/swap-transaction-options';
+import { BridgersEvmCrossChainSupportedBlockchain } from 'src/features/cross-chain/calculation-manager/providers/bridgers-provider/constants/bridgers-cross-chain-supported-blockchain';
+import { EvmCrossChainTrade } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/evm-cross-chain-trade';
+import { GasData } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/models/gas-data';
+import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
+import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
+import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
 import { MarkRequired } from 'ts-essentials';
 import { TransactionConfig } from 'web3-core';
 export declare class EvmBridgersCrossChainTrade extends EvmCrossChainTrade {
@@ -41,7 +41,7 @@ export declare class EvmBridgersCrossChainTrade extends EvmCrossChainTrade {
         gasData: GasData;
         slippage: number;
         contractAddress: string;
-    }, providerAddress: string, routePath: RubicStep[]);
+    }, providerAddress: string, routePath: PathrStep[]);
     protected swapDirect(options: MarkRequired<SwapTransactionOptions, 'receiverAddress'>): Promise<string | never>;
     encode(options: MarkRequired<EncodeTransactionOptions, 'receiverAddress'>): Promise<TransactionConfig>;
     protected getContractParams(options: MarkRequired<GetContractParamsOptions, 'receiverAddress'>): Promise<ContractParams>;

@@ -1,4 +1,4 @@
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { UniversalContract } from 'src/features/cross-chain/calculation-manager/providers/common/models/universal-contract';
 import {
     SquidrouterCrossChainSupportedBlockchain,
@@ -14,7 +14,7 @@ export const SquidrouterContractAddress: Record<
         [blockchain]: {
             providerRouter: '0xce16F69375520ab01377ce7B88f5BA8C48F8D666',
             providerGateway: '0xce16F69375520ab01377ce7B88f5BA8C48F8D666',
-            rubicRouter: rubicProxyContractAddress[blockchain].gateway
+            pathrRouter: pathrProxyContractAddress[blockchain].gateway
         }
     };
 }, {} as Record<SquidrouterCrossChainSupportedBlockchain, UniversalContract>);

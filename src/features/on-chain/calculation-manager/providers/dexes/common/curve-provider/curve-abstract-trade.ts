@@ -1,4 +1,4 @@
-import { LowSlippageDeflationaryTokenError, RubicSdkError } from 'src/common/errors';
+import { LowSlippageDeflationaryTokenError, PathrSdkError } from 'src/common/errors';
 import { parseError } from 'src/common/utils/errors';
 import { EvmWeb3Pure } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/evm-web3-pure';
 import { EvmEncodeConfig } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config';
@@ -40,7 +40,7 @@ export abstract class CurveAbstractTrade extends EvmOnChainTrade {
 
         if (options.supportFee === undefined) {
             if (await this.needApprove(options.fromAddress)) {
-                throw new RubicSdkError(
+                throw new PathrSdkError(
                     'To use `encode` function, token must be approved for wallet'
                 );
             }
@@ -48,7 +48,7 @@ export abstract class CurveAbstractTrade extends EvmOnChainTrade {
             try {
                 await this.checkBalance();
             } catch (_err) {
-                throw new RubicSdkError(
+                throw new PathrSdkError(
                     'To use `encode` function, wallet must have enough balance or you must provider `supportFee` parameter in options.'
                 );
             }

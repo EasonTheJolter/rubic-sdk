@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { nativeTokensList, PriceToken, PriceTokenAmount } from 'src/common/tokens';
 import pTimeout from 'src/common/utils/p-timeout';
 import {
@@ -79,7 +79,7 @@ export class OpenOceanProvider {
             if ([500, 400].includes(quoteResponse.code)) {
                 return {
                     type: ON_CHAIN_TRADE_TYPE.OPEN_OCEAN,
-                    error: new RubicSdkError(quoteResponse.error)
+                    error: new PathrSdkError(quoteResponse.error)
                 };
             }
 
@@ -162,7 +162,7 @@ export class OpenOceanProvider {
 
     private checkIsSupportedBlockchain(blockchain: BlockchainName): void {
         if (!openoceanOnChainSupportedBlockchains.some(item => item === blockchain)) {
-            throw new RubicSdkError('Unsupported blockchain');
+            throw new PathrSdkError('Unsupported blockchain');
         }
     }
 
@@ -178,7 +178,7 @@ export class OpenOceanProvider {
             (to.isNative || tokens.includes(to.address.toLocaleLowerCase()));
 
         if (!isSupportedTokens) {
-            throw new RubicSdkError('Unsupported token pair');
+            throw new PathrSdkError('Unsupported token pair');
         }
     }
 }

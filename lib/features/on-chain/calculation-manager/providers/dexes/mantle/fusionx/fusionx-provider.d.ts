@@ -1,6 +1,6 @@
-import { UniswapV3AbstractProvider } from "../../common/uniswap-v3-abstract/uniswap-v3-abstract-provider";
-import { FusionXUniswapV3QuoterController } from "../../common/uniswap-v3-abstract/utils/quoter-controller/fusionx-uniswap-v3-quoter-controller";
-import { FusionXTrade } from "./fusionx-trade";
+import { UniswapV3AbstractProvider } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v3-abstract/uniswap-v3-abstract-provider';
+import { FusionXUniswapV3QuoterController } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v3-abstract/utils/quoter-controller/fusionx-uniswap-v3-quoter-controller';
+import { FusionXTrade } from 'src/features/on-chain/calculation-manager/providers/dexes/mantle/fusionx/fusionx-trade';
 export declare class FusionXProvider extends UniswapV3AbstractProvider<FusionXTrade> {
     readonly blockchain: "MANTLE";
     readonly OnChainTradeClass: typeof FusionXTrade;

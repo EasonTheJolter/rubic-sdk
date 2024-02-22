@@ -1,3 +1,3 @@
-import { UniswapV2ProviderConfiguration } from "../common/uniswap-v2-abstract/models/uniswap-v2-provider-configuration";
+import { UniswapV2ProviderConfiguration } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v2-abstract/models/uniswap-v2-provider-configuration';
 export declare const defaultKavaProviderConfiguration: UniswapV2ProviderConfiguration;
 export declare const kavaProviderConfiguration: UniswapV2ProviderConfiguration;

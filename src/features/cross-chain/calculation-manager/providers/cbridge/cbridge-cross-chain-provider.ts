@@ -3,7 +3,7 @@ import {
     MaxAmountError,
     MinAmountError,
     NotSupportedTokensError,
-    RubicSdkError
+    PathrSdkError
 } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, wrappedNativeTokensList } from 'src/common/tokens';
 import { nativeTokensList } from 'src/common/tokens/constants/native-tokens';
@@ -30,7 +30,7 @@ import { CbridgeEstimateAmountRequest } from 'src/features/cross-chain/calculati
 import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-provider';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
 import { typedTradeProviders } from 'src/features/on-chain/calculation-manager/constants/trade-providers/typed-trade-providers';
 import { EvmOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
@@ -74,7 +74,7 @@ export class CbridgeCrossChainProvider extends CrossChainProvider {
         try {
             const config = await this.fetchContractAddressAndCheckTokens(fromToken, toToken);
             if (!config.supportedToToken) {
-                throw new RubicSdkError('To token is not supported');
+                throw new PathrSdkError('To token is not supported');
             }
 
             const feeInfo = await this.getFeeInfo(
@@ -85,7 +85,7 @@ export class CbridgeCrossChainProvider extends CrossChainProvider {
             );
             const fromWithoutFee = getFromWithoutFee(
                 fromToken,
-                feeInfo.rubicProxy?.platformFee?.percent
+                feeInfo.pathrProxy?.platformFee?.percent
             );
 
             let onChainTrade: EvmOnChainTrade | null = null;
@@ -153,7 +153,7 @@ export class CbridgeCrossChainProvider extends CrossChainProvider {
                 config
             );
             if (!amount) {
-                throw new RubicSdkError('Can not estimate trade');
+                throw new PathrSdkError('Can not estimate trade');
             }
 
             const to = new PriceTokenAmount({
@@ -198,11 +198,11 @@ export class CbridgeCrossChainProvider extends CrossChainProvider {
                 tradeType: this.type
             };
         } catch (err) {
-            const rubicSdkError = CrossChainProvider.parseError(err);
+            const pathrSdkError = CrossChainProvider.parseError(err);
 
             return {
                 trade: null,
-                error: rubicSdkError,
+                error: pathrSdkError,
                 tradeType: this.type
             };
         }
@@ -236,7 +236,7 @@ export class CbridgeCrossChainProvider extends CrossChainProvider {
             !config.chains.some(chain => chain.id === fromChainId) ||
             !config.chains.some(chain => chain.id === toChainId)
         ) {
-            throw new RubicSdkError('Not supported chain');
+            throw new PathrSdkError('Not supported chain');
         }
 
         const supportedFromToken = config.chain_token?.[fromChainId]?.token.find(el =>
@@ -248,7 +248,7 @@ export class CbridgeCrossChainProvider extends CrossChainProvider {
         );
 
         if (!supportedToToken) {
-            throw new RubicSdkError('Not supported tokens');
+            throw new PathrSdkError('Not supported tokens');
         }
 
         const possibleTransitToken = config.chain_token?.[fromChainId]?.token.find(
@@ -388,8 +388,8 @@ export class CbridgeCrossChainProvider extends CrossChainProvider {
         transit: PriceTokenAmount,
         to: PriceTokenAmount,
         onChainTrade: EvmOnChainTrade | null
-    ): Promise<RubicStep[]> {
-        const routePath: RubicStep[] = [];
+    ): Promise<PathrStep[]> {
+        const routePath: PathrStep[] = [];
         if (onChainTrade) {
             routePath.push({
                 type: 'on-chain',

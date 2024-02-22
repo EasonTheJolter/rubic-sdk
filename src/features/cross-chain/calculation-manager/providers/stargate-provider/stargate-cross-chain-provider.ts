@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { NotSupportedTokensError, RubicSdkError } from 'src/common/errors';
+import { NotSupportedTokensError, PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount } from 'src/common/tokens';
 import { nativeTokensList } from 'src/common/tokens/constants/native-tokens';
 import { compareAddresses } from 'src/common/utils/blockchain';
@@ -19,7 +19,7 @@ import { CROSS_CHAIN_TRADE_TYPE } from 'src/features/cross-chain/calculation-man
 import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-provider';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
 import { feeLibraryAbi } from 'src/features/cross-chain/calculation-manager/providers/stargate-provider/constants/fee-library-abi';
 import { relayersAddresses } from 'src/features/cross-chain/calculation-manager/providers/stargate-provider/constants/relayers-addresses';
@@ -78,7 +78,7 @@ export class StargateCrossChainProvider extends CrossChainProvider {
         }
         const dstSupportedPools = stargateBlockchainSupportedPools[toBlockchain];
         if (!dstSupportedPools.includes(dstPoolId)) {
-            throw new RubicSdkError('Tokens are not supported.');
+            throw new PathrSdkError('Tokens are not supported.');
         }
 
         const poolPathExists = stargatePoolMapping[fromBlockchain]?.[
@@ -111,7 +111,7 @@ export class StargateCrossChainProvider extends CrossChainProvider {
                 compareAddresses(from.address, wrongFantomUsdc) ||
                 compareAddresses(toToken.address, wrongFantomUsdc)
             ) {
-                throw new RubicSdkError('Trade to this tokens is not allowed');
+                throw new PathrSdkError('Trade to this tokens is not allowed');
             }
 
             const hasDirectRoute = StargateCrossChainProvider.hasDirectRoute(from, toToken);
@@ -124,7 +124,7 @@ export class StargateCrossChainProvider extends CrossChainProvider {
             );
             const fromWithoutFee = getFromWithoutFee(
                 from,
-                feeInfo.rubicProxy?.platformFee?.percent
+                feeInfo.pathrProxy?.platformFee?.percent
             );
 
             const transitToken = await this.getTransitToken(hasDirectRoute, from, toToken);
@@ -333,9 +333,9 @@ export class StargateCrossChainProvider extends CrossChainProvider {
             );
         } catch (err) {
             if (err instanceof Error) {
-                throw new RubicSdkError('Tokens are not supported.');
+                throw new PathrSdkError('Tokens are not supported.');
             }
-            throw new RubicSdkError('Unknown error.');
+            throw new PathrSdkError('Unknown error.');
         }
     }
 
@@ -360,7 +360,7 @@ export class StargateCrossChainProvider extends CrossChainProvider {
         );
 
         if (compareAddresses(poolAddress, EvmWeb3Pure.EMPTY_ADDRESS)) {
-            throw new RubicSdkError('No possible pool');
+            throw new PathrSdkError('No possible pool');
         }
 
         const tokenAddress = await web3Adapter.callContractMethod(
@@ -388,7 +388,7 @@ export class StargateCrossChainProvider extends CrossChainProvider {
         const toBlockchain = toToken.blockchain as StargateCrossChainSupportedBlockchain;
         const toBlockchainDirection = stargatePoolMapping[toBlockchain];
         if (!toBlockchainDirection) {
-            throw new RubicSdkError('Tokens are not supported.');
+            throw new PathrSdkError('Tokens are not supported.');
         }
 
         const toSymbol = StargateCrossChainProvider.getSymbol(
@@ -398,20 +398,20 @@ export class StargateCrossChainProvider extends CrossChainProvider {
 
         const toSymbolDirection = toBlockchainDirection[toSymbol];
         if (!toSymbolDirection) {
-            throw new RubicSdkError('Tokens are not supported.');
+            throw new PathrSdkError('Tokens are not supported.');
         }
 
         const fromBlockchain = fromToken.blockchain as StargateCrossChainSupportedBlockchain;
         const fromBlockchainDirection = toSymbolDirection[fromBlockchain];
         if (!fromBlockchainDirection) {
-            throw new RubicSdkError('Tokens are not supported.');
+            throw new PathrSdkError('Tokens are not supported.');
         }
 
         const possibleTransitSymbol: StargateBridgeToken | undefined = Object.values(
             stargateBridgeToken
         ).find(symbol => symbol === toSymbol);
         if (!possibleTransitSymbol) {
-            throw new RubicSdkError('Tokens are not supported.');
+            throw new PathrSdkError('Tokens are not supported.');
         }
 
         try {
@@ -460,7 +460,7 @@ export class StargateCrossChainProvider extends CrossChainProvider {
         from: PriceTokenAmount,
         to: PriceTokenAmount,
         srcOnChainTrade: EvmOnChainTrade | null
-    ): Promise<RubicStep[]> {
+    ): Promise<PathrStep[]> {
         if (srcOnChainTrade) {
             return [
                 {

@@ -3,7 +3,7 @@ import { AbiItem } from 'web3-utils';
 export const DE_BRIDGE_CONTRACT_ABI = [
     {
         inputs: [],
-        name: 'RubicPlatformFee',
+        name: 'PathrPlatformFee',
         outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
         stateMutability: 'view',
         type: 'function'

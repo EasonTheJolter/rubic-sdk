@@ -1,5 +1,5 @@
-import { PriceTokenAmount } from "../../../../../../common/tokens";
-import { EvmOnChainTrade } from "../../../../../on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade";
+import { PriceTokenAmount } from 'src/common/tokens';
+import { EvmOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
 export interface ProxyBridgeParams {
     walletAddress: string;
     fromTokenAmount: PriceTokenAmount;

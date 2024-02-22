@@ -1,5 +1,5 @@
 /**
- * Use `rubic` if swap is sent through rubic-proxy contract.
- * Use `rubic_widget` if swap is sent directly through bridgers contract.
+ * Use `pathr` if swap is sent through pathr-proxy contract.
+ * Use `pathr_widget` if swap is sent directly through bridgers contract.
  */
-export type BridgersSourceFlag = 'rubic' | 'rubic_widget';
+export type BridgersSourceFlag = 'pathr' | 'pathr_widget';

@@ -4,7 +4,7 @@ export const tronCommonCrossChainAbi = [
     {
         inputs: [],
         outputs: [{ type: 'uint256' }],
-        name: 'RubicPlatformFee',
+        name: 'PathrPlatformFee',
         stateMutability: 'View',
         type: 'Function'
     },
@@ -26,8 +26,8 @@ export const tronCommonCrossChainAbi = [
         outputs: [
             { name: 'isIntegrator', type: 'bool' },
             { name: 'tokenFee', type: 'uint32' },
-            { name: 'RubicTokenShare', type: 'uint32' },
-            { name: 'RubicFixedCryptoShare', type: 'uint32' },
+            { name: 'PathrTokenShare', type: 'uint32' },
+            { name: 'PathrFixedCryptoShare', type: 'uint32' },
             { name: 'fixedFeeAmount', type: 'uint128' }
         ],
         inputs: [{ type: 'address' }],

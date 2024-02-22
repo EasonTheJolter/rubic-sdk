@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import {
     BitcoinBlockchainName,
     BLOCKCHAIN_NAME,
@@ -32,7 +32,7 @@ export class BlockchainsInfo {
     public static getChainType(blockchainName: BlockchainName): ChainType {
         const chainType = chainTypeByBlockchain[blockchainName];
         if (!chainType) {
-            throw new RubicSdkError(`No supported chain type for ${blockchainName}`);
+            throw new PathrSdkError(`No supported chain type for ${blockchainName}`);
         }
         return chainType;
     }

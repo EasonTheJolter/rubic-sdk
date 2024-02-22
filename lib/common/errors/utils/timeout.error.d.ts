@@ -1,4 +1,4 @@
-import { RubicSdkError } from "../rubic-sdk.error";
-export declare class TimeoutError extends RubicSdkError {
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
+export declare class TimeoutError extends PathrSdkError {
     constructor(message?: string);
 }

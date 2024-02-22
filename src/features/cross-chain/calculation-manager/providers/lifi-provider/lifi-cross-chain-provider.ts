@@ -1,6 +1,6 @@
 import { FeeCost, LiFi, LifiStep, Route, RouteOptions, RoutesRequest } from '@lifi/sdk';
 import BigNumber from 'bignumber.js';
-import { MinAmountError, NotSupportedTokensError, RubicSdkError } from 'src/common/errors';
+import { MinAmountError, NotSupportedTokensError, PathrSdkError } from 'src/common/errors';
 import { nativeTokensList, PriceToken, PriceTokenAmount, TokenAmount } from 'src/common/tokens';
 import { BlockchainName, EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
 import { blockchainId } from 'src/core/blockchain/utils/blockchains-info/constants/blockchain-id';
@@ -17,7 +17,7 @@ import {
 } from 'src/features/cross-chain/calculation-manager/providers/common/models/bridge-type';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
 import {
     LifiCrossChainSupportedBlockchain,
@@ -68,7 +68,7 @@ export class LifiCrossChainProvider extends CrossChainProvider {
             options.lifiDisabledBridgeTypes?.length &&
             !this.checkBridgeTypes(options.lifiDisabledBridgeTypes)
         ) {
-            throw new RubicSdkError('Incorrect bridges filter param');
+            throw new PathrSdkError('Incorrect bridges filter param');
         }
 
         const denyBridges = options.lifiDisabledBridgeTypes || [];
@@ -88,7 +88,7 @@ export class LifiCrossChainProvider extends CrossChainProvider {
             from,
             options?.useProxy?.[this.type] ?? true
         );
-        const fromWithoutFee = getFromWithoutFee(from, feeInfo.rubicProxy?.platformFee?.percent);
+        const fromWithoutFee = getFromWithoutFee(from, feeInfo.pathrProxy?.platformFee?.percent);
 
         const fromAddress = this.getWalletAddress(fromBlockchain);
         const toAddress = options.receiverAddress || fromAddress;
@@ -111,7 +111,7 @@ export class LifiCrossChainProvider extends CrossChainProvider {
         );
 
         if (!bestRoute) {
-            throw new RubicSdkError('No available routes');
+            throw new PathrSdkError('No available routes');
         }
 
         const providerFee = bestRoute.steps[0]!.estimate.feeCosts?.find(
@@ -272,7 +272,7 @@ export class LifiCrossChainProvider extends CrossChainProvider {
         from: PriceTokenAmount,
         to: PriceTokenAmount,
         route: Route
-    ): Promise<RubicStep[]> {
+    ): Promise<PathrStep[]> {
         const lifiSteps = (route.steps[0] as LifiStep).includedSteps;
         const crossChainStep = lifiSteps.find(el => el.type === 'cross')!;
 
@@ -293,7 +293,7 @@ export class LifiCrossChainProvider extends CrossChainProvider {
         });
 
         // @TODO Add dex true provider and path
-        const routePath: RubicStep[] = [];
+        const routePath: PathrStep[] = [];
 
         if (lifiSteps?.[0]?.type === 'swap') {
             routePath.push({

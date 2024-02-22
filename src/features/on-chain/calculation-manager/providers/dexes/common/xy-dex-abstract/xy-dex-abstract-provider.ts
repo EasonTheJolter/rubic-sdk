@@ -1,10 +1,10 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, Token } from 'src/common/tokens';
 import { combineOptions } from 'src/common/utils/options';
 import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
 import { blockchainId } from 'src/core/blockchain/utils/blockchains-info/constants/blockchain-id';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import {
     OnChainCalculationOptions,
     RequiredOnChainCalculationOptions
@@ -38,7 +38,7 @@ export abstract class XyDexAbstractProvider extends EvmOnChainProvider {
     ): Promise<XyDexTrade> {
         const fromAddress =
             options?.useProxy || this.defaultOptions.useProxy
-                ? rubicProxyContractAddress[from.blockchain].gateway
+                ? pathrProxyContractAddress[from.blockchain].gateway
                 : this.walletAddress;
         const fullOptions = combineOptions(options, {
             ...this.defaultOptions,
@@ -116,7 +116,7 @@ export abstract class XyDexAbstractProvider extends EvmOnChainProvider {
             }
         );
         if (!trade.success || !trade.routes?.[0]) {
-            throw new RubicSdkError('Cant estimate trade');
+            throw new PathrSdkError('Cant estimate trade');
         }
 
         const bestRoute = trade.routes[0];

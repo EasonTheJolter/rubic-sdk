@@ -1,8 +1,8 @@
-import { Token } from "../../../../../../../common/tokens";
-import { MethodData } from "../../../../../../../core/blockchain/web3-public-service/web3-public/models/method-data";
-import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
-import { UniswapV3AlgebraAbstractTrade } from "../../common/uniswap-v3-algebra-abstract/uniswap-v3-algebra-abstract-trade";
-import { AlgebraTradeStruct } from "./models/algebra-trade-struct";
+import { Token } from 'src/common/tokens';
+import { MethodData } from 'src/core/blockchain/web3-public-service/web3-public/models/method-data';
+import { OnChainTradeType } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-trade-type';
+import { UniswapV3AlgebraAbstractTrade } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v3-algebra-abstract/uniswap-v3-algebra-abstract-trade';
+import { AlgebraTradeStruct } from 'src/features/on-chain/calculation-manager/providers/dexes/polygon/algebra/models/algebra-trade-struct';
 export declare class AlgebraTrade extends UniswapV3AlgebraAbstractTrade {
     static get type(): OnChainTradeType;
     readonly dexContractAddress = "0x89D6B81A1Ef25894620D05ba843d83B0A296239e";

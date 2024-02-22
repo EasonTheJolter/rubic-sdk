@@ -1,4 +1,4 @@
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import {
     BlockchainName,
     EvmBlockchainName,
@@ -50,7 +50,7 @@ export class Web3PrivateService {
     public getWeb3Private(chainType: ChainType): never;
     public getWeb3Private(chainType: ChainType) {
         if (!Web3PrivateService.isSupportedChainType(chainType)) {
-            throw new RubicSdkError(`Chain type ${chainType} is not supported in web3 private`);
+            throw new PathrSdkError(`Chain type ${chainType} is not supported in web3 private`);
         }
 
         const web3Private = this.web3PrivateStorage[chainType];
@@ -88,7 +88,7 @@ export class Web3PrivateService {
         }
         const web3 = core as Web3;
         if (!web3) {
-            throw new RubicSdkError('Web3 is not initialized');
+            throw new PathrSdkError('Web3 is not initialized');
         }
 
         const address = web3.utils.toChecksumAddress(evmWalletProviderCore.address);

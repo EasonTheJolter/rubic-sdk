@@ -3,7 +3,7 @@ import {
     InsufficientLiquidityError,
     MinAmountError,
     NotSupportedTokensError,
-    RubicSdkError
+    PathrSdkError
 } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, TokenAmount } from 'src/common/tokens';
 import { compareAddresses } from 'src/common/utils/blockchain';
@@ -18,7 +18,7 @@ import { CROSS_CHAIN_TRADE_TYPE } from 'src/features/cross-chain/calculation-man
 import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager/providers/common/cross-chain-provider';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
 import { XyStatusCode } from 'src/features/cross-chain/calculation-manager/providers/xy-provider/constants/xy-status-code';
 import {
@@ -73,7 +73,7 @@ export class XyCrossChainProvider extends CrossChainProvider {
 
             const fromWithoutFee = getFromWithoutFee(
                 fromToken,
-                feeInfo.rubicProxy?.platformFee?.percent
+                feeInfo.pathrProxy?.platformFee?.percent
             );
 
             const slippageTolerance = options.slippageTolerance * 100;
@@ -140,11 +140,11 @@ export class XyCrossChainProvider extends CrossChainProvider {
                 tradeType: this.type
             };
         } catch (err) {
-            const rubicSdkError = CrossChainProvider.parseError(err);
+            const pathrSdkError = CrossChainProvider.parseError(err);
 
             return {
                 trade: null,
-                error: rubicSdkError,
+                error: pathrSdkError,
                 tradeType: this.type
             };
         }
@@ -179,7 +179,7 @@ export class XyCrossChainProvider extends CrossChainProvider {
             case '10':
             case '99':
             default:
-                throw new RubicSdkError('Unknown Error.');
+                throw new PathrSdkError('Unknown Error.');
         }
     }
 
@@ -187,7 +187,7 @@ export class XyCrossChainProvider extends CrossChainProvider {
         fromToken: PriceTokenAmount,
         toToken: PriceTokenAmount,
         quote: XyTransactionResponse['quote']
-    ): Promise<RubicStep[]> {
+    ): Promise<PathrStep[]> {
         const transitFrom = quote.sourceChainSwaps?.toToken;
         const transitTo = quote.destChainSwaps?.fromToken;
 
@@ -214,7 +214,7 @@ export class XyCrossChainProvider extends CrossChainProvider {
               })
             : toToken;
 
-        const routePath: RubicStep[] = [];
+        const routePath: PathrStep[] = [];
 
         if (transitFrom) {
             routePath.push({

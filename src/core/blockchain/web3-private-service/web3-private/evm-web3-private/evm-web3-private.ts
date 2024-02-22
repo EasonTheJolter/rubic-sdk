@@ -5,7 +5,7 @@ import {
     LowGasError,
     LowSlippageDeflationaryTokenError,
     LowSlippageError,
-    RubicSdkError,
+    PathrSdkError,
     TransactionRevertedError,
     UserRejectError
 } from 'src/common/errors';
@@ -30,7 +30,7 @@ export class EvmWeb3Private extends Web3Private {
      * Parses web3 error by its code or message.
      * @param err Web3 error to parse.
      */
-    public static parseError(err: Web3Error): RubicSdkError {
+    public static parseError(err: Web3Error): PathrSdkError {
         if (err.message.includes('Transaction has been reverted by the EVM')) {
             return new TransactionRevertedError();
         }
@@ -77,11 +77,11 @@ export class EvmWeb3Private extends Web3Private {
         return parseError(err);
     }
 
-    private static tryParseProxyError(err: Error | { data: string }): RubicSdkError | undefined {
+    private static tryParseProxyError(err: Error | { data: string }): PathrSdkError | undefined {
         if ('data' in err) {
             const error = proxyHashErrors.find(error => error.hash === err.data);
             if (error) {
-                return new RubicSdkError(error.text);
+                return new PathrSdkError(error.text);
             }
         }
 
@@ -163,7 +163,7 @@ export class EvmWeb3Private extends Web3Private {
             try {
                 await this.web3.eth.estimateGas(gasfulParams);
             } catch {
-                throw new RubicSdkError('Low native value');
+                throw new PathrSdkError('Low native value');
             }
 
             const sendParams = {
@@ -259,7 +259,7 @@ export class EvmWeb3Private extends Web3Private {
             try {
                 await contract.methods[methodName](...methodArguments).estimateGas(gasfulParams);
             } catch {
-                throw new RubicSdkError('Low native value');
+                throw new PathrSdkError('Low native value');
             }
 
             const sendParams = {

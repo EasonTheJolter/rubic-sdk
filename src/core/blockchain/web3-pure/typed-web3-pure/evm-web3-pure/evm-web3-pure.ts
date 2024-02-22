@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 import { FunctionFragment, Result } from 'ethers/lib/utils';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { compareAddresses } from 'src/common/utils/blockchain';
 import { staticImplements } from 'src/common/utils/decorators';
 import { EvmEncodeConfig } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config';
@@ -44,7 +44,7 @@ export class EvmWeb3Pure {
     public static addressToBytes32(address: string): string {
         if (address.slice(0, 2) !== '0x' || address.length !== 42) {
             console.error('Wrong address format');
-            throw new RubicSdkError('Wrong address format');
+            throw new PathrSdkError('Wrong address format');
         }
 
         return `0x${address.slice(2).padStart(64, '0')}`;

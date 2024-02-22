@@ -9,7 +9,7 @@ import {
     ProxySupportedBlockchain,
     proxySupportedBlockchains
 } from 'src/features/common/constants/proxy-supported-blockchain';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { evmCommonCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/evm-common-cross-chain-abi';
 import {
     OnChainPlatformFee,
@@ -34,7 +34,7 @@ export class OnChainProxyService {
     ): Promise<OnChainProxyFeeInfo> {
         const fromBlockchain = from.blockchain;
         const web3Public = Injector.web3PublicService.getWeb3Public(fromBlockchain);
-        const contractAddress = rubicProxyContractAddress[fromBlockchain].router;
+        const contractAddress = pathrProxyContractAddress[fromBlockchain].router;
 
         let fixedCryptoFeeWei: string | undefined;
         let platformFeePercent: number;
@@ -52,7 +52,7 @@ export class OnChainProxyService {
         }
 
         if (fixedCryptoFeeWei === undefined || !isIntegrator) {
-            const fee = await OnChainProxyService.handleRubicFee(web3Public, contractAddress);
+            const fee = await OnChainProxyService.handlePathrFee(web3Public, contractAddress);
             fixedCryptoFeeWei = fee.fixedCryptoFeeWei;
             platformFeePercent = fee.platformFeePercent;
         }
@@ -98,7 +98,7 @@ export class OnChainProxyService {
         };
     }
 
-    private static async handleRubicFee(
+    private static async handlePathrFee(
         web3Public: EvmWeb3Public,
         contractAddress: string
     ): Promise<{ fixedCryptoFeeWei: string; platformFeePercent: number }> {
@@ -112,7 +112,7 @@ export class OnChainProxyService {
             web3Public.callContractMethod<string>(
                 contractAddress,
                 evmCommonCrossChainAbi,
-                'RubicPlatformFee',
+                'PathrPlatformFee',
                 []
             )
         ]);

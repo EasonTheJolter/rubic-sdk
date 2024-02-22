@@ -1,9 +1,9 @@
-import { RubicSdkError } from 'src/common/errors/rubic-sdk.error';
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 
 /**
  * Thrown, when on-chain contracts are on pause.
  */
-export class OnChainIsUnavailableError extends RubicSdkError {
+export class OnChainIsUnavailableError extends PathrSdkError {
     constructor() {
         super();
         Object.setPrototypeOf(this, OnChainIsUnavailableError.prototype);

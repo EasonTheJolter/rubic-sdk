@@ -1,11 +1,11 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors/rubic-sdk.error';
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 import { Token } from 'src/common/tokens';
 
 /**
  * Thrown, when user doesn't have enough balance.
  */
-export class InsufficientFundsError extends RubicSdkError {
+export class InsufficientFundsError extends PathrSdkError {
     /**
      * @param token Token to swap.
      * @param balance Token's balance on user wallet in Eth units.

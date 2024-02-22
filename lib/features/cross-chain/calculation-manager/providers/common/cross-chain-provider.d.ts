@@ -1,32 +1,32 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from "../../../../../common/errors";
-import { PriceToken, PriceTokenAmount } from "../../../../../common/tokens";
-import { BlockchainName } from "../../../../../core/blockchain/models/blockchain-name";
-import { Web3PrivateSupportedBlockchain } from "../../../../../core/blockchain/web3-private-service/models/web-private-supported-blockchain";
-import { Web3PublicSupportedBlockchain } from "../../../../../core/blockchain/web3-public-service/models/web3-public-storage";
-import { HttpClient } from "../../../../../core/http-client/models/http-client";
-import { RequiredCrossChainOptions } from "../../models/cross-chain-options";
-import { CrossChainTradeType } from "../../models/cross-chain-trade-type";
-import { CalculationResult } from "./models/calculation-result";
-import { FeeInfo } from "./models/fee-info";
-import { RubicStep } from "./models/rubicStep";
+import { PathrSdkError } from 'src/common/errors';
+import { PriceToken, PriceTokenAmount } from 'src/common/tokens';
+import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { Web3PrivateSupportedBlockchain } from 'src/core/blockchain/web3-private-service/models/web-private-supported-blockchain';
+import { Web3PublicSupportedBlockchain } from 'src/core/blockchain/web3-public-service/models/web3-public-storage';
+import { HttpClient } from 'src/core/http-client/models/http-client';
+import { RequiredCrossChainOptions } from 'src/features/cross-chain/calculation-manager/models/cross-chain-options';
+import { CrossChainTradeType } from 'src/features/cross-chain/calculation-manager/models/cross-chain-trade-type';
+import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
+import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { AbiItem } from 'web3-utils';
 export declare abstract class CrossChainProvider {
-    static parseError(err: unknown): RubicSdkError;
+    static parseError(err: unknown): PathrSdkError;
     abstract readonly type: CrossChainTradeType;
     protected get httpClient(): HttpClient;
     abstract isSupportedBlockchain(fromBlockchain: BlockchainName): boolean;
     areSupportedBlockchains(fromBlockchain: BlockchainName, toBlockchain: BlockchainName): boolean;
     abstract calculate(from: PriceTokenAmount, toToken: PriceToken, options: RequiredCrossChainOptions): Promise<CalculationResult>;
     protected getWalletAddress(blockchain: Web3PrivateSupportedBlockchain): string;
-    protected abstract getRoutePath(...options: unknown[]): Promise<RubicStep[]>;
+    protected abstract getRoutePath(...options: unknown[]): Promise<PathrStep[]>;
     /**
      * Gets fee information.
      * @param _fromBlockchain Source network blockchain.
      * @param _providerAddress Integrator address.
      * @param _percentFeeToken Protocol fee token.
-     * @param _useProxy Use rubic proxy or not.
-     * @param _contractAbi Rubic Proxy contract abi.
+     * @param _useProxy Use pathr proxy or not.
+     * @param _contractAbi Pathr Proxy contract abi.
      * @protected
      * @internal
      */
@@ -51,5 +51,5 @@ export declare abstract class CrossChainProvider {
      * @internal
      */
     protected getFeePercent(fromBlockchain: Web3PublicSupportedBlockchain, providerAddress: string, contractAddress: string, contractAbi: AbiItem[]): Promise<number>;
-    protected checkContractState(fromBlockchain: Web3PublicSupportedBlockchain, rubicRouter: string, contractAbi: AbiItem[]): Promise<void>;
+    protected checkContractState(fromBlockchain: Web3PublicSupportedBlockchain, pathrRouter: string, contractAbi: AbiItem[]): Promise<void>;
 }

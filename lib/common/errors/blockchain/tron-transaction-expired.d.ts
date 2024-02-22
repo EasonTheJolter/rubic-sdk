@@ -1,7 +1,7 @@
-import { RubicSdkError } from "../rubic-sdk.error";
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 /**
  * Thrown, if transaction signing in wallet expired.
  */
-export declare class TronTransactionExpired extends RubicSdkError {
+export declare class TronTransactionExpired extends PathrSdkError {
     constructor();
 }

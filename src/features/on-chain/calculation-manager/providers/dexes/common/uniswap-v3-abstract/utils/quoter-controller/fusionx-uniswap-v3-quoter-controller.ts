@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { Token } from 'src/common/tokens';
 import { compareAddresses } from 'src/common/utils/blockchain';
 import { Cache } from 'src/common/utils/decorators';
@@ -146,7 +146,7 @@ export class FusionXUniswapV3QuoterController extends UniswapV3QuoterController 
             .map((result, index) => {
                 const pool = quoterMethodsData?.[index];
                 if (!pool) {
-                    throw new RubicSdkError('Pool has to be defined');
+                    throw new PathrSdkError('Pool has to be defined');
                 }
                 if (result.success) {
                     return {

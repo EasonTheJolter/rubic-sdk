@@ -1,4 +1,4 @@
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { compareAddresses } from 'src/common/utils/blockchain';
 import { MethodData } from 'src/core/blockchain/web3-public-service/web3-public/models/method-data';
 import {
@@ -35,7 +35,7 @@ export class HorizondexTrade extends UniswapV3AbstractTrade {
 
             const pool = this.route.poolsPath[0];
             if (!pool) {
-                throw new RubicSdkError('Initial pool has to be defined');
+                throw new PathrSdkError('Initial pool has to be defined');
             }
             const toTokenAddress = compareAddresses(
                 pool.token0.address,
@@ -45,7 +45,7 @@ export class HorizondexTrade extends UniswapV3AbstractTrade {
                 : pool.token0.address;
 
             if (!this.route?.poolsPath?.[0]) {
-                throw new RubicSdkError('PoolsPath[0] has to be defined');
+                throw new PathrSdkError('PoolsPath[0] has to be defined');
             }
 
             return {

@@ -3,7 +3,7 @@ import {
     InsufficientFundsOneinchError,
     LowSlippageDeflationaryTokenError,
     LowSlippageError,
-    RubicSdkError,
+    PathrSdkError,
     SwapRequestError
 } from 'src/common/errors';
 import { PriceTokenAmount, Token } from 'src/common/tokens';
@@ -77,7 +77,7 @@ export class OneinchTrade extends EvmOnChainTrade {
             EvmWeb3Pure.EMPTY_ADDRESS
         ).needApprove(fromAddress);
         if (needApprove) {
-            throw new RubicSdkError('Approve is needed');
+            throw new PathrSdkError('Approve is needed');
         }
     }
 
@@ -198,7 +198,7 @@ export class OneinchTrade extends EvmOnChainTrade {
                   description?: string;
               }
             | Error;
-    }): RubicSdkError | null {
+    }): PathrSdkError | null {
         const inchError = err?.error || err;
 
         if (inchError) {
@@ -206,7 +206,7 @@ export class OneinchTrade extends EvmOnChainTrade {
                 if (inchError.message?.includes('cannot estimate')) {
                     const nativeToken = nativeTokensList[this.from.blockchain]?.symbol;
                     const message = `1inch sets increased costs on gas fee. For transaction enter less ${nativeToken} amount or top up your ${nativeToken} balance.`;
-                    return new RubicSdkError(message);
+                    return new PathrSdkError(message);
                 }
                 if (inchError.message?.includes('insufficient funds for transfer')) {
                     return new InsufficientFundsOneinchError(this.from.blockchain);

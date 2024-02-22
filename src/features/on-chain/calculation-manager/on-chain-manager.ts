@@ -1,6 +1,6 @@
 import { forkJoin, from, map, merge, Observable, of, startWith, switchMap } from 'rxjs';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, Token } from 'src/common/tokens';
 import { notNull } from 'src/common/utils/object';
 import { combineOptions } from 'src/common/utils/options';
@@ -69,7 +69,7 @@ export class OnChainManager {
         options?: OnChainManagerCalculationOptions
     ): Observable<OnChainReactivelyCalculatedTradeData> {
         if (toToken instanceof Token && fromToken.blockchain !== toToken.blockchain) {
-            throw new RubicSdkError('Blockchains of from and to tokens must be same');
+            throw new PathrSdkError('Blockchains of from and to tokens must be same');
         }
 
         return from(getPriceTokensFromInputTokens(fromToken, fromAmount.toString(), toToken)).pipe(
@@ -168,7 +168,7 @@ export class OnChainManager {
         options?: OnChainManagerCalculationOptions
     ): Promise<Array<OnChainTrade | OnChainTradeError>> {
         if (toToken instanceof Token && fromToken.blockchain !== toToken.blockchain) {
-            throw new RubicSdkError('Blockchains of from and to tokens must be same');
+            throw new PathrSdkError('Blockchains of from and to tokens must be same');
         }
 
         const { from, to } = await getPriceTokensFromInputTokens(
@@ -458,7 +458,7 @@ export class OnChainManager {
         try {
             wrappedTrade.trade = OnChainManager.getWrapTrade(fromToken, toToken, fullOptions);
         } catch (err: unknown) {
-            wrappedTrade.error = err as RubicSdkError;
+            wrappedTrade.error = err as PathrSdkError;
         }
         return of({
             total: 1,

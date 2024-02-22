@@ -5,7 +5,7 @@ import { combineOptions } from 'src/common/utils/options';
 import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
 import { EvmWeb3Pure } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/evm-web3-pure';
 import { createTokenNativeAddressProxy } from 'src/features/common/utils/token-native-address-proxy';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { OnChainCalculationOptions } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-calculation-options';
 import {
     ON_CHAIN_TRADE_TYPE,
@@ -50,7 +50,7 @@ export abstract class SyncSwapAbstractProvider extends EvmOnChainProvider {
     ): Promise<SyncSwapAbstractTrade> {
         const fromAddress =
             options?.useProxy || this.defaultOptions.useProxy
-                ? rubicProxyContractAddress[from.blockchain].gateway
+                ? pathrProxyContractAddress[from.blockchain].gateway
                 : this.walletAddress;
         const fullOptions = combineOptions(options, {
             ...this.defaultOptions,

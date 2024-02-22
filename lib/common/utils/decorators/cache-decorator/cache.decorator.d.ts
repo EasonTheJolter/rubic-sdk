@@ -1,4 +1,4 @@
-import { CacheConfig } from "./models/cache-config";
+import { CacheConfig } from 'src/common/utils/decorators/cache-decorator/models/cache-config';
 type DecoratorSignature = <T>(_: Object, __: string | symbol, descriptor: TypedPropertyDescriptor<T>) => TypedPropertyDescriptor<T> | void;
 /**
  * Decorator, used to cache calculated result of functions.

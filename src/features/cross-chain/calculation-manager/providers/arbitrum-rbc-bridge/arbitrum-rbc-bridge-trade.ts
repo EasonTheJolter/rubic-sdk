@@ -9,7 +9,7 @@ import {
 import { JsonRpcProvider } from '@ethersproject/providers';
 import BigNumber from 'bignumber.js';
 import { BigNumber as EtherBigNumber } from 'ethers';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceTokenAmount } from 'src/common/tokens';
 import { BLOCKCHAIN_NAME, EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
 import { EvmWeb3Pure } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/evm-web3-pure';
@@ -30,7 +30,7 @@ import { GasData } from 'src/features/cross-chain/calculation-manager/providers/
 import { BRIDGE_TYPE } from 'src/features/cross-chain/calculation-manager/providers/common/models/bridge-type';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
 import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
 import { MethodDecoder } from 'src/features/cross-chain/calculation-manager/utils/decode-method';
 import { TransactionReceipt } from 'web3-eth';
@@ -135,7 +135,7 @@ export class ArbitrumRbcBridgeTrade extends EvmCrossChainTrade {
             l2network: L2Network;
         },
         providerAddress: string,
-        routePath: RubicStep[]
+        routePath: PathrStep[]
     ) {
         super(providerAddress, routePath);
 
@@ -275,7 +275,7 @@ export class ArbitrumRbcBridgeTrade extends EvmCrossChainTrade {
         const l2TxReceipt = new L2TransactionReceipt(targetReceipt);
         const [event] = l2TxReceipt.getL2ToL1Events();
         if (!event) {
-            throw new RubicSdkError('Transaction is not ready');
+            throw new PathrSdkError('Transaction is not ready');
         }
         const messageReader = new L2ToL1MessageReader(l1Provider, event);
 
@@ -331,7 +331,7 @@ export class ArbitrumRbcBridgeTrade extends EvmCrossChainTrade {
         const messages = await new L1TransactionReceipt(receipt).getL1ToL2Messages(l2Provider);
         const creationIdMessage = messages.find(el => el.retryableCreationId);
         if (!creationIdMessage) {
-            throw new RubicSdkError('Can not find creation id message.');
+            throw new PathrSdkError('Can not find creation id message.');
         }
         const { retryableCreationId } = creationIdMessage;
 

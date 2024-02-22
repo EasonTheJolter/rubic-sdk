@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount } from 'src/common/tokens';
 import { combineOptions, deadlineMinutesTimestamp } from 'src/common/utils/options';
 import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -48,7 +48,7 @@ export abstract class VooiAbstractProvider<
         const toPoolId = this.vooiPoolIdMapping[toToken.address.toLowerCase()];
 
         if (fromPoolId === undefined || toPoolId === undefined) {
-            throw new RubicSdkError('Vooi DEX supports only USDC.e, USDT, DAI token');
+            throw new PathrSdkError('Vooi DEX supports only USDC.e, USDT, DAI token');
         }
 
         const fullOptions = combineOptions(options, this.defaultOptions);
@@ -76,7 +76,7 @@ export abstract class VooiAbstractProvider<
 
         const output = await this.getRoute(fromPoolId, toPoolId, weiAmountWithoutFee.toFixed());
         if (!output) {
-            throw new RubicSdkError('Can not estimate the route');
+            throw new PathrSdkError('Can not estimate the route');
         }
 
         const { from, to, fromWithoutFee } = getFromToTokensAmountsByExact(

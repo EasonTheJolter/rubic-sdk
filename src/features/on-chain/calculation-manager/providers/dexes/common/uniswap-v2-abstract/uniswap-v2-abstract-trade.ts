@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { LowSlippageDeflationaryTokenError, RubicSdkError } from 'src/common/errors';
+import { LowSlippageDeflationaryTokenError, PathrSdkError } from 'src/common/errors';
 import { Token } from 'src/common/tokens';
 import { Cache } from 'src/common/utils/decorators';
 import { parseError } from 'src/common/utils/errors';
@@ -46,13 +46,13 @@ export abstract class UniswapV2AbstractTrade extends EvmOnChainTrade {
             false
         );
         if (!instance.dexContractAddress) {
-            throw new RubicSdkError('Trying to read abstract class field');
+            throw new PathrSdkError('Trying to read abstract class field');
         }
         return instance.dexContractAddress;
     }
 
     public static get type(): OnChainTradeType {
-        throw new RubicSdkError(`Static TRADE_TYPE getter is not implemented by ${this.name}`);
+        throw new PathrSdkError(`Static TRADE_TYPE getter is not implemented by ${this.name}`);
     }
 
     /** @internal */
@@ -162,7 +162,7 @@ export abstract class UniswapV2AbstractTrade extends EvmOnChainTrade {
         if (options.supportFee === undefined) {
             const needApprove = await this.needApprove(options.fromAddress);
             if (needApprove) {
-                throw new RubicSdkError(
+                throw new PathrSdkError(
                     'To use `encode` function, token must be approved for wallet'
                 );
             }
@@ -170,7 +170,7 @@ export abstract class UniswapV2AbstractTrade extends EvmOnChainTrade {
             try {
                 await this.checkBalance();
             } catch (_err) {
-                throw new RubicSdkError(
+                throw new PathrSdkError(
                     'To use `encode` function, wallet must have enough balance or you must provider `supportFee` parameter in options.'
                 );
             }
@@ -301,7 +301,7 @@ export abstract class UniswapV2AbstractTrade extends EvmOnChainTrade {
         const gasLimitAmount =
             constructor.defaultEstimatedGasInfo[methodName]?.[transitTokensNumber];
         if (!gasLimitAmount) {
-            throw new RubicSdkError('Gas limit has to be defined');
+            throw new PathrSdkError('Gas limit has to be defined');
         }
 
         const gasLimit = gasLimitAmount.toFixed(0);

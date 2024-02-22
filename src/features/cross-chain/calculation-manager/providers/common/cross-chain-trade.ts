@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 import {
-    RubicSdkError,
+    PathrSdkError,
     WalletNotConnectedError,
     WrongFromAddressError,
     WrongReceiverAddressError
@@ -19,7 +19,7 @@ import { CrossChainTradeType } from 'src/features/cross-chain/calculation-manage
 import { BridgeType } from 'src/features/cross-chain/calculation-manager/providers/common/models/bridge-type';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
 import { OnChainSubtype } from 'src/features/cross-chain/calculation-manager/providers/common/models/on-chain-subtype';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
 
 /**
@@ -87,19 +87,19 @@ export abstract class CrossChainTrade {
     protected abstract get methodName(): string;
 
     public get networkFee(): BigNumber {
-        return new BigNumber(this.feeInfo.rubicProxy?.fixedFee?.amount || 0).plus(
+        return new BigNumber(this.feeInfo.pathrProxy?.fixedFee?.amount || 0).plus(
             this.feeInfo.provider?.cryptoFee?.amount || 0
         );
     }
 
     public get platformFee(): BigNumber {
-        return new BigNumber(this.feeInfo.rubicProxy?.platformFee?.percent || 0).plus(
+        return new BigNumber(this.feeInfo.pathrProxy?.platformFee?.percent || 0).plus(
             this.feeInfo.provider?.platformFee?.percent || 0
         );
     }
 
     protected get isProxyTrade(): boolean {
-        const fee = this.feeInfo.rubicProxy;
+        const fee = this.feeInfo.pathrProxy;
         const hasFixedFee = Boolean(fee?.fixedFee?.amount?.gt(0));
         const hasPlatformFee = Number(fee?.platformFee?.percent) > 0;
 
@@ -108,7 +108,7 @@ export abstract class CrossChainTrade {
 
     protected constructor(
         protected readonly providerAddress: string,
-        protected readonly routePath: RubicStep[]
+        protected readonly routePath: PathrStep[]
     ) {}
 
     /**
@@ -206,7 +206,7 @@ export abstract class CrossChainTrade {
     ): Promise<void | never> {
         if (!fromAddress) {
             if (isRequired) {
-                throw new RubicSdkError(`'fromAddress' is required option`);
+                throw new PathrSdkError(`'fromAddress' is required option`);
             }
             return;
         }
@@ -227,7 +227,7 @@ export abstract class CrossChainTrade {
     ): Promise<void | never> {
         if (!receiverAddress) {
             if (isRequired) {
-                throw new RubicSdkError(`'receiverAddress' is required option`);
+                throw new PathrSdkError(`'receiverAddress' is required option`);
             }
             return;
         }
@@ -254,7 +254,7 @@ export abstract class CrossChainTrade {
     protected getSwapValue(providerValue?: BigNumber | string | number | null): string {
         const nativeToken = nativeTokensList[this.from.blockchain];
         const fixedFeeValue = Web3Pure.toWei(
-            this.feeInfo.rubicProxy?.fixedFee?.amount || 0,
+            this.feeInfo.pathrProxy?.fixedFee?.amount || 0,
             nativeToken.decimals
         );
 
@@ -262,7 +262,7 @@ export abstract class CrossChainTrade {
         if (this.from.isNative) {
             if (providerValue) {
                 fromValue = new BigNumber(providerValue).dividedBy(
-                    1 - (this.feeInfo.rubicProxy?.platformFee?.percent || 0) / 100
+                    1 - (this.feeInfo.pathrProxy?.platformFee?.percent || 0) / 100
                 );
             } else {
                 fromValue = this.from.weiAmount;

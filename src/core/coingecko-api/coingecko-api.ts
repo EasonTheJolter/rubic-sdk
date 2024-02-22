@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError, TimeoutError } from 'src/common/errors';
+import { PathrSdkError, TimeoutError } from 'src/common/errors';
 import { Cache } from 'src/common/utils/decorators';
 import pTimeout from 'src/common/utils/p-timeout';
 import { BLOCKCHAIN_NAME, BlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -177,7 +177,7 @@ export class CoingeckoApi {
     })
     public async getNativeCoinPrice(blockchain: BlockchainName): Promise<BigNumber> {
         if (!CoingeckoApi.isSupportedBlockchain(blockchain)) {
-            throw new RubicSdkError(`Blockchain ${blockchain} is not supported by coingecko-api`);
+            throw new PathrSdkError(`Blockchain ${blockchain} is not supported by coingecko-api`);
         }
 
         const coingeckoId = this.nativeCoinsCoingeckoIds[blockchain];
@@ -194,7 +194,7 @@ export class CoingeckoApi {
             );
             const price = response?.[coingeckoId]?.usd;
             if (!price) {
-                throw new RubicSdkError('Coingecko price is not defined');
+                throw new PathrSdkError('Coingecko price is not defined');
             }
 
             return new BigNumber(price);
@@ -225,7 +225,7 @@ export class CoingeckoApi {
     }): Promise<BigNumber> {
         const { blockchain } = token;
         if (!CoingeckoApi.isSupportedBlockchain(blockchain)) {
-            throw new RubicSdkError(`Blockchain ${blockchain} is not supported by coingecko-api`);
+            throw new PathrSdkError(`Blockchain ${blockchain} is not supported by coingecko-api`);
         }
 
         const blockchainId = this.tokenBlockchainId[blockchain];
@@ -262,7 +262,7 @@ export class CoingeckoApi {
         blockchain: BlockchainName;
     }): Promise<BigNumber> {
         if (!CoingeckoApi.isSupportedBlockchain(token.blockchain)) {
-            throw new RubicSdkError(
+            throw new PathrSdkError(
                 `Blockchain ${token.blockchain} is not supported by coingecko-api`
             );
         }

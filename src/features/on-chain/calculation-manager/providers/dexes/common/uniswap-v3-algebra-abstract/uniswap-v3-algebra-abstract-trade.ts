@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount } from 'src/common/tokens';
 import { deadlineMinutesTimestamp } from 'src/common/utils/options';
 import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -34,7 +34,7 @@ interface EstimateGasOptions {
 
 export abstract class UniswapV3AlgebraAbstractTrade extends EvmOnChainTrade {
     public static get type(): OnChainTradeType {
-        throw new RubicSdkError(`Static TRADE_TYPE getter is not implemented by ${this.name}`);
+        throw new PathrSdkError(`Static TRADE_TYPE getter is not implemented by ${this.name}`);
     }
 
     public static async estimateGasLimitForRoute(
@@ -179,7 +179,7 @@ export abstract class UniswapV3AlgebraAbstractTrade extends EvmOnChainTrade {
     private get defaultEstimatedGas(): BigNumber {
         const estimatedGas = DEFAULT_ESTIMATED_GAS[this.path.length - 2];
         if (!estimatedGas) {
-            throw new RubicSdkError('Default estimated gas has to be defined');
+            throw new PathrSdkError('Default estimated gas has to be defined');
         }
         return estimatedGas.plus(this.to.isNative ? WETH_TO_ETH_ESTIMATED_GAS : 0);
     }

@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
-import { Token } from "../../../common/tokens";
-import { LimitOrderStatus } from "./limit-order-status";
+import { Token } from 'src/common/tokens';
+import { LimitOrderStatus } from 'src/features/limit-order/models/limit-order-status';
 /**
  * Parsed limit order, returned from 1inch api.
  */

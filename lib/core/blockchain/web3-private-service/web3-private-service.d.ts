@@ -1,11 +1,11 @@
-import { BlockchainName, EvmBlockchainName, TronBlockchainName } from "../models/blockchain-name";
-import { ChainType } from "../models/chain-type";
-import { Web3PrivateSupportedBlockchain } from "./models/web-private-supported-blockchain";
-import { Web3PrivateSupportedChainType } from "./models/web-private-supported-chain-type";
-import { EvmWeb3Private } from "./web3-private/evm-web3-private/evm-web3-private";
-import { TronWeb3Private } from "./web3-private/tron-web3-private/tron-web3-private";
-import { Web3Private } from "./web3-private/web3-private";
-import { WalletProvider, WalletProviderCore } from "../../sdk/models/wallet-provider";
+import { BlockchainName, EvmBlockchainName, TronBlockchainName } from 'src/core/blockchain/models/blockchain-name';
+import { ChainType } from 'src/core/blockchain/models/chain-type';
+import { Web3PrivateSupportedBlockchain } from 'src/core/blockchain/web3-private-service/models/web-private-supported-blockchain';
+import { Web3PrivateSupportedChainType } from 'src/core/blockchain/web3-private-service/models/web-private-supported-chain-type';
+import { EvmWeb3Private } from 'src/core/blockchain/web3-private-service/web3-private/evm-web3-private/evm-web3-private';
+import { TronWeb3Private } from 'src/core/blockchain/web3-private-service/web3-private/tron-web3-private/tron-web3-private';
+import { Web3Private } from 'src/core/blockchain/web3-private-service/web3-private/web3-private';
+import { WalletProvider, WalletProviderCore } from 'src/core/sdk/models/wallet-provider';
 export declare class Web3PrivateService {
     static isSupportedChainType(chainType: ChainType): chainType is Web3PrivateSupportedChainType;
     private web3PrivateStorage;

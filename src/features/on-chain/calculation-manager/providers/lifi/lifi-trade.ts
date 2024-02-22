@@ -3,7 +3,7 @@ import BigNumber from 'bignumber.js';
 import {
     LifiPairIsUnavailableError,
     LowSlippageDeflationaryTokenError,
-    RubicSdkError,
+    PathrSdkError,
     SwapRequestError
 } from 'src/common/errors';
 import { PriceTokenAmount } from 'src/common/tokens/price-token-amount';
@@ -11,7 +11,7 @@ import { EvmWeb3Pure } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-w
 import { EvmEncodeConfig } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/models/evm-encode-config';
 import { Injector } from 'src/core/injector/injector';
 import { EncodeTransactionOptions } from 'src/features/common/models/encode-transaction-options';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { OnChainTradeType } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-trade-type';
 import { EvmOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
 import { LifiTradeStruct } from 'src/features/on-chain/calculation-manager/providers/lifi/models/lifi-trade-struct';
@@ -66,12 +66,12 @@ export class LifiTrade extends EvmOnChainTrade {
 
     protected get spenderAddress(): string {
         return this.useProxy
-            ? rubicProxyContractAddress[this.from.blockchain].gateway
+            ? pathrProxyContractAddress[this.from.blockchain].gateway
             : this.providerGateway;
     }
 
     public get dexContractAddress(): string {
-        throw new RubicSdkError('Dex address is unknown before swap is started');
+        throw new PathrSdkError('Dex address is unknown before swap is started');
     }
 
     public get toTokenAmountMin(): PriceTokenAmount {

@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { CrossChainIsUnavailableError, RubicSdkError } from 'src/common/errors';
+import { CrossChainIsUnavailableError, PathrSdkError } from 'src/common/errors';
 import { nativeTokensList, PriceToken, PriceTokenAmount } from 'src/common/tokens';
 import { parseError } from 'src/common/utils/errors';
 import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -13,11 +13,11 @@ import { RequiredCrossChainOptions } from 'src/features/cross-chain/calculation-
 import { CrossChainTradeType } from 'src/features/cross-chain/calculation-manager/models/cross-chain-trade-type';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { AbiItem } from 'web3-utils';
 
 export abstract class CrossChainProvider {
-    public static parseError(err: unknown): RubicSdkError {
+    public static parseError(err: unknown): PathrSdkError {
         return parseError(err, 'Cannot calculate cross-chain trade');
     }
 
@@ -48,15 +48,15 @@ export abstract class CrossChainProvider {
         return Injector.web3PrivateService.getWeb3PrivateByBlockchain(blockchain).address;
     }
 
-    protected abstract getRoutePath(...options: unknown[]): Promise<RubicStep[]>;
+    protected abstract getRoutePath(...options: unknown[]): Promise<PathrStep[]>;
 
     /**
      * Gets fee information.
      * @param _fromBlockchain Source network blockchain.
      * @param _providerAddress Integrator address.
      * @param _percentFeeToken Protocol fee token.
-     * @param _useProxy Use rubic proxy or not.
-     * @param _contractAbi Rubic Proxy contract abi.
+     * @param _useProxy Use pathr proxy or not.
+     * @param _contractAbi Pathr Proxy contract abi.
      * @protected
      * @internal
      */
@@ -142,7 +142,7 @@ export abstract class CrossChainProvider {
                 await web3Public.callContractMethod<string>(
                     contractAddress,
                     contractAbi,
-                    'RubicPlatformFee'
+                    'PathrPlatformFee'
                 )
             ).toNumber() / 10_000
         );
@@ -150,13 +150,13 @@ export abstract class CrossChainProvider {
 
     protected async checkContractState(
         fromBlockchain: Web3PublicSupportedBlockchain,
-        rubicRouter: string,
+        pathrRouter: string,
         contractAbi: AbiItem[]
     ): Promise<void> {
         const web3PublicService = Injector.web3PublicService.getWeb3Public(fromBlockchain);
 
         const isPaused = await web3PublicService.callContractMethod<boolean>(
-            rubicRouter,
+            pathrRouter,
             contractAbi,
             'paused'
         );

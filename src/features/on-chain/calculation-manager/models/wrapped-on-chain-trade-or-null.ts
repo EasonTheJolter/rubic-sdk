@@ -1,4 +1,4 @@
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { OnChainTradeType } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-trade-type';
 import { OnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/on-chain-trade';
 
@@ -18,5 +18,5 @@ export type WrappedOnChainTradeOrNull = {
     /**
      * Error, thrown during calculation.
      */
-    error?: RubicSdkError;
+    error?: PathrSdkError;
 } | null;

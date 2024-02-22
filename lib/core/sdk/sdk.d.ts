@@ -1,16 +1,16 @@
-import { Web3PrivateService } from "../blockchain/web3-private-service/web3-private-service";
-import { Web3PublicService } from "../blockchain/web3-public-service/web3-public-service";
-import { CoingeckoApi } from "../coingecko-api/coingecko-api";
-import { GasPriceApi } from "../gas-price-api/gas-price-api";
-import { Configuration } from "./models/configuration";
-import { WalletProvider, WalletProviderCore } from "./models/wallet-provider";
-import { CrossChainManager } from "../../features/cross-chain/calculation-manager/cross-chain-manager";
-import { CrossChainStatusManager } from "../../features/cross-chain/status-manager/cross-chain-status-manager";
-import { CrossChainSymbiosisManager } from "../../features/cross-chain/symbiosis-manager/cross-chain-symbiosis-manager";
-import { DeflationTokenManager } from "../../features/deflation-token-manager/deflation-token-manager";
-import { LimitOrderManager } from "../../features/limit-order/limit-order-manager";
-import { OnChainManager } from "../../features/on-chain/calculation-manager/on-chain-manager";
-import { OnChainStatusManager } from "../../features/on-chain/status-manager/on-chain-status-manager";
+import { Web3PrivateService } from 'src/core/blockchain/web3-private-service/web3-private-service';
+import { Web3PublicService } from 'src/core/blockchain/web3-public-service/web3-public-service';
+import { CoingeckoApi } from 'src/core/coingecko-api/coingecko-api';
+import { GasPriceApi } from 'src/core/gas-price-api/gas-price-api';
+import { Configuration } from 'src/core/sdk/models/configuration';
+import { WalletProvider, WalletProviderCore } from 'src/core/sdk/models/wallet-provider';
+import { CrossChainManager } from 'src/features/cross-chain/calculation-manager/cross-chain-manager';
+import { CrossChainStatusManager } from 'src/features/cross-chain/status-manager/cross-chain-status-manager';
+import { CrossChainSymbiosisManager } from 'src/features/cross-chain/symbiosis-manager/cross-chain-symbiosis-manager';
+import { DeflationTokenManager } from 'src/features/deflation-token-manager/deflation-token-manager';
+import { LimitOrderManager } from 'src/features/limit-order/limit-order-manager';
+import { OnChainManager } from 'src/features/on-chain/calculation-manager/on-chain-manager';
+import { OnChainStatusManager } from 'src/features/on-chain/status-manager/on-chain-status-manager';
 /**
  * Base class to work with sdk.
  */

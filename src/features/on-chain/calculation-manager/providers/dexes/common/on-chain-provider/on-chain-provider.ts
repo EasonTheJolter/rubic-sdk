@@ -1,4 +1,4 @@
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount } from 'src/common/tokens';
 import { parseError } from 'src/common/utils/errors';
 import { BlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -13,7 +13,7 @@ import { OnChainTrade } from 'src/features/on-chain/calculation-manager/provider
  * Abstract class for all on-chain trade providers.
  */
 export abstract class OnChainProvider {
-    public static parseError(err: unknown): RubicSdkError {
+    public static parseError(err: unknown): PathrSdkError {
         return parseError(err, 'Cannot calculate on-chain trade');
     }
 

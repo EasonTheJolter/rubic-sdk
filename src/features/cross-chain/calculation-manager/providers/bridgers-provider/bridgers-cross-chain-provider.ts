@@ -34,7 +34,7 @@ import { CrossChainProvider } from 'src/features/cross-chain/calculation-manager
 import { evmCommonCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/evm-common-cross-chain-abi';
 import { CalculationResult } from 'src/features/cross-chain/calculation-manager/providers/common/models/calculation-result';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { tronCommonCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/tron-cross-chain-trade/constants/tron-common-cross-chain-abi';
 import { AbiItem } from 'web3-utils';
 
@@ -88,7 +88,7 @@ export class BridgersCrossChainProvider extends CrossChainProvider {
             );
             // const fromWithoutFee = getFromWithoutFee(
             //     from,
-            //     feeInfo.rubicProxy?.platformFee?.percent
+            //     feeInfo.pathrProxy?.platformFee?.percent
             // );
             const fromWithoutFee = from;
 
@@ -216,7 +216,7 @@ export class BridgersCrossChainProvider extends CrossChainProvider {
     ): Promise<FeeInfo> {
         const nativeToken = await PriceToken.createFromToken(nativeTokensList[fromBlockchain]);
         return {
-            rubicProxy: {
+            pathrProxy: {
                 fixedFee: {
                     amount: new BigNumber(0),
                     token: nativeToken
@@ -228,7 +228,7 @@ export class BridgersCrossChainProvider extends CrossChainProvider {
     protected async getRoutePath(
         fromToken: PriceTokenAmount,
         toToken: PriceTokenAmount
-    ): Promise<RubicStep[]> {
+    ): Promise<PathrStep[]> {
         return [{ type: 'cross-chain', provider: this.type, path: [fromToken, toToken] }];
     }
 }

@@ -1,4 +1,4 @@
-import { RubicSdkError } from 'src/common/errors/rubic-sdk.error';
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 import { nativeTokensList } from 'src/common/tokens/constants/native-tokens';
 import { wrappedAddress } from 'src/common/tokens/constants/wrapped-addresses';
 import { TokenBaseStruct } from 'src/common/tokens/models/token-base-struct';
@@ -41,7 +41,7 @@ export class Token<T extends BlockchainName = BlockchainName> {
         }
 
         if (!Web3PublicService.isSupportedBlockchain(tokenBaseStruct.blockchain)) {
-            throw new RubicSdkError(
+            throw new PathrSdkError(
                 `${tokenBaseStruct.blockchain} blockchain is not supported in Token class`
             );
         }
@@ -53,7 +53,7 @@ export class Token<T extends BlockchainName = BlockchainName> {
             tokenInfo.name === undefined ||
             tokenInfo.symbol === undefined
         ) {
-            throw new RubicSdkError('Error while loading token');
+            throw new PathrSdkError('Error while loading token');
         }
 
         return new Token({
@@ -72,7 +72,7 @@ export class Token<T extends BlockchainName = BlockchainName> {
         blockchain: T
     ): Promise<Token<T>[]> {
         if (!Web3PublicService.isSupportedBlockchain(blockchain)) {
-            throw new RubicSdkError(`${blockchain} blockchain is not supported in Token class`);
+            throw new PathrSdkError(`${blockchain} blockchain is not supported in Token class`);
         }
         const web3Public = Injector.web3PublicService.getWeb3Public(blockchain);
         const tokenInfo = await web3Public.callForTokensInfo(tokensAddresses);
@@ -83,12 +83,12 @@ export class Token<T extends BlockchainName = BlockchainName> {
                 tokenInfo.name === undefined ||
                 tokenInfo.symbol === undefined
             ) {
-                throw new RubicSdkError('Error while loading token');
+                throw new PathrSdkError('Error while loading token');
             }
 
             const address = tokensAddresses?.[index];
             if (!address) {
-                throw new RubicSdkError('Address has to be defined');
+                throw new PathrSdkError('Address has to be defined');
             }
 
             return new Token({

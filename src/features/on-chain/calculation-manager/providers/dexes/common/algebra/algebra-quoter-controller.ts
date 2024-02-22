@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, Token } from 'src/common/tokens';
 import { notNull } from 'src/common/utils/object';
 import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -146,7 +146,7 @@ export class AlgebraQuoterController extends UniswapV3AlgebraQuoterController {
                 if (result.success) {
                     const quoter = quoterMethodsData?.[index];
                     if (!quoter) {
-                        throw new RubicSdkError('Quoter has to be defined');
+                        throw new PathrSdkError('Quoter has to be defined');
                     }
                     return {
                         outputAbsoluteAmount: new BigNumber(result.output!),

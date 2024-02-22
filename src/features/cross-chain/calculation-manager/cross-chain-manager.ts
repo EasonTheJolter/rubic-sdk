@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { from, map, merge, Observable, startWith, switchMap } from 'rxjs';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { PriceToken, PriceTokenAmount, Token } from 'src/common/tokens';
 import { notNull } from 'src/common/utils/object';
 import { combineOptions } from 'src/common/utils/options';
@@ -107,7 +107,7 @@ export class CrossChainManager {
         options?: CrossChainManagerCalculationOptions
     ): Promise<WrappedCrossChainTrade[]> {
         if (toToken instanceof Token && fromToken.blockchain === toToken.blockchain) {
-            throw new RubicSdkError('Blockchains of `from` and `to` tokens must be different.');
+            throw new PathrSdkError('Blockchains of `from` and `to` tokens must be different.');
         }
 
         const { from, to } = await getPriceTokensFromInputTokens(fromToken, fromAmount, toToken);
@@ -127,7 +127,7 @@ export class CrossChainManager {
         );
         const wrappedTrades = (await Promise.all(calculationPromises)).filter(notNull);
         if (!wrappedTrades?.length) {
-            throw new RubicSdkError('No success providers calculation for the trade');
+            throw new PathrSdkError('No success providers calculation for the trade');
         }
 
         return wrappedTrades.sort((nextTrade, prevTrade) =>
@@ -194,7 +194,7 @@ export class CrossChainManager {
         options?: CrossChainManagerCalculationOptions
     ): Observable<CrossChainReactivelyCalculatedTradeData> {
         if (toToken instanceof Token && fromToken.blockchain === toToken.blockchain) {
-            throw new RubicSdkError('Blockchains of from and to tokens must be different.');
+            throw new PathrSdkError('Blockchains of from and to tokens must be different.');
         }
 
         return from(getPriceTokensFromInputTokens(fromToken, fromAmount, toToken)).pipe(
@@ -271,7 +271,7 @@ export class CrossChainManager {
             })
             .map(([_type, provider]) => provider);
         if (!providers.length) {
-            throw new RubicSdkError(`There are no providers for trade`);
+            throw new PathrSdkError(`There are no providers for trade`);
         }
 
         return providers;

@@ -4,13 +4,13 @@ import { MarkRequired } from 'ts-essentials';
 
 export interface CrossChainOptions {
     /**
-     * Slippage in source network (for Celer and Rubic).
+     * Slippage in source network (for Celer and Pathr).
      * Takes value from 0 to 1.
      */
     fromSlippageTolerance?: number;
 
     /**
-     * Slippage in target network (for Celer and Rubic).
+     * Slippage in target network (for Celer and Pathr).
      * Takes value from 0 to 1.
      */
     toSlippageTolerance?: number;

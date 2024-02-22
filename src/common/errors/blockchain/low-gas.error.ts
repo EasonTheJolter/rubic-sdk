@@ -1,9 +1,9 @@
-import { RubicSdkError } from 'src/common/errors/rubic-sdk.error';
+import { PathrSdkError } from 'src/common/errors/pathr-sdk.error';
 
 /**
  * Thrown, when gas price is too low.
  */
-export class LowGasError extends RubicSdkError {
+export class LowGasError extends PathrSdkError {
     constructor() {
         super();
         Object.setPrototypeOf(this, LowGasError.prototype);

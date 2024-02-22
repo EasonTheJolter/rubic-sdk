@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { FailedToCheckForTransactionReceiptError, RubicSdkError } from 'src/common/errors';
+import { FailedToCheckForTransactionReceiptError, PathrSdkError } from 'src/common/errors';
 import { PriceTokenAmount } from 'src/common/tokens';
 import { getGasOptions } from 'src/common/utils/options';
 import { EvmBlockchainName } from 'src/core/blockchain/models/blockchain-name';
@@ -19,15 +19,15 @@ import { ChangenowCurrency } from 'src/features/cross-chain/calculation-manager/
 import { ChangenowExchangeResponse } from 'src/features/cross-chain/calculation-manager/providers/changenow-provider/models/changenow-exchange-api';
 import { ChangenowPaymentInfo } from 'src/features/cross-chain/calculation-manager/providers/changenow-provider/models/changenow-payment-info';
 import { ChangenowTrade } from 'src/features/cross-chain/calculation-manager/providers/changenow-provider/models/changenow-trade';
-import { rubicProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/rubic-proxy-contract-address';
+import { pathrProxyContractAddress } from 'src/features/cross-chain/calculation-manager/providers/common/constants/pathr-proxy-contract-address';
 import { evmCommonCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/evm-common-cross-chain-abi';
-import { gatewayRubicCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/gateway-rubic-cross-chain-abi';
+import { gatewayPathrCrossChainAbi } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/constants/gateway-pathr-cross-chain-abi';
 import { EvmCrossChainTrade } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/evm-cross-chain-trade';
 import { GasData } from 'src/features/cross-chain/calculation-manager/providers/common/emv-cross-chain-trade/models/gas-data';
 import { BRIDGE_TYPE } from 'src/features/cross-chain/calculation-manager/providers/common/models/bridge-type';
 import { FeeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/fee-info';
 import { GetContractParamsOptions } from 'src/features/cross-chain/calculation-manager/providers/common/models/get-contract-params-options';
-import { RubicStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/rubicStep';
+import { PathrStep } from 'src/features/cross-chain/calculation-manager/providers/common/models/pathrStep';
 import { TradeInfo } from 'src/features/cross-chain/calculation-manager/providers/common/models/trade-info';
 import { ProxyCrossChainEvmTrade } from 'src/features/cross-chain/calculation-manager/providers/common/proxy-cross-chain-evm-facade/proxy-cross-chain-evm-trade';
 import { EvmOnChainTrade } from 'src/features/on-chain/calculation-manager/providers/common/on-chain-trade/evm-on-chain-trade/evm-on-chain-trade';
@@ -127,14 +127,14 @@ export class ChangenowCrossChainTrade extends EvmCrossChainTrade {
 
     protected get fromContractAddress(): string {
         if (this.isProxyTrade) {
-            return rubicProxyContractAddress[this.from.blockchain].gateway;
+            return pathrProxyContractAddress[this.from.blockchain].gateway;
         }
-        throw new RubicSdkError('No contract address for changenow provider');
+        throw new PathrSdkError('No contract address for changenow provider');
     }
 
     protected get web3Private(): EvmWeb3Private {
         if (!BlockchainsInfo.isEvmBlockchainName(this.from.blockchain)) {
-            throw new RubicSdkError('Cannot retrieve web3 private');
+            throw new PathrSdkError('Cannot retrieve web3 private');
         }
         return Injector.web3PrivateService.getWeb3PrivateByBlockchain(this.from.blockchain);
     }
@@ -159,7 +159,7 @@ export class ChangenowCrossChainTrade extends EvmCrossChainTrade {
         return null;
     }
 
-    constructor(crossChainTrade: ChangenowTrade, providerAddress: string, routePath: RubicStep[]) {
+    constructor(crossChainTrade: ChangenowTrade, providerAddress: string, routePath: PathrStep[]) {
         super(providerAddress, routePath);
 
         this.from = crossChainTrade.from as PriceTokenAmount<EvmBlockchainName>;
@@ -182,7 +182,7 @@ export class ChangenowCrossChainTrade extends EvmCrossChainTrade {
 
     public async swapDirect(options: SwapTransactionOptions = {}): Promise<string | never> {
         if (!BlockchainsInfo.isEvmBlockchainName(this.from.blockchain)) {
-            throw new RubicSdkError("For non-evm chains use 'getChangenowPostTrade' method");
+            throw new PathrSdkError("For non-evm chains use 'getChangenowPostTrade' method");
         }
 
         await this.checkTradeErrors();
@@ -310,7 +310,7 @@ export class ChangenowCrossChainTrade extends EvmCrossChainTrade {
             this.onChainTrade &&
             (await ProxyCrossChainEvmTrade.getSwapData(options, {
                 walletAddress: this.walletAddress,
-                contractAddress: rubicProxyContractAddress[this.from.blockchain].router,
+                contractAddress: pathrProxyContractAddress[this.from.blockchain].router,
                 fromTokenAmount: this.from,
                 toTokenAmount: this.onChainTrade.to,
                 onChainEncodeFn: this.onChainTrade.encode.bind(this.onChainTrade)
@@ -323,7 +323,7 @@ export class ChangenowCrossChainTrade extends EvmCrossChainTrade {
         const value = this.getSwapValue();
 
         const transactionConfiguration = EvmWeb3Pure.encodeMethodCall(
-            rubicProxyContractAddress[this.from.blockchain].router,
+            pathrProxyContractAddress[this.from.blockchain].router,
             evmCommonCrossChainAbi,
             this.methodName,
             methodArguments,
@@ -333,9 +333,9 @@ export class ChangenowCrossChainTrade extends EvmCrossChainTrade {
         const sendingAmount = this.from.isNative ? [] : [this.from.stringWeiAmount];
 
         return {
-            contractAddress: rubicProxyContractAddress[this.from.blockchain].gateway,
-            contractAbi: gatewayRubicCrossChainAbi,
-            methodName: 'startViaRubic',
+            contractAddress: pathrProxyContractAddress[this.from.blockchain].gateway,
+            contractAbi: gatewayPathrCrossChainAbi,
+            methodName: 'startViaPathr',
             methodArguments: [sendingToken, sendingAmount, transactionConfiguration.data],
             value
         };
@@ -359,7 +359,7 @@ export class ChangenowCrossChainTrade extends EvmCrossChainTrade {
 
     public async encode(options: EncodeTransactionOptions): Promise<TransactionConfig> {
         if (!BlockchainsInfo.isEvmBlockchainName(this.from.blockchain)) {
-            throw new RubicSdkError('Cannot encode trade for non-evm blockchain');
+            throw new PathrSdkError('Cannot encode trade for non-evm blockchain');
         }
 
         await this.checkFromAddress(options.fromAddress, true, CROSS_CHAIN_TRADE_TYPE.CHANGENOW);
@@ -391,7 +391,7 @@ export class ChangenowCrossChainTrade extends EvmCrossChainTrade {
     }
 
     public encodeApprove(): Promise<TransactionConfig> {
-        throw new RubicSdkError('Cannot encode approve for changenow');
+        throw new PathrSdkError('Cannot encode approve for changenow');
     }
 
     public async needApprove(): Promise<boolean> {

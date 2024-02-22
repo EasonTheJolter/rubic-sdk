@@ -1,4 +1,4 @@
-import { RubicSdkError } from 'src/common/errors';
+import { PathrSdkError } from 'src/common/errors';
 import { Token } from 'src/common/tokens';
 import { compareAddresses } from 'src/common/utils/blockchain';
 import { EvmWeb3Pure } from 'src/core/blockchain/web3-pure/typed-web3-pure/evm-web3-pure/evm-web3-pure';
@@ -30,7 +30,7 @@ export abstract class UniswapV3AbstractProvider<
 
     protected abstract readonly routerConfiguration: UniswapV3RouterConfiguration<string>;
 
-    protected readonly isRubicOptimisationEnabled: boolean = false;
+    protected readonly isPathrOptimisationEnabled: boolean = false;
 
     protected abstract readonly quoterController: UniswapV3QuoterController;
 
@@ -57,7 +57,7 @@ export abstract class UniswapV3AbstractProvider<
     private extractPath(route: UniswapV3Route): ReadonlyArray<Token> {
         const initialPool = route.poolsPath[0];
         if (!initialPool) {
-            throw new RubicSdkError('Initial pool has to be defined');
+            throw new PathrSdkError('Initial pool has to be defined');
         }
         const path: Token[] = [
             compareAddresses(initialPool.token0.address, route.initialTokenAddress)
@@ -67,7 +67,7 @@ export abstract class UniswapV3AbstractProvider<
 
         const lastToken = path[path.length - 1];
         if (!lastToken) {
-            throw new RubicSdkError('Last token has to be defined');
+            throw new PathrSdkError('Last token has to be defined');
         }
 
         route.poolsPath.forEach(pool => {

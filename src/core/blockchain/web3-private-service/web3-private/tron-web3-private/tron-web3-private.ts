@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { RubicSdkError, UserRejectError } from 'src/common/errors';
+import { PathrSdkError, UserRejectError } from 'src/common/errors';
 import { TronInsufficientNativeBalance } from 'src/common/errors/blockchain/tron-insufficient-native-balance';
 import { TronTransactionExpired } from 'src/common/errors/blockchain/tron-transaction-expired';
 import { parseError } from 'src/common/utils/errors';
@@ -20,7 +20,7 @@ export class TronWeb3Private extends Web3Private {
      * Parses web3 error by its code or message.
      * @param err Web3 error to parse.
      */
-    private static parseError(err: unknown): RubicSdkError {
+    private static parseError(err: unknown): PathrSdkError {
         if ((err as string)?.includes?.('Confirmation declined by user')) {
             throw new UserRejectError();
         }

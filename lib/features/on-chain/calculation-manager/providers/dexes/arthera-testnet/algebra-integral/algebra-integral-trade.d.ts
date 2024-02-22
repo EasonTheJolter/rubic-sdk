@@ -1,7 +1,7 @@
-import { Token } from "../../../../../../../common/tokens";
-import { MethodData } from "../../../../../../../core/blockchain/web3-public-service/web3-public/models/method-data";
-import { OnChainTradeType } from "../../../common/models/on-chain-trade-type";
-import { UniswapV3AlgebraAbstractTrade } from "../../common/uniswap-v3-algebra-abstract/uniswap-v3-algebra-abstract-trade";
+import { Token } from 'src/common/tokens';
+import { MethodData } from 'src/core/blockchain/web3-public-service/web3-public/models/method-data';
+import { OnChainTradeType } from 'src/features/on-chain/calculation-manager/providers/common/models/on-chain-trade-type';
+import { UniswapV3AlgebraAbstractTrade } from 'src/features/on-chain/calculation-manager/providers/dexes/common/uniswap-v3-algebra-abstract/uniswap-v3-algebra-abstract-trade';
 import { AlgebraIntegralTradeStruct } from './models/algebra-integral-trade-struct';
 export declare class AlgebraIntegralTrade extends UniswapV3AlgebraAbstractTrade {
     static get type(): OnChainTradeType;
