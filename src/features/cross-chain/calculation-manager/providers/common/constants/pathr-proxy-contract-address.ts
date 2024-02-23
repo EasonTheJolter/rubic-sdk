@@ -24,8 +24,8 @@ export const pathrProxyContractAddress: Record<
         }
 
         if (blockchain === BLOCKCHAIN_NAME.BINANCE_SMART_CHAIN) {
-            router = '0x9C57699576725ce531C4878DBe0E053B2f4A3619'; // PathrMultiProxy
-            gateway = '0x7df26f8AD4195Da3fFa7e4d888C4a13b2e4708ce'; // ERC20Proxy
+            router = '0x64DfcaFd18e410cA03072e92F088df917359B0C1'; // PathrMultiProxy
+            gateway = '0x4f9CEbc41d056F3f4A4bDa36F3A1a61a96984b31'; // ERC20Proxy
         }
 
         if (blockchain === BLOCKCHAIN_NAME.TELOS) {
