@@ -13,17 +13,17 @@ export const pathrProxyContractAddress: Record<
         // PathrMultiProxy
         let router = '0x6AA981bFF95eDfea36Bdae98C26B274FfcafE8d3';
 
-        // if (blockchain === BLOCKCHAIN_NAME.POLYGON) {
-        //     router = '0x8669dAc053b96008bca08Da593d434ed817481eA'; // PathrMultiProxy
-        //     gateway = '0x0248757451A929Fd62D6F4e88b1483379F226adC'; // ERC20Proxy
-        // }
-
         if (blockchain === BLOCKCHAIN_NAME.POLYGON) {
             router = '0x64DfcaFd18e410cA03072e92F088df917359B0C1'; // PathrMultiProxy
             gateway = '0x4f9CEbc41d056F3f4A4bDa36F3A1a61a96984b31'; // ERC20Proxy
         }
 
         if (blockchain === BLOCKCHAIN_NAME.BINANCE_SMART_CHAIN) {
+            router = '0x64DfcaFd18e410cA03072e92F088df917359B0C1'; // PathrMultiProxy
+            gateway = '0x4f9CEbc41d056F3f4A4bDa36F3A1a61a96984b31'; // ERC20Proxy
+        }
+
+        if (blockchain === BLOCKCHAIN_NAME.AVALANCHE) {
             router = '0x64DfcaFd18e410cA03072e92F088df917359B0C1'; // PathrMultiProxy
             gateway = '0x4f9CEbc41d056F3f4A4bDa36F3A1a61a96984b31'; // ERC20Proxy
         }
