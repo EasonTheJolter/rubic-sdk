@@ -8,7 +8,7 @@ export function oneInchHttpGetRequest<T>(
     options?: {}
 ): Promise<T> {
     return Injector.httpClient.get(
-        `https://x-api.pathr.exchange/api/swap/v5.2/${blockchainId[blockchain]}/${path}`,
+        `https://x-api.rubic.exchange/api/swap/v5.2/${blockchainId[blockchain]}/${path}`,
         {
             ...options
         }
@@ -21,7 +21,7 @@ export function oneInchHttpGetApproveRequest<T>(
     options?: {}
 ): Promise<T> {
     return Injector.httpClient.get(
-        `https://x-api.pathr.exchange/api/${path}/${blockchainId[blockchain]}`,
+        `https://x-api.rubic.exchange/api/${path}/${blockchainId[blockchain]}`,
         {
             ...options
         }
